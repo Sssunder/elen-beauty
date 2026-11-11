@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru" class="scroll-smooth" data-theme="nude">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,6 +17,7 @@
 
     <script>
         tailwind.config = {
+            darkMode: ['selector', '[data-theme="noir"]'],
             theme: {
                 extend: {
                     colors: {
@@ -50,160 +51,776 @@
             }
         }
     </script>
+
     <style>
-        ::-webkit-scrollbar { width: 5px; height: 5px; }
-        ::-webkit-scrollbar-track { background: #FAF8F5; }
-        ::-webkit-scrollbar-thumb { background: #D5C4B7; border-radius: 4px; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(229, 218, 206, 0.7);
+        /* ==============================================================
+           ELEN BEAUTY MULTI-THEME ENGINE & LUXURY DESIGN SYSTEM
+           ============================================================== */
+        :root, [data-theme="nude"] {
+            --bg-page: #FAF8F5;
+            --bg-card: #FFFFFF;
+            --bg-elevated: #F4EFEA;
+            --bg-input: #FFFFFF;
+            --bg-header: rgba(255, 255, 255, 0.92);
+            --color-accent: #9C4E38;
+            --color-accent-hover: #823E2B;
+            --color-accent-text: #FFFFFF;
+            --color-accent-soft: #F8ECE8;
+            --text-heading: #2A1F18;
+            --text-body: #47382E;
+            --text-muted: #6B5344;
+            --border-color: rgba(213, 196, 183, 0.65);
+            --border-subtle: rgba(156, 78, 56, 0.25);
+            --glow: 0 20px 45px -12px rgba(156, 78, 56, 0.14);
+            --hero-mesh: radial-gradient(at 0% 0%, #FFF5EE 0px, transparent 55%),
+                         radial-gradient(at 100% 0%, #F5EFE6 0px, transparent 55%),
+                         radial-gradient(at 100% 100%, #F8ECE8 0px, transparent 55%);
+            --scrollbar-track: #FAF8F5;
+            --scrollbar-thumb: #D5C4B7;
+        }
+
+        [data-theme="rose"] {
+            --bg-page: #FFF7F9;
+            --bg-card: #FFFFFF;
+            --bg-elevated: #FCEBF0;
+            --bg-input: #FFFFFF;
+            --bg-header: rgba(255, 250, 252, 0.92);
+            --color-accent: #B83358;
+            --color-accent-hover: #9C2446;
+            --color-accent-text: #FFFFFF;
+            --color-accent-soft: #FDF2F5;
+            --text-heading: #361322;
+            --text-body: #5C283E;
+            --text-muted: #73354F;
+            --border-color: rgba(184, 51, 88, 0.28);
+            --border-subtle: rgba(184, 51, 88, 0.18);
+            --glow: 0 20px 45px -12px rgba(184, 51, 88, 0.18);
+            --hero-mesh: radial-gradient(at 0% 0%, #FCE7F3 0px, transparent 55%),
+                         radial-gradient(at 100% 0%, #FFF1F2 0px, transparent 55%),
+                         radial-gradient(at 100% 100%, #FBE4EB 0px, transparent 55%);
+            --scrollbar-track: #FFF7F9;
+            --scrollbar-thumb: #B83358;
+        }
+
+        [data-theme="pearl"] {
+            --bg-page: #F6F7F9;
+            --bg-card: #FFFFFF;
+            --bg-elevated: #ECEFF4;
+            --bg-input: #FFFFFF;
+            --bg-header: rgba(255, 255, 255, 0.94);
+            --color-accent: #1E293B;
+            --color-accent-hover: #0F172A;
+            --color-accent-text: #FFFFFF;
+            --color-accent-soft: #E2E8F0;
+            --text-heading: #0F172A;
+            --text-body: #334155;
+            --text-muted: #475569;
+            --border-color: rgba(148, 163, 184, 0.35);
+            --border-subtle: rgba(30, 41, 59, 0.16);
+            --glow: 0 20px 45px -12px rgba(15, 23, 42, 0.10);
+            --hero-mesh: radial-gradient(at 0% 0%, #F1F5F9 0px, transparent 55%),
+                         radial-gradient(at 100% 0%, #E2E8F0 0px, transparent 55%),
+                         radial-gradient(at 100% 100%, #F8FAFC 0px, transparent 55%);
+            --scrollbar-track: #F6F7F9;
+            --scrollbar-thumb: #475569;
+        }
+
+        [data-theme="noir"] {
+            --bg-page: #0D0B0A;
+            --bg-card: #181412;
+            --bg-elevated: #231E1B;
+            --bg-input: #120F0D;
+            --bg-header: rgba(24, 20, 18, 0.94);
+            --color-accent: #D4AF37;
+            --color-accent-hover: #E5C158;
+            --color-accent-text: #120F0D;
+            --color-accent-soft: rgba(212, 175, 55, 0.16);
+            --text-heading: #F8F4EC;
+            --text-body: #E2DBD2;
+            --text-muted: #B0A395;
+            --border-color: rgba(212, 175, 55, 0.32);
+            --border-subtle: rgba(212, 175, 55, 0.18);
+            --glow: 0 20px 50px -10px rgba(212, 175, 55, 0.18);
+            --hero-mesh: radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.14) 0px, transparent 55%),
+                         radial-gradient(at 100% 100%, rgba(179, 107, 86, 0.12) 0px, transparent 55%),
+                         #181412;
+            --scrollbar-track: #0D0B0A;
+            --scrollbar-thumb: #D4AF37;
+        }
+
+        /* Scrollbar & Mobile Overflow Invariants */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body {
+            background-color: var(--bg-page) !important;
+            color: var(--text-body) !important;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        header {
+            background-color: var(--bg-header) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .glass-panel, .glass-card {
+            background-color: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            box-shadow: var(--glow) !important;
+        }
+
+        .hero-mesh {
+            background: var(--hero-mesh) !important;
+        }
+
+        .theme-surface-elevated {
+            background-color: var(--bg-elevated) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .accent-bg {
+            background-color: var(--color-accent) !important;
+            color: var(--color-accent-text) !important;
+        }
+        .accent-bg:hover {
+            background-color: var(--color-accent-hover) !important;
+        }
+        .accent-text {
+            color: var(--color-accent) !important;
+        }
+        .accent-border {
+            border-color: var(--border-color) !important;
+        }
+        .accent-soft-bg {
+            background-color: var(--color-accent-soft) !important;
+            color: var(--color-accent) !important;
+        }
+
+        /* Universal Theme Typography Legibility (All Themes WCAG AA) */
+        h1, h2, h3, h4, h5, h6,
+        .font-serif:not(.keep-white),
+        .text-heading-theme,
+        [class*="text-nude-900"],
+        [class*="text-nude-800"] {
+            color: var(--text-heading) !important;
+        }
+
+        p,
+        .text-body-theme,
+        [class*="text-nude-700"],
+        [class*="text-nude-600"] {
+            color: var(--text-body) !important;
+        }
+
+        .text-muted-theme,
+        [class*="text-nude-500"],
+        [class*="text-nude-400"] {
+            color: var(--text-muted) !important;
+        }
+
+        .keep-white, .keep-white * {
+            color: #FFFFFF !important;
+        }
+
+        /* Dark Mode Explicit Overrides for Noir Velvet */
+        [data-theme="noir"] .bg-white,
+        [data-theme="noir"] .bg-white\/95,
+        [data-theme="noir"] .bg-nude-50,
+        [data-theme="noir"] .bg-nude-100,
+        [data-theme="noir"] #pinModal > div,
+        [data-theme="noir"] #confirmModal > div,
+        [data-theme="noir"] #addModal > div,
+        [data-theme="noir"] #photoModal > div,
+        [data-theme="noir"] #reviewModal > div,
+        [data-theme="noir"] #lightboxModal > div {
+            background-color: #181412 !important;
+            border-color: rgba(212, 175, 55, 0.32) !important;
+            color: #E2DBD2 !important;
+        }
+        [data-theme="noir"] .text-emerald-800,
+        [data-theme="noir"] .text-emerald-700,
+        [data-theme="noir"] .text-emerald-600 {
+            color: #34D399 !important;
+        }
+        [data-theme="noir"] .text-amber-700,
+        [data-theme="noir"] .text-amber-600 {
+            color: #FBBF24 !important;
+        }
+        [data-theme="noir"] .text-rose-500 {
+            color: #FB7185 !important;
+        }
+        [data-theme="noir"] a[href*="vk.com"] {
+            color: #60A5FA !important;
+        }
+        [data-theme="noir"] a[href*="wa.me"] {
+            color: #4ADE80 !important;
+        }
+        [data-theme="noir"] .hero-frame-border {
+            border-color: rgba(212, 175, 55, 0.45) !important;
+        }
+        [data-theme="noir"] .bg-nude-200\/80,
+        [data-theme="noir"] [class*="bg-nude-200"],
+        [data-theme="noir"] [class*="bg-nude-100\/"] {
+            background-color: #231E1B !important;
+            border-color: rgba(212, 175, 55, 0.22) !important;
+        }
+        [data-theme="noir"] .cat-btn.active-tab,
+        [data-theme="noir"] .gallery-filter-btn.active-tab,
+        [data-theme="noir"] .review-filter-btn.active-tab {
+            background-color: #D4AF37 !important;
+            color: #120F0D !important;
+        }
+        [data-theme="noir"] input,
+        [data-theme="noir"] select,
+        [data-theme="noir"] textarea {
+            background-color: #120F0D !important;
+            border-color: rgba(212, 175, 55, 0.3) !important;
+            color: #F8F4EC !important;
+        }
+        [data-theme="noir"] #headerThemePopover {
+            background-color: #181412 !important;
+            border-color: rgba(212, 175, 55, 0.35) !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.15) !important;
+        }
+        [data-theme="noir"] #headerThemePopover button:hover {
+            background-color: #26211D !important;
+        }
+        [data-theme="noir"] #stickyBar {
+            background-color: rgba(18, 15, 13, 0.94) !important;
+            border-color: rgba(212, 175, 55, 0.3) !important;
+        }
+
+        /* Light/Standard Active Tabs */
+        .cat-btn.active-tab,
+        .gallery-filter-btn.active-tab,
+        .review-filter-btn.active-tab {
+            background-color: var(--bg-card) !important;
+            color: var(--text-heading) !important;
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Camera Pulse */
+        @keyframes cameraPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.55); }
+            50% { box-shadow: 0 0 0 8px rgba(197, 168, 128, 0); }
+        }
+        .camera-pulse {
+            animation: cameraPulse 2.4s infinite;
+        }
+
+        /* Floating Hearts Animation */
+        @keyframes floatHeart {
+            0% { opacity: 1; transform: translate(0, 0) scale(0.7) rotate(0deg); }
+            50% { opacity: 0.95; transform: translate(var(--tx, 12px), -40px) scale(1.25) rotate(12deg); }
+            100% { opacity: 0; transform: translate(var(--tx2, -10px), -85px) scale(0.85) rotate(-12deg); }
+        }
+        .heart-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: floatHeart 1.1s ease-out forwards;
+            z-index: 60;
         }
     </style>
 </head>
-<body class="bg-nude-50 text-nude-900 font-sans antialiased min-h-screen pb-28 selection:bg-terracotta selection:text-white">
+<body class="font-sans antialiased min-h-screen pb-28 sm:pb-24 selection:bg-terracotta selection:text-white">
 
-    <!-- Top Navigation Header (Elen Beauty) -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-nude-200">
-        <div class="max-w-md mx-auto px-4 h-14 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <div class="flex items-center gap-2.5">
-                <img src="logo.jpg" alt="Elen Beauty" class="w-9 h-9 rounded-full object-cover border border-amber-300 shadow-sm">
-                <div>
-                    <span class="font-serif text-lg font-bold tracking-tight text-nude-900 block leading-none">Elen Beauty</span>
-                    <span class="text-[10px] uppercase tracking-wider text-nude-500 font-semibold block mt-0.5">Курган • Студия красоты</span>
+    <!-- Apple-Style Minimalist Top Navigation Bar -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl border-b transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+            
+            <!-- Left: Brand Identity -->
+            <div class="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+                <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-0.5 bg-gradient-to-tr from-[#C5A880] to-[#B36B56] shadow-sm flex-shrink-0">
+                    <img src="logo.jpg" alt="Elen Beauty" class="w-full h-full rounded-full object-cover border border-white">
+                </div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                        <span class="font-serif text-lg sm:text-2xl font-bold tracking-tight text-heading-theme leading-none whitespace-nowrap">
+                            Elen Beauty
+                        </span>
+                        <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 text-[10px] font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Онлайн
+                        </span>
+                    </div>
+                    <span class="text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-theme font-semibold hidden xl:block whitespace-nowrap mt-0.5">
+                        Елена Латыпова • Ногти и ресницы в Кургане
+                    </span>
                 </div>
             </div>
-            
-            <!-- Live Status & Hidden Master Badge -->
-            <div class="flex items-center gap-2">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-semibold">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Запись открыта
-                </span>
-                
-                <button onclick="logoutMaster()" id="masterLogoutBtn" class="hidden text-xs font-bold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
+
+            <!-- Right: Apple Frosted Controls -->
+            <div class="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+
+                <!-- Apple-Style Minimalist Theme Dropdown (Desktop & Tablet) -->
+                <div class="relative hidden sm:block" id="headerThemeDropdownWrap">
+                    <button onclick="toggleHeaderThemeMenu(event)" id="headerThemeMenuBtn" class="theme-surface-elevated flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-bold shadow-sm hover:opacity-90 transition-all active:scale-95" title="Выбрать палитру сайта">
+                        <i data-lucide="palette" class="w-3.5 h-3.5 accent-text"></i>
+                        <span id="headerThemeActiveEmoji">🌿</span>
+                        <span id="headerThemeActiveLabel" class="hidden lg:inline font-bold text-heading-theme">Нюд</span>
+                        <svg class="w-3 h-3 opacity-60 ml-0.5 transition-transform" id="headerThemeChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div id="headerThemePopover" class="hidden absolute right-0 top-full mt-2 w-64 p-2 rounded-2xl bg-white/95 backdrop-blur-2xl border accent-border shadow-2xl z-50 space-y-1">
+                        <div class="px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-muted-theme">
+                            Стили оформления
+                        </div>
+                        <button onclick="selectHeaderTheme('nude')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-left hover:bg-black/5 transition-colors" data-popover-theme="nude">
+                            <span class="flex items-center gap-2">
+                                <span class="text-base">🌿</span>
+                                <span>
+                                    <span class="block text-heading-theme font-extrabold leading-tight">Тёплый Нюд</span>
+                                    <span class="block text-[10px] text-muted-theme font-normal">Шёлк, крем & терракота</span>
+                                </span>
+                            </span>
+                            <span class="theme-check accent-text font-black text-sm">✓</span>
+                        </button>
+                        <button onclick="selectHeaderTheme('rose')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-left hover:bg-black/5 transition-colors" data-popover-theme="rose">
+                            <span class="flex items-center gap-2">
+                                <span class="text-base">🌸</span>
+                                <span>
+                                    <span class="block text-heading-theme font-extrabold leading-tight">Нежная Роза</span>
+                                    <span class="block text-[10px] text-muted-theme font-normal">Пудровый пион & глоу</span>
+                                </span>
+                            </span>
+                            <span class="theme-check accent-text font-black text-sm hidden">✓</span>
+                        </button>
+                        <button onclick="selectHeaderTheme('pearl')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-left hover:bg-black/5 transition-colors" data-popover-theme="pearl">
+                            <span class="flex items-center gap-2">
+                                <span class="text-base">💎</span>
+                                <span>
+                                    <span class="block text-heading-theme font-extrabold leading-tight">Жемчуг & Графит</span>
+                                    <span class="block text-[10px] text-muted-theme font-normal">Минималистичный глянец</span>
+                                </span>
+                            </span>
+                            <span class="theme-check accent-text font-black text-sm hidden">✓</span>
+                        </button>
+                        <button onclick="selectHeaderTheme('noir')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-left hover:bg-white/5 transition-colors" data-popover-theme="noir">
+                            <span class="flex items-center gap-2">
+                                <span class="text-base">🖤</span>
+                                <span>
+                                    <span class="block text-heading-theme font-extrabold leading-tight">Вечерний Вельвет</span>
+                                    <span class="block text-[10px] text-muted-theme font-normal">Глубокий тёмный & золото</span>
+                                </span>
+                            </span>
+                            <span class="theme-check accent-text font-black text-sm hidden">✓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Theme Quick Toggle -->
+                <button onclick="cycleThemeMobile()" class="sm:hidden theme-surface-elevated w-8 h-8 rounded-full border text-xs font-bold flex items-center justify-center shadow-sm active:scale-95" title="Сменить тему">
+                    <span id="mobileThemeEmoji">🌿</span>
+                </button>
+
+                <!-- Sound Toggle Pill -->
+                <button onclick="toggleSound()" id="soundToggleBtn" class="theme-surface-elevated w-8 h-8 sm:w-9 sm:h-9 rounded-full border text-xs font-bold flex items-center justify-center shadow-sm transition-all active:scale-95" title="Звуки кликов">
+                    <span id="soundIcon">🔊</span>
+                </button>
+
+                <!-- Master Exit Button (Hidden until logged in) -->
+                <button onclick="logoutMaster()" id="masterLogoutBtn" class="hidden text-xs font-bold px-3.5 py-1.5 rounded-full bg-rose-500/15 text-rose-500 border border-rose-500/30 hover:bg-rose-500 hover:text-white transition-all">
                     Выйти
                 </button>
+
+                <!-- Secondary Messenger Pills (Desktop only lg+ for generous gap) -->
+                <a href="https://vk.com/im" target="_blank" title="Написать во ВКонтакте" class="hidden lg:flex px-3.5 py-1.5 rounded-full bg-[#0077FF]/10 hover:bg-[#0077FF]/20 text-[#005CE6] border border-[#0077FF]/25 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                    <span>ВКонтакте</span>
+                </a>
+
+                <a href="https://wa.me/79000000000" target="_blank" title="Написать в WhatsApp" class="hidden lg:flex px-3.5 py-1.5 rounded-full bg-[#25D366]/10 hover:bg-[#25D366]/20 text-emerald-700 border border-[#25D366]/30 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
+                    <span class="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+                    <span>WhatsApp</span>
+                </a>
+
+                <!-- Primary Apple Action Pill -->
+                <a href="#bookingSection" class="accent-bg px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs shadow-md transition-all flex items-center gap-1.5 active:scale-95">
+                    <span class="hidden sm:inline">Запись онлайн</span>
+                    <span class="sm:hidden text-[11px] font-extrabold">Запись</span>
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- CLIENT VIEW (Вид клиента) -->
-    <main id="clientView" class="max-w-md mx-auto px-4 pt-4 space-y-5">
+    <!-- CLIENT VIEW CONTAINER -->
+    <main id="clientView" class="max-w-5xl mx-auto px-3.5 sm:px-6 py-6 sm:py-10 space-y-10 sm:space-y-14">
 
-        <!-- Luxury Visual Showcase Hero Banner (Сразу «ВАУ») -->
-        <section class="relative w-full h-48 rounded-3xl overflow-hidden shadow-lg border border-nude-200/80 group">
-            <img src="hero.jpg" alt="Elen Beauty Studio" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#201A18]/90 via-[#201A18]/40 to-transparent flex flex-col justify-end p-5">
-                <span class="text-[10px] uppercase font-bold tracking-widest text-[#E8C39E]">Курган • Премиальный сервис</span>
-                <h2 class="font-serif text-2xl font-bold text-white leading-tight mt-0.5">Искусство ухода за взглядом и руками</h2>
-                <div class="flex items-center gap-2 mt-2">
-                    <span class="text-[11px] text-nude-100/90 font-medium">Маникюр • Smart-педикюр • Наращивание ресниц</span>
-                </div>
-            </div>
-        </section>
+        <!-- HERO SECTION: Luxury Boutique Showcase + Interactive Photo Studio -->
+        <section class="glass-panel rounded-3xl p-4 sm:p-10 hero-mesh relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center relative">
+                
+                <!-- Left: Master Authority & Pitch -->
+                <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full accent-soft-bg border accent-border text-[11px] sm:text-xs font-extrabold uppercase tracking-wider">
+                        <span>✨ Студия ногтей и ресниц • Курган</span>
+                    </div>
 
-        <!-- Master Bio Card -->
-        <section class="glass-card rounded-3xl p-5 shadow-sm text-center relative overflow-hidden">
-            <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-gold to-terracotta shadow-lg mb-3">
-                <img src="logo.jpg" alt="Елена Латыпова" class="w-full h-full rounded-full object-cover border-2 border-white">
-            </div>
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold text-heading-theme leading-[1.15] tracking-tight">
+                        Искусство ухода за 
+                        <span class="accent-text italic">взглядом и руками</span>
+                    </h1>
 
-            <h1 class="font-serif text-2xl font-bold text-nude-900 leading-tight">Елена Александровна Латыпова</h1>
-            <p class="text-xs font-semibold text-terracotta mt-1 tracking-wide uppercase">Студия Elen Beauty • Ногти и ресницы</p>
+                    <p class="text-xs sm:text-base text-body-theme leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Привет! Я Елена Латыпова — сертифицированный мастер по маникюру, Smart-педикюру и моделированию ресниц. Работаю по строгим стандартам СанПиН (стерильные крафт-пакеты вскрываются при вас) на премиальных материалах с гарантией носки.
+                    </p>
 
-            <div class="flex flex-wrap items-center justify-center gap-1.5 mt-3 text-xs text-nude-700">
-                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-nude-100 border border-nude-200">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-terracotta"></i>
-                    г. Курган, ТЦ (уточняйте кабинет)
-                </span>
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-                    <i data-lucide="check" class="w-3 h-3 text-emerald-600"></i>
-                    СанПиН • Стерильный крафт-пакет
-                </span>
-            </div>
-        </section>
+                    <!-- Trust Metrics Bento -->
+                    <div class="grid grid-cols-3 gap-2.5 sm:gap-4 pt-1">
+                        <div class="p-3 sm:p-4 rounded-2xl theme-surface-elevated border text-center lg:text-left">
+                            <div class="font-serif text-xl sm:text-3xl font-bold accent-text">4.98 ★</div>
+                            <div class="text-[10px] sm:text-xs text-muted-theme mt-0.5 leading-tight">Рейтинг по отзывам гостей</div>
+                        </div>
+                        <div class="p-3 sm:p-4 rounded-2xl theme-surface-elevated border text-center lg:text-left">
+                            <div class="font-serif text-xl sm:text-3xl font-bold accent-text">100%</div>
+                            <div class="text-[10px] sm:text-xs text-muted-theme mt-0.5 leading-tight">Стерильность по СанПиН</div>
+                        </div>
+                        <div class="p-3 sm:p-4 rounded-2xl theme-surface-elevated border text-center lg:text-left">
+                            <div class="font-serif text-xl sm:text-3xl font-bold accent-text">4+ нед.</div>
+                            <div class="text-[10px] sm:text-xs text-muted-theme mt-0.5 leading-tight">Идеальная носка без сколов</div>
+                        </div>
+                    </div>
 
-        <!-- Service Picker Tabs (Реальный прайс-лист) -->
-        <section class="space-y-3">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h2 class="font-serif text-xl font-bold text-nude-900">1. Выберите услуги</h2>
-                    <p class="text-xs text-nude-500">Система сама рассчитает длительность и свободные окна</p>
-                </div>
-            </div>
-
-            <!-- Category Switcher -->
-            <div class="flex p-1 bg-nude-200/80 rounded-2xl gap-1 text-xs font-bold">
-                <button onclick="switchCategory('manicure')" id="catBtn-manicure" class="cat-btn flex-1 py-2 rounded-xl bg-white text-nude-900 shadow-sm transition-all">Маникюр</button>
-                <button onclick="switchCategory('pedicure')" id="catBtn-pedicure" class="cat-btn flex-1 py-2 rounded-xl text-nude-700 hover:text-nude-900 transition-all">Педикюр</button>
-                <button onclick="switchCategory('lashes')" id="catBtn-lashes" class="cat-btn flex-1 py-2 rounded-xl text-nude-700 hover:text-nude-900 transition-all">Ресницы</button>
-            </div>
-
-            <!-- Services List Container -->
-            <div id="servicesContainer" class="space-y-2"></div>
-        </section>
-
-        <!-- Dynamic Date & Time Slot Engine -->
-        <section class="glass-card rounded-3xl p-5 shadow-sm space-y-4">
-            <div>
-                <div class="flex items-center justify-between">
-                    <h2 class="font-serif text-xl font-bold text-nude-900">2. Дата и свободное время</h2>
-                    <span id="selectedDurationBadge" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-terracotta-light text-terracotta border border-terracotta/30">~90 мин</span>
-                </div>
-                <p class="text-xs text-nude-500 mt-0.5">Окна, куда процедура не помещается или где уже занято, заблокированы автоматически</p>
-            </div>
-
-            <!-- Days Horizon -->
-            <div>
-                <label class="block text-[11px] font-bold uppercase tracking-wider text-nude-600 mb-1.5">День записи</label>
-                <div id="daysScroll" class="flex gap-2 overflow-x-auto pb-1.5"></div>
-            </div>
-
-            <!-- Smart Slots Grid -->
-            <div>
-                <div class="flex items-center justify-between mb-2">
-                    <label class="text-[11px] font-bold uppercase tracking-wider text-nude-600">Свободные окна на этот день</label>
-                    <div class="flex items-center gap-3 text-[10px] text-nude-500 font-semibold">
-                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Свободно</span>
-                        <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-rose-400"></span>Занято</span>
+                    <!-- Primary Action Bar -->
+                    <div class="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 pt-2">
+                        <a href="#bookingSection" class="w-full sm:w-auto justify-center px-5 py-3.5 rounded-2xl accent-bg font-extrabold text-xs sm:text-sm shadow-lg transition-all flex items-center gap-2 whitespace-nowrap active:scale-95">
+                            <span>Подобрать окно</span>
+                            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#quizSection" class="w-full sm:w-auto justify-center px-5 py-3.5 rounded-2xl theme-surface-elevated border font-bold text-xs sm:text-sm text-heading-theme hover:opacity-90 transition-all flex items-center gap-2 whitespace-nowrap">
+                            <span>✨ Тест: идеальный сет</span>
+                        </a>
                     </div>
                 </div>
-                <div id="slotsGrid" class="grid grid-cols-3 gap-2"></div>
-                <div id="slotNotice" class="text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 p-2.5 rounded-xl mt-3 flex items-center gap-2">
-                    <i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i>
-                    <span id="slotNoticeText">Выбрано: 14:00 (процедура до 15:30)</span>
+
+                <!-- Right: Interactive Hero Frame + Photo Fitting Room -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="relative w-full max-w-[320px] sm:max-w-[360px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 hero-frame-border group">
+                        <img id="studioShowcaseImg" src="hero.jpg" alt="Elen Beauty Showcase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        
+                        <!-- Photo Customizer Pill Button -->
+                        <button onclick="openPhotoModal()" class="camera-pulse absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/30 text-[11px] font-bold text-white shadow-xl hover:scale-105 transition-all flex items-center gap-1.5 z-20 cursor-pointer" title="Примерить другие образы из галереи или загрузить своё фото">
+                            <i data-lucide="camera" class="w-3.5 h-3.5 text-amber-300"></i>
+                            <span>Примерить фото</span>
+                        </button>
+
+                        <!-- Dark Cinematic Overlay Caption -->
+                        <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/90 via-black/55 to-transparent text-left keep-white">
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                Мастер высшей категории
+                            </div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold leading-tight keep-white" id="studioShowcaseTitle">
+                                Елена Латыпова
+                            </h3>
+                            <p class="text-[11px] opacity-90 keep-white mt-0.5" id="studioShowcaseSub">
+                                Маникюр • Smart-педикюр • Наращивание ресниц
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Safe Address & Sterility Chips -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-[11px]">
+                        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full theme-surface-elevated border text-body-theme">
+                            <i data-lucide="map-pin" class="w-3 h-3 accent-text"></i>
+                            г. Курган, ТЦ (комфортный кабинет)
+                        </span>
+                        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 font-semibold">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                            Крафт-пакет при вас
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 1: INTERACTIVE WORK GALLERY (ПОРТФОЛИО И ЛАЙКИ) -->
+        <section id="gallerySection" class="space-y-6">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+                <div class="max-w-lg">
+                    <span class="text-xs font-extrabold uppercase tracking-wider accent-text">Вдохновение и реальные работы</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-heading-theme mt-1">Галерея студии Elen Beauty</h2>
+                    <p class="text-xs sm:text-sm text-muted-theme mt-1">Нажмите на любое фото, чтобы рассмотреть блики и детали вблизи, или поставьте лайк понравившейся работе</p>
+                </div>
+
+                <!-- Interactive Filter Tabs -->
+                <div class="flex flex-wrap sm:flex-nowrap p-1 theme-surface-elevated rounded-2xl gap-1 border text-xs font-bold flex-shrink-0 self-start lg:self-end">
+                    <button onclick="filterGallery('all', this)" class="gallery-filter-btn active-tab px-3 sm:px-3.5 py-2 rounded-xl whitespace-nowrap transition-all">Все работы</button>
+                    <button onclick="filterGallery('manicure', this)" class="gallery-filter-btn px-3 sm:px-3.5 py-2 rounded-xl whitespace-nowrap transition-all">Маникюр</button>
+                    <button onclick="filterGallery('pedicure', this)" class="gallery-filter-btn px-3 sm:px-3.5 py-2 rounded-xl whitespace-nowrap transition-all">Smart-педикюр</button>
+                    <button onclick="filterGallery('lashes', this)" class="gallery-filter-btn px-3 sm:px-3.5 py-2 rounded-xl whitespace-nowrap transition-all">Ресницы</button>
+                </div>
+            </div>
+
+            <!-- Responsive Bento Portfolio Grid -->
+            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+        </section>
+
+        <!-- SECTION 2: 20-SECOND BEAUTY DIAGNOSTIC QUIZ (ИНТЕРАКТИВНЫЙ ПОДБОР) -->
+        <section id="quizSection" class="glass-panel rounded-3xl p-5 sm:p-8 space-y-6 relative overflow-hidden">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b accent-border pb-4">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full accent-soft-bg text-[10px] font-extrabold uppercase tracking-wider mb-2">
+                        ✨ Экспресс-подбор за 20 секунд
+                    </span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-heading-theme">Подберите свой идеальный бьюти-сет</h2>
+                    <p class="text-xs sm:text-sm text-muted-theme mt-0.5">Ответьте на 3 вопроса — система сама соберёт оптимальный комплекс услуг и рассчитает время</p>
+                </div>
+                <div class="flex items-center gap-1.5 self-start sm:self-center">
+                    <span id="quizDot1" class="w-7 h-2 rounded-full accent-bg transition-all"></span>
+                    <span id="quizDot2" class="w-7 h-2 rounded-full theme-surface-elevated border transition-all"></span>
+                    <span id="quizDot3" class="w-7 h-2 rounded-full theme-surface-elevated border transition-all"></span>
+                </div>
+            </div>
+
+            <!-- Step 1 -->
+            <div id="quizStep1" class="space-y-4">
+                <h3 class="font-serif text-xl font-bold text-heading-theme">1. Какую зону хочется преобразить прямо сейчас?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button onclick="answerQuiz(1, 'manicure')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3 active:scale-[0.99]">
+                        <span class="text-2xl">💅</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Безупречный маникюр</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Идеальный срез, укрепление гелем и покрытие под кутикулу</div>
+                        </div>
+                    </button>
+                    <button onclick="answerQuiz(1, 'pedicure')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3 active:scale-[0.99]">
+                        <span class="text-2xl">🦶</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Smart-педикюр (пяточки + пальчики)</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Гладкая кожа стоп дисками без лезвий + стойкий гель-лак</div>
+                        </div>
+                    </button>
+                    <button onclick="answerQuiz(1, 'lashes')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3 active:scale-[0.99]">
+                        <span class="text-2xl">👁️</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Выразительный взгляд (ресницы)</div>
+                            <div class="text-xs text-muted-theme mt-0.5">От лёгкой классики до мокрого эффекта и пышного объёма</div>
+                        </div>
+                    </button>
+                    <button onclick="answerQuiz(1, 'combo')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3 active:scale-[0.99]">
+                        <span class="text-2xl">✨</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Максимальное преображение</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Маникюр + сложный дизайн / восстановление или комплекс</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="quizStep2" class="space-y-4 hidden">
+                <h3 class="font-serif text-xl font-bold text-heading-theme">2. Какой стиль и настроение ближе к вашему образу?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button onclick="answerQuiz(2, 'french')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3">
+                        <span class="text-2xl">🤍</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Дорогой Nude или тонкий френч</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Элегантная эстетика «своих, но идеальных» ногтей или ресниц</div>
+                        </div>
+                    </button>
+                    <button onclick="answerQuiz(2, 'glam')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3">
+                        <span class="text-2xl">💎</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Глянец, кошачий глаз и блики</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Трендовый магнитный перелив, втирка или эффектный мокрый взгляд</div>
+                        </div>
+                    </button>
+                    <button onclick="answerQuiz(2, 'care')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3">
+                        <span class="text-2xl">🌿</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Глубокий уход и здоровье</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Бережное снятие старого материала, восстановление, чистая гигиена</div>
+                        </div>
+                    </button>
+                    <button onclick="answerQuiz(2, 'volume')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all flex items-start gap-3">
+                        <span class="text-2xl">🦋</span>
+                        <div>
+                            <div class="font-bold text-sm text-heading-theme">Яркий акцент и густота</div>
+                            <div class="text-xs text-muted-theme mt-0.5">Объём 2.5D/3D, лучи Кайли или наращивание длины ногтей</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="quizStep3" class="space-y-4 hidden">
+                <h3 class="font-serif text-xl font-bold text-heading-theme">3. Какой запас времени комфортен для визита?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button onclick="answerQuiz(3, 'fast')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all">
+                        <div class="text-2xl mb-1.5">⚡</div>
+                        <div class="font-bold text-sm text-heading-theme">Экспресс (~45–60 мин)</div>
+                        <div class="text-xs text-muted-theme mt-0.5">Быстро привести всё в порядок без задержек</div>
+                    </button>
+                    <button onclick="answerQuiz(3, 'standard')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all">
+                        <div class="text-2xl mb-1.5">⏳</div>
+                        <div class="font-bold text-sm text-heading-theme">Стандарт (~90–110 мин)</div>
+                        <div class="text-xs text-muted-theme mt-0.5">Оптимальный баланс скорости и детальной проработки</div>
+                    </button>
+                    <button onclick="answerQuiz(3, 'relax')" class="p-4 rounded-2xl theme-surface-elevated border text-left hover:border-[#B36B56] transition-all">
+                        <div class="text-2xl mb-1.5">☕</div>
+                        <div class="font-bold text-sm text-heading-theme">Полный релакс (120+ мин)</div>
+                        <div class="text-xs text-muted-theme mt-0.5">Любимый сериал, чай и проработка каждой мелочи</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Result Card -->
+            <div id="quizResult" class="hidden p-6 rounded-3xl theme-surface-elevated border space-y-4 text-center">
+                <div class="w-16 h-16 rounded-2xl accent-bg mx-auto flex items-center justify-center text-3xl shadow-lg" id="quizResultIcon">👑</div>
+                <div class="space-y-1.5">
+                    <div class="text-[11px] uppercase font-extrabold tracking-widest accent-text">Ваша персональная формула красоты</div>
+                    <h3 id="quizResultTitle" class="font-serif text-2xl sm:text-3xl font-bold text-heading-theme"></h3>
+                    <p id="quizResultDesc" class="text-xs sm:text-sm text-body-theme max-w-xl mx-auto leading-relaxed"></p>
+                    <div class="pt-1 flex flex-wrap justify-center gap-2 text-xs font-bold" id="quizResultBadges"></div>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <button onclick="applyQuizRecommendation()" class="px-6 py-3.5 rounded-full accent-bg font-extrabold text-xs uppercase tracking-wider shadow-lg transition-all flex items-center gap-2 active:scale-95">
+                        <span>Применить к записи и выбрать время</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="resetQuiz()" class="px-5 py-3 rounded-full theme-surface-elevated border text-xs font-bold text-heading-theme hover:opacity-80 transition-all">
+                        Пройти заново
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- Client Form -->
-        <section class="glass-card rounded-3xl p-5 shadow-sm space-y-3">
-            <h2 class="font-serif text-xl font-bold text-nude-900">3. Ваши контакты</h2>
-            <div class="space-y-2.5">
+        <!-- SECTION 3: INTERACTIVE GUEST REVIEWS WALL (ОТЗЫВЫ КЛИЕНТОВ) -->
+        <section id="reviewsSection" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div>
-                    <label class="block text-xs font-semibold text-nude-700 mb-1">Ваше имя</label>
-                    <input type="text" id="custName" placeholder="Например: Наталья" class="w-full px-4 py-3 rounded-2xl bg-white border border-nude-200 focus:outline-none focus:border-terracotta text-sm">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 text-xs font-extrabold">★ 4.98 / 5.0</span>
+                        <span class="text-xs font-semibold text-muted-theme">На основе реальных отзывов в Кургане</span>
+                    </div>
+                    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-heading-theme">Отзывы гостей студии</h2>
                 </div>
+
+                <div class="flex flex-wrap items-center gap-2">
+                    <!-- Review Filters -->
+                    <div class="flex flex-wrap sm:flex-nowrap p-1 theme-surface-elevated rounded-2xl gap-1 border text-xs font-bold">
+                        <button onclick="filterReviews('all', this)" class="review-filter-btn active-tab px-2.5 sm:px-3 py-1.5 rounded-xl transition-all">Все</button>
+                        <button onclick="filterReviews('manicure', this)" class="review-filter-btn px-2.5 sm:px-3 py-1.5 rounded-xl transition-all">Маникюр</button>
+                        <button onclick="filterReviews('pedicure', this)" class="review-filter-btn px-2.5 sm:px-3 py-1.5 rounded-xl transition-all">Педикюр</button>
+                        <button onclick="filterReviews('lashes', this)" class="review-filter-btn px-2.5 sm:px-3 py-1.5 rounded-xl transition-all">Ресницы</button>
+                    </div>
+                    <button onclick="openReviewModal()" class="px-4 py-2 rounded-full accent-bg font-bold text-xs shadow-sm flex items-center gap-1.5 active:scale-95">
+                        <i data-lucide="pen-line" class="w-3.5 h-3.5"></i>
+                        <span>Оставить отзыв</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+        </section>
+
+        <!-- SECTION 4: SMART CALCULATOR & LIVE CALENDAR BOOKING -->
+        <section id="bookingSection" class="glass-panel rounded-3xl p-5 sm:p-8 space-y-8">
+            <div class="border-b accent-border pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
-                    <label class="block text-xs font-semibold text-nude-700 mb-1">Номер телефона</label>
-                    <input type="tel" id="custPhone" placeholder="+7 (900) 000-00-00" class="w-full px-4 py-3 rounded-2xl bg-white border border-nude-200 focus:outline-none focus:border-terracotta text-sm">
+                    <span class="text-xs font-extrabold uppercase tracking-wider accent-text">Умная онлайн-запись 24/7</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-heading-theme mt-0.5">Калькулятор услуг и выбор окна</h2>
                 </div>
-                <div>
-                    <label class="block text-xs font-semibold text-nude-700 mb-1">Комментарий (снятие чужой работы, форма, дизайн)</label>
-                    <input type="text" id="custNote" placeholder="Нужен френч / есть старое покрытие" class="w-full px-4 py-3 rounded-2xl bg-white border border-nude-200 focus:outline-none focus:border-terracotta text-sm">
+                <span id="selectedDurationBadge" class="self-start sm:self-center text-xs font-extrabold px-3.5 py-1.5 rounded-full accent-soft-bg border accent-border">
+                    Требуется ~90 мин
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Left Column: Price Calculator Tabs -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-heading-theme">1. Выберите услуги</h3>
+                        <p class="text-xs text-muted-theme">Отмечайте несколько позиций — длительность и стоимость сложатся автоматически</p>
+                    </div>
+
+                    <!-- Category Tabs -->
+                    <div class="flex p-1 theme-surface-elevated rounded-2xl gap-1 border text-xs font-bold">
+                        <button onclick="switchCategory('manicure')" id="catBtn-manicure" class="cat-btn active-tab flex-1 py-2.5 rounded-xl transition-all">💅 Маникюр</button>
+                        <button onclick="switchCategory('pedicure')" id="catBtn-pedicure" class="cat-btn flex-1 py-2.5 rounded-xl transition-all">🦶 Педикюр</button>
+                        <button onclick="switchCategory('lashes')" id="catBtn-lashes" class="cat-btn flex-1 py-2.5 rounded-xl transition-all">👁️ Ресницы</button>
+                    </div>
+
+                    <!-- Services Container -->
+                    <div id="servicesContainer" class="space-y-2 max-h-[460px] overflow-y-auto pr-1"></div>
                 </div>
+
+                <!-- Right Column: Smart Slot Picker & Contacts -->
+                <div class="lg:col-span-6 space-y-6">
+                    <!-- Date Picker -->
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-xl font-bold text-heading-theme">2. Выберите день и время</h3>
+                        <div id="daysScroll" class="flex gap-2 overflow-x-auto pb-1.5"></div>
+                    </div>
+
+                    <!-- Smart Slots Grid -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="font-bold uppercase tracking-wider text-muted-theme text-[11px]">Доступные окна</span>
+                            <div class="flex items-center gap-3 text-[11px] text-muted-theme font-semibold">
+                                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Свободно</span>
+                                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-rose-400"></span>Занято</span>
+                            </div>
+                        </div>
+                        <div id="slotsGrid" class="grid grid-cols-3 gap-2"></div>
+                        <div id="slotNotice" class="text-xs text-emerald-800 bg-emerald-500/10 border border-emerald-500/25 p-3 rounded-2xl mt-2 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                            <span id="slotNoticeText" class="font-semibold">Выбрано: 14:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="space-y-3 pt-2 border-t accent-border">
+                        <h3 class="font-serif text-xl font-bold text-heading-theme">3. Ваши контакты</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-muted-theme mb-1">Ваше имя</label>
+                                <input type="text" id="custName" placeholder="Например: Наталья" class="w-full px-4 py-3 rounded-2xl border text-sm focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-muted-theme mb-1">Телефон для связи</label>
+                                <input type="tel" id="custPhone" placeholder="+7 (900) 000-00-00" class="w-full px-4 py-3 rounded-2xl border text-sm focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-muted-theme mb-1">Комментарий (снятие чужой работы, френч, изгиб)</label>
+                            <input type="text" id="custNote" placeholder="Нужен тонкий френч / есть старое покрытие" class="w-full px-4 py-3 rounded-2xl border text-sm focus:outline-none">
+                        </div>
+
+                        <button onclick="submitClientBooking()" class="w-full py-4 rounded-2xl accent-bg font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all flex items-center justify-center gap-2 active:scale-[0.99]">
+                            <span>Забронировать время</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Footer with discreet Master Login (Защищено ПИН-кодом) -->
-        <footer class="pt-6 pb-4 text-center border-t border-nude-200/80 space-y-2">
-            <p class="text-xs text-nude-500">© 2026 Студия Elen Beauty • Елена Латыпова, Курган</p>
-            <div>
-                <button onclick="requestMasterAccess()" class="inline-flex items-center gap-1 text-[11px] text-nude-400 hover:text-nude-700 font-medium transition-colors">
-                    <i data-lucide="lock" class="w-3 h-3"></i>
-                    <span>Вход для мастера в расписание</span>
+        <!-- FOOTER -->
+        <footer class="pt-8 pb-6 border-t accent-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-theme">
+            <div class="flex items-center gap-2.5">
+                <span class="font-serif font-bold text-base text-heading-theme">Elen Beauty</span>
+                <span>•</span>
+                <span>Елена Александровна Латыпова, Курган</span>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="https://vk.com/im" target="_blank" class="hover:text-[#005CE6] transition-colors font-bold">ВКонтакте</a>
+                <a href="https://wa.me/79000000000" target="_blank" class="hover:text-emerald-700 transition-colors font-bold">WhatsApp</a>
+                <button onclick="requestMasterAccess()" class="hover:text-heading-theme inline-flex items-center gap-1.5 font-semibold transition-colors">
+                    <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                    <span>Вход для мастера (PIN)</span>
                 </button>
             </div>
         </footer>
@@ -211,193 +828,707 @@
     </main>
 
     <!-- MASTER NOTEBOOK VIEW (Защищенный личный кабинет Елены Александровны) -->
-    <div id="masterView" class="hidden max-w-md mx-auto px-4 pt-4 space-y-4">
-        
-        <!-- Master Stats & Date Control -->
-        <div class="glass-card rounded-3xl p-5 shadow-sm border-2 border-terracotta/40 space-y-3">
-            <div class="flex items-center justify-between">
+    <div id="masterView" class="hidden max-w-4xl mx-auto px-4 py-8 space-y-6">
+        <div class="glass-panel rounded-3xl p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Elen Beauty • График мастера</span>
-                    <h2 class="font-serif text-2xl font-bold text-nude-900">Личный календарь</h2>
+                    <span class="text-xs font-extrabold uppercase tracking-wider accent-text">Elen Beauty • Тетрадка мастера</span>
+                    <h2 class="font-serif text-3xl font-bold text-heading-theme">Личный график и клиенты</h2>
                 </div>
-                <div class="flex items-center gap-1.5">
-                    <button onclick="openAddModal()" class="flex items-center gap-1 px-3 py-2 rounded-2xl bg-terracotta hover:bg-terracotta-hover text-white text-xs font-bold shadow-sm">
+                <div class="flex items-center gap-2">
+                    <button onclick="openAddModal()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-full accent-bg text-xs font-bold shadow-md">
                         <i data-lucide="plus" class="w-4 h-4"></i>
-                        <span>+ Запись</span>
+                        <span>Записать вручную</span>
+                    </button>
+                    <button onclick="logoutMaster()" class="px-4 py-2.5 rounded-full theme-surface-elevated border text-xs font-bold text-heading-theme">
+                        На сайт клиента
                     </button>
                 </div>
             </div>
 
             <!-- Stats -->
-            <div class="grid grid-cols-2 gap-2 pt-1">
-                <div class="p-3 bg-white rounded-2xl border border-nude-200 text-center">
-                    <div class="text-xs text-nude-500">Записей на день</div>
-                    <div id="masterDayCount" class="text-xl font-bold text-nude-900 mt-0.5">0</div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+                <div class="p-4 rounded-2xl theme-surface-elevated border text-center">
+                    <div class="text-xs text-muted-theme font-semibold">Записей на день</div>
+                    <div id="masterDayCount" class="font-serif text-3xl font-bold text-heading-theme mt-0.5">0</div>
                 </div>
-                <div class="p-3 bg-white rounded-2xl border border-nude-200 text-center">
-                    <div class="text-xs text-nude-500">Выручка за день</div>
-                    <div id="masterDayIncome" class="text-xl font-bold text-emerald-700 mt-0.5">0 ₽</div>
+                <div class="p-4 rounded-2xl theme-surface-elevated border text-center">
+                    <div class="text-xs text-muted-theme font-semibold">Выручка за день</div>
+                    <div id="masterDayIncome" class="font-serif text-3xl font-bold text-emerald-600 mt-0.5">0 ₽</div>
+                </div>
+                <div class="col-span-2 sm:col-span-1 p-4 rounded-2xl theme-surface-elevated border text-center">
+                    <div class="text-xs text-muted-theme font-semibold">Часы работы</div>
+                    <div class="font-serif text-2xl font-bold accent-text mt-1">09:00 — 20:00</div>
                 </div>
             </div>
 
             <!-- Day Selector for Master -->
             <div>
-                <label class="block text-[11px] font-bold text-nude-600 uppercase mb-1">Выбрать дату расписания</label>
-                <div id="masterDaysBar" class="flex gap-1.5 overflow-x-auto pb-1"></div>
+                <label class="block text-[11px] font-bold text-muted-theme uppercase tracking-wider mb-1.5">Выберите дату</label>
+                <div id="masterDaysBar" class="flex gap-2 overflow-x-auto pb-1"></div>
             </div>
         </div>
 
-        <!-- Master Timeline (Почасовой график дня) -->
-        <div class="glass-card rounded-3xl p-4 shadow-sm space-y-2">
-            <div class="flex items-center justify-between pb-2 border-b border-nude-200">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-nude-700">Почасовой график на выбранный день</h3>
-                <span class="text-xs text-nude-500">09:00 — 20:00</span>
+        <!-- Master Timeline -->
+        <div class="glass-panel rounded-3xl p-5 sm:p-6 space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b accent-border">
+                <h3 class="text-xs font-extrabold uppercase tracking-wider text-heading-theme">Почасовая сетка</h3>
+                <span class="text-xs text-muted-theme">Нажмите на свободный слот, чтобы закрыть окно</span>
             </div>
-            
-            <div id="masterTimeline" class="space-y-1.5 pt-1"></div>
+            <div id="masterTimeline" class="space-y-2 pt-1"></div>
         </div>
 
         <!-- All Bookings List -->
-        <div class="space-y-2.5">
+        <div class="space-y-3">
             <div class="flex items-center justify-between px-1">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-nude-600">Все клиенты в базе</h3>
-                <button onclick="resetAllDemoData()" class="text-xs text-rose-600 hover:underline">Сбросить базу к демо</button>
+                <h3 class="text-xs font-extrabold uppercase tracking-wider text-muted-theme">Все активные записи</h3>
+                <button onclick="resetAllDemoData()" class="text-xs text-rose-500 hover:underline font-semibold">Сбросить базу к демо</button>
             </div>
-            <div id="masterFullList" class="space-y-2"></div>
+            <div id="masterFullList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
         </div>
     </div>
 
-    <!-- Sticky Checkout Bar (Client Mode) -->
-    <div id="stickyBar" class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-nude-200 py-3 px-4 shadow-lg">
-        <div class="max-w-md mx-auto flex items-center justify-between gap-3">
-            <div>
-                <div class="text-[11px] uppercase tracking-wider text-nude-500 font-semibold">Итого к оплате</div>
-                <div class="flex items-baseline gap-1.5">
-                    <span id="totalSumDisplay" class="text-2xl font-bold text-nude-900">1 700 ₽</span>
-                    <span id="totalTimeDisplay" class="text-xs text-nude-500">(~90 мин)</span>
+    <!-- STICKY CHECKOUT BAR (CLIENT VIEW) -->
+    <div id="stickyBar" class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-xl border-t accent-border py-3 px-4 shadow-2xl">
+        <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex w-10 h-10 rounded-full accent-soft-bg items-center justify-center accent-text">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-theme font-bold">Выбрано услуг на сумму</div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="totalSumDisplay" class="font-serif text-xl sm:text-2xl font-bold text-heading-theme">1 700 ₽</span>
+                        <span id="totalTimeDisplay" class="text-xs text-muted-theme font-medium">(~90 мин)</span>
+                    </div>
                 </div>
             </div>
 
-            <button onclick="submitClientBooking()" class="flex-1 py-3 px-4 rounded-2xl bg-terracotta hover:bg-terracotta-hover text-white font-bold text-sm shadow-md shadow-terracotta/20 flex items-center justify-center gap-2 transition-all">
-                <span>Записаться</span>
+            <a href="#bookingSection" onclick="focusBookingForm()" class="px-5 sm:px-7 py-3 rounded-full accent-bg font-bold text-xs sm:text-sm shadow-md flex items-center gap-2 transition-all active:scale-95">
+                <span>Оформить запись</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- MODAL: PHOTO FITTING ROOM (ПРИМЕРКА ФОТО И СТИЛЕЙ) -->
+    <div id="photoModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card w-full max-w-lg rounded-3xl p-5 sm:p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b accent-border pb-3">
+                <div>
+                    <h3 class="font-serif text-2xl font-bold text-heading-theme">Примерочная витрины ✨</h3>
+                    <p class="text-xs text-muted-theme">Выберите главный кадр для обложки или загрузите своё фото с устройства</p>
+                </div>
+                <button onclick="closePhotoModal()" class="p-2 rounded-full theme-surface-elevated text-heading-theme hover:opacity-80">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-[55vh] overflow-y-auto p-1">
+                <button onclick="selectHeroPreset('hero.jpg', 'Елена Латыпова', 'Маникюр • Smart-педикюр • Наращивание ресниц')" class="group relative rounded-2xl overflow-hidden border accent-border aspect-square">
+                    <img src="hero.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-x-0 bottom-0 p-1.5 bg-black/70 text-[10px] font-bold text-white text-center">Главный образ</div>
+                </button>
+                <button onclick="selectHeroPreset('gallery_french.jpg', 'Идеальный Френч', 'Тонкая улыбка и золотая поталь')" class="group relative rounded-2xl overflow-hidden border accent-border aspect-square">
+                    <img src="gallery_french.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-x-0 bottom-0 p-1.5 bg-black/70 text-[10px] font-bold text-white text-center">Френч с поталью</div>
+                </button>
+                <button onclick="selectHeroPreset('gallery_nude.jpg', 'Молочный Кошачий Глаз', 'Нежный блик на длинной форме')" class="group relative rounded-2xl overflow-hidden border accent-border aspect-square">
+                    <img src="gallery_nude.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-x-0 bottom-0 p-1.5 bg-black/70 text-[10px] font-bold text-white text-center">Кошачий глаз</div>
+                </button>
+                <button onclick="selectHeroPreset('gallery_pedicure.jpg', 'Smart-Педикюр', 'Гладкие стопы и эстетика спа')" class="group relative rounded-2xl overflow-hidden border accent-border aspect-square">
+                    <img src="gallery_pedicure.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-x-0 bottom-0 p-1.5 bg-black/70 text-[10px] font-bold text-white text-center">Smart-педикюр</div>
+                </button>
+                <button onclick="selectHeroPreset('gallery_lashes.jpg', '2D Кашемир & Мокрый Эффект', 'Невесомый взгляд на 5+ недель')" class="group relative rounded-2xl overflow-hidden border accent-border aspect-square">
+                    <img src="gallery_lashes.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                    <div class="absolute inset-x-0 bottom-0 p-1.5 bg-black/70 text-[10px] font-bold text-white text-center">Ресницы 2D</div>
+                </button>
+                <label class="cursor-pointer rounded-2xl border-2 border-dashed accent-border flex flex-col items-center justify-center gap-1.5 p-3 text-center hover:opacity-80 transition-opacity aspect-square theme-surface-elevated">
+                    <i data-lucide="upload-cloud" class="w-6 h-6 accent-text"></i>
+                    <span class="text-[11px] font-bold text-heading-theme">Загрузить своё фото</span>
+                    <input type="file" accept="image/*" class="hidden" onchange="handleCustomPhotoUpload(event)">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: LIGHTBOX ZOOM FOR GALLERY -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox(event)">
+        <div class="glass-card w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Macro preview" class="w-full max-h-[60vh] object-cover">
+            <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <span id="lightboxCat" class="text-[10px] font-extrabold uppercase tracking-wider accent-text"></span>
+                    <h4 id="lightboxTitle" class="font-serif text-2xl font-bold text-heading-theme"></h4>
+                    <p id="lightboxDesc" class="text-xs text-muted-theme mt-0.5"></p>
+                </div>
+                <button onclick="bookFromLightbox()" class="px-5 py-2.5 rounded-full accent-bg font-bold text-xs whitespace-nowrap shadow-md">
+                    Хочу такой образ →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: WRITE A REVIEW -->
+    <div id="reviewModal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card w-full max-w-md rounded-3xl p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b accent-border pb-3">
+                <h3 class="font-serif text-2xl font-bold text-heading-theme">Оставить отзыв ⭐</h3>
+                <button onclick="closeReviewModal()" class="p-1.5 rounded-full theme-surface-elevated text-heading-theme">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-bold text-muted-theme mb-1">Ваше имя</label>
+                    <input type="text" id="revName" placeholder="Например: Екатерина" class="w-full px-3.5 py-2.5 rounded-xl border text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-2.5">
+                    <div>
+                        <label class="block font-bold text-muted-theme mb-1">Услуга</label>
+                        <select id="revCat" class="w-full px-3 py-2.5 rounded-xl border text-xs font-bold">
+                            <option value="manicure">Маникюр</option>
+                            <option value="pedicure">Smart-педикюр</option>
+                            <option value="lashes">Наращивание ресниц</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-muted-theme mb-1">Оценка</label>
+                        <select id="revStars" class="w-full px-3 py-2.5 rounded-xl border text-xs font-bold">
+                            <option value="5">★★★★★ (5 из 5)</option>
+                            <option value="4">★★★★☆ (4 из 5)</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-muted-theme mb-1">Ваши впечатления</label>
+                    <textarea id="revText" rows="3" placeholder="Как прошла процедура и как носится?" class="w-full px-3.5 py-2.5 rounded-xl border text-sm"></textarea>
+                </div>
+            </div>
+            <button onclick="submitNewReview()" class="w-full py-3.5 rounded-full accent-bg font-bold text-xs uppercase tracking-wider shadow-md">
+                Опубликовать отзыв
             </button>
         </div>
     </div>
 
-    <!-- Modal: PIN Protection for Master Cabinet -->
-    <div id="pinModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-xs rounded-3xl p-5 shadow-2xl space-y-3.5 text-center">
-            <div class="w-12 h-12 rounded-full bg-nude-100 text-nude-800 flex items-center justify-center mx-auto">
-                <i data-lucide="lock" class="w-6 h-6 text-terracotta"></i>
+    <!-- MODAL: PIN PROTECTION -->
+    <div id="pinModal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card w-full max-w-xs rounded-3xl p-6 shadow-2xl space-y-4 text-center">
+            <div class="w-12 h-12 rounded-full accent-soft-bg flex items-center justify-center mx-auto">
+                <i data-lucide="lock" class="w-6 h-6 accent-text"></i>
             </div>
             <div>
-                <h3 class="font-serif text-xl font-bold text-nude-900">Кабинет мастера</h3>
-                <p class="text-xs text-nude-500 mt-0.5">Введите PIN-код для доступа к тетрадке (по умолчанию <strong>1234</strong>)</p>
+                <h3 class="font-serif text-2xl font-bold text-heading-theme">Кабинет мастера</h3>
+                <p class="text-xs text-muted-theme mt-1">Введите PIN-код (по умолчанию <strong>1234</strong>)</p>
             </div>
-            <div>
-                <input type="password" id="pinInput" maxlength="6" placeholder="PIN-код" class="w-full text-center tracking-widest text-lg font-bold py-2.5 rounded-xl border border-nude-200 focus:outline-none focus:border-terracotta">
-            </div>
+            <input type="password" id="pinInput" maxlength="6" placeholder="••••" onkeydown="if(event.key==='Enter') verifyPin()" class="w-full text-center tracking-widest text-xl font-bold py-2.5 rounded-xl border">
             <div class="flex gap-2">
-                <button onclick="closePinModal()" class="flex-1 py-2.5 rounded-xl bg-nude-100 text-xs font-semibold text-nude-700">Отмена</button>
-                <button onclick="verifyPin()" class="flex-1 py-2.5 rounded-xl bg-terracotta text-xs font-bold text-white">Войти</button>
+                <button onclick="closePinModal()" class="flex-1 py-2.5 rounded-xl theme-surface-elevated border text-xs font-bold text-heading-theme">Отмена</button>
+                <button onclick="verifyPin()" class="flex-1 py-2.5 rounded-xl accent-bg text-xs font-bold">Войти</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal: Confirmation & Calendar Collab (Яндекс.Календарь / .ICS) -->
-    <div id="confirmModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-end sm:items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl space-y-4">
+    <!-- MODAL: CONFIRMATION & CALENDAR COLLAB -->
+    <div id="confirmModal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card w-full max-w-sm rounded-3xl p-6 shadow-2xl space-y-4">
             <div class="text-center space-y-1">
-                <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-1">
+                <div class="w-12 h-12 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center mx-auto mb-1">
                     <i data-lucide="check" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-nude-900">Запись подтверждена!</h3>
-                <p class="text-xs text-nude-600">Окно забронировано. Отправьте сообщение Елене и добавьте в календарь:</p>
+                <h3 class="font-serif text-2xl font-bold text-heading-theme">Окно забронировано!</h3>
+                <p class="text-xs text-muted-theme">Отправьте подтверждение Елене и сохраните дату в свой календарь</p>
             </div>
 
-            <div id="modalSummaryBox" class="p-3.5 rounded-2xl bg-nude-50 border border-nude-200 text-xs space-y-1.5 text-nude-800"></div>
+            <div id="modalSummaryBox" class="p-4 rounded-2xl theme-surface-elevated border text-xs space-y-1.5"></div>
 
-            <!-- Calendar Collab Buttons -->
-            <div class="p-3 rounded-2xl bg-amber-50/70 border border-amber-200/70 space-y-2 text-xs">
-                <span class="font-bold text-amber-900 block text-center">📅 Добавить в свой календарь:</span>
-                <div class="grid grid-cols-2 gap-2">
-                    <button onclick="addToYandexCalendar(lastSavedBooking)" class="py-2 px-2.5 rounded-xl bg-white border border-amber-300 text-amber-900 font-bold text-[11px] hover:bg-amber-100 flex items-center justify-center gap-1">
-                        <span>Яндекс.Календарь</span>
-                    </button>
-                    <button onclick="downloadIcsFile(lastSavedBooking)" class="py-2 px-2.5 rounded-xl bg-white border border-amber-300 text-amber-900 font-bold text-[11px] hover:bg-amber-100 flex items-center justify-center gap-1">
-                        <span>Apple / Android (.ics)</span>
-                    </button>
-                </div>
+            <!-- Calendar Sync -->
+            <div class="grid grid-cols-2 gap-2">
+                <button onclick="addToYandexCalendar(lastSavedBooking)" class="py-2.5 px-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-bold text-[11px] hover:opacity-80 flex items-center justify-center gap-1.5">
+                    <span>📅 Яндекс</span>
+                </button>
+                <button onclick="downloadIcsFile(lastSavedBooking)" class="py-2.5 px-3 rounded-xl theme-surface-elevated border text-heading-theme font-bold text-[11px] hover:opacity-80 flex items-center justify-center gap-1.5">
+                    <span>🍏 / Android .ics</span>
+                </button>
             </div>
 
             <div class="space-y-2 pt-1">
-                <button onclick="sendToVK()" class="w-full py-3 px-4 rounded-2xl bg-[#0077FF] hover:bg-[#0066DD] text-white font-bold text-xs flex items-center justify-center gap-2">
+                <button onclick="sendToVK()" class="w-full py-3 rounded-full bg-[#0077FF] hover:bg-[#0066DD] text-white font-bold text-xs flex items-center justify-center gap-2">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>Отправить во ВКонтакте</span>
                 </button>
-                <button onclick="sendToWhatsApp()" class="w-full py-3 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs flex items-center justify-center gap-2">
+                <button onclick="sendToWhatsApp()" class="w-full py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs flex items-center justify-center gap-2">
                     <i data-lucide="phone-call" class="w-4 h-4"></i>
                     <span>Отправить в WhatsApp</span>
                 </button>
-                <button onclick="closeConfirmModal()" class="w-full py-2 text-xs text-nude-500 hover:text-nude-800">
-                    Закрыть
-                </button>
+                <button onclick="closeConfirmModal()" class="w-full py-2 text-xs text-muted-theme font-bold">Закрыть</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal: Add Manual Entry for Master -->
-    <div id="addModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-3xl p-5 shadow-2xl space-y-3.5">
-            <div class="flex items-center justify-between border-b border-nude-200 pb-2">
-                <h3 class="font-serif text-xl font-bold text-nude-900">Записать клиента вручную</h3>
-                <button onclick="closeAddModal()" class="text-nude-400 hover:text-nude-700">
+    <!-- MODAL: MANUAL CLIENT ENTRY (MASTER) -->
+    <div id="addModal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card w-full max-w-sm rounded-3xl p-6 shadow-2xl space-y-3.5">
+            <div class="flex items-center justify-between border-b accent-border pb-2">
+                <h3 class="font-serif text-xl font-bold text-heading-theme">Записать клиента</h3>
+                <button onclick="closeAddModal()" class="text-muted-theme hover:text-heading-theme">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
-            
             <div class="space-y-2.5 text-xs">
                 <div>
-                    <label class="block font-bold text-nude-700 mb-1">Имя клиента</label>
-                    <input type="text" id="manualName" placeholder="Ольга Васильевна" class="w-full px-3 py-2.5 rounded-xl border border-nude-200 text-sm">
+                    <label class="block font-bold text-muted-theme mb-1">Имя клиента</label>
+                    <input type="text" id="manualName" placeholder="Ольга" class="w-full px-3 py-2.5 rounded-xl border text-sm">
                 </div>
                 <div>
-                    <label class="block font-bold text-nude-700 mb-1">Телефон клиента</label>
-                    <input type="tel" id="manualPhone" placeholder="+7 (900) 000-00-00" class="w-full px-3 py-2.5 rounded-xl border border-nude-200 text-sm">
+                    <label class="block font-bold text-muted-theme mb-1">Телефон</label>
+                    <input type="tel" id="manualPhone" placeholder="+7 (900) 000-00-00" class="w-full px-3 py-2.5 rounded-xl border text-sm">
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block font-bold text-nude-700 mb-1">Дата</label>
-                        <input type="date" id="manualDateInput" class="w-full px-3 py-2 rounded-xl border border-nude-200 text-xs">
+                        <label class="block font-bold text-muted-theme mb-1">Дата</label>
+                        <input type="date" id="manualDateInput" class="w-full px-3 py-2 rounded-xl border text-xs">
                     </div>
                     <div>
-                        <label class="block font-bold text-nude-700 mb-1">Время начала</label>
-                        <select id="manualTimeSelect" class="w-full px-3 py-2 rounded-xl border border-nude-200 text-xs"></select>
+                        <label class="block font-bold text-muted-theme mb-1">Время</label>
+                        <select id="manualTimeSelect" class="w-full px-3 py-2 rounded-xl border text-xs"></select>
                     </div>
                 </div>
                 <div>
-                    <label class="block font-bold text-nude-700 mb-1">Выбрать услугу из прайса</label>
-                    <select id="manualServiceSelect" onchange="autoFillManualPrice()" class="w-full px-3 py-2.5 rounded-xl border border-nude-200 text-xs"></select>
+                    <label class="block font-bold text-muted-theme mb-1">Услуга</label>
+                    <select id="manualServiceSelect" onchange="autoFillManualPrice()" class="w-full px-3 py-2.5 rounded-xl border text-xs"></select>
                 </div>
                 <div>
-                    <label class="block font-bold text-nude-700 mb-1">Стоимость (₽)</label>
-                    <input type="number" id="manualPriceInput" value="1700" class="w-full px-3 py-2 rounded-xl border border-nude-200 text-xs">
+                    <label class="block font-bold text-muted-theme mb-1">Стоимость (₽)</label>
+                    <input type="number" id="manualPriceInput" value="1700" class="w-full px-3 py-2 rounded-xl border text-xs">
                 </div>
                 <div>
-                    <label class="block font-bold text-nude-700 mb-1">Заметка</label>
-                    <input type="text" id="manualNoteInput" placeholder="Постоянная / френч / звонок" class="w-full px-3 py-2 rounded-xl border border-nude-200 text-xs">
+                    <label class="block font-bold text-muted-theme mb-1">Заметка</label>
+                    <input type="text" id="manualNoteInput" placeholder="Постоянная / френч" class="w-full px-3 py-2 rounded-xl border text-xs">
                 </div>
             </div>
-
-            <button onclick="saveManualEntry()" class="w-full py-3 rounded-2xl bg-terracotta text-white font-bold text-xs hover:bg-terracotta-hover">
-                Сохранить в график
-            </button>
+            <button onclick="saveManualEntry()" class="w-full py-3 rounded-full accent-bg font-bold text-xs">Сохранить в график</button>
         </div>
     </div>
 
-    <!-- LOGIC & DATA ENGINE -->
+    <!-- APPLICATION ENGINE SCRIPT -->
     <script>
+        // ================= THEME & AUDIO ENGINE =================
+        const THEME_META = {
+            nude: { emoji: '🌿', label: 'Нюд' },
+            rose: { emoji: '🌸', label: 'Роза' },
+            pearl: { emoji: '💎', label: 'Жемчуг' },
+            noir: { emoji: '🖤', label: 'Вельвет' }
+        };
+        let currentTheme = localStorage.getItem('elena_theme_v3') || 'nude';
+        let soundEnabled = localStorage.getItem('elena_sound_v3') !== 'false';
+        let audioCtx = null;
+
+        function playTone(freq = 540, dur = 0.08) {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + dur);
+            } catch(e) {}
+        }
+
+        function setTheme(themeName, sound = true) {
+            if (!THEME_META[themeName]) themeName = 'nude';
+            currentTheme = themeName;
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('elena_theme_v3', themeName);
+
+            const m = THEME_META[themeName];
+            const hEmoji = document.getElementById('headerThemeActiveEmoji');
+            const hLabel = document.getElementById('headerThemeActiveLabel');
+            const mEmoji = document.getElementById('mobileThemeEmoji');
+            if (hEmoji) hEmoji.textContent = m.emoji;
+            if (hLabel) hLabel.textContent = m.label;
+            if (mEmoji) mEmoji.textContent = m.emoji;
+
+            document.querySelectorAll('#headerThemePopover [data-popover-theme]').forEach(btn => {
+                const check = btn.querySelector('.theme-check');
+                if (!check) return;
+                if (btn.getAttribute('data-popover-theme') === themeName) check.classList.remove('hidden');
+                else check.classList.add('hidden');
+            });
+            if (sound) playTone(620, 0.09);
+        }
+
+        function toggleHeaderThemeMenu(e) {
+            if (e) e.stopPropagation();
+            const pop = document.getElementById('headerThemePopover');
+            const chev = document.getElementById('headerThemeChevron');
+            const hidden = pop.classList.contains('hidden');
+            pop.classList.toggle('hidden');
+            if (chev) chev.classList.toggle('rotate-180', hidden);
+            playTone(440, 0.05);
+        }
+
+        function selectHeaderTheme(themeName) {
+            setTheme(themeName, true);
+            document.getElementById('headerThemePopover').classList.add('hidden');
+            document.getElementById('headerThemeChevron').classList.remove('rotate-180');
+        }
+
+        function cycleThemeMobile() {
+            const keys = Object.keys(THEME_META);
+            const next = keys[(keys.indexOf(currentTheme) + 1) % keys.length];
+            setTheme(next, true);
+        }
+
+        document.addEventListener('click', (e) => {
+            const wrap = document.getElementById('headerThemeDropdownWrap');
+            const pop = document.getElementById('headerThemePopover');
+            const chev = document.getElementById('headerThemeChevron');
+            if (wrap && pop && !wrap.contains(e.target)) {
+                pop.classList.add('hidden');
+                if (chev) chev.classList.remove('rotate-180');
+            }
+        });
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            localStorage.setItem('elena_sound_v3', soundEnabled);
+            document.getElementById('soundIcon').textContent = soundEnabled ? '🔊' : '🔇';
+            if (soundEnabled) playTone(660, 0.1);
+        }
+
+        // ================= PHOTO FITTING ROOM (ПРИМЕРКА ФОТО) =================
+        function initHeroPhoto() {
+            const src = localStorage.getItem('elena_hero_src') || 'hero.jpg';
+            const title = localStorage.getItem('elena_hero_title') || 'Елена Латыпова';
+            const sub = localStorage.getItem('elena_hero_sub') || 'Маникюр • Smart-педикюр • Наращивание ресниц';
+            document.getElementById('studioShowcaseImg').src = src;
+            document.getElementById('studioShowcaseTitle').textContent = title;
+            document.getElementById('studioShowcaseSub').textContent = sub;
+        }
+        function openPhotoModal() {
+            document.getElementById('photoModal').classList.remove('hidden');
+            document.getElementById('photoModal').classList.add('flex');
+            playTone(500, 0.06);
+        }
+        function closePhotoModal() {
+            document.getElementById('photoModal').classList.add('hidden');
+            document.getElementById('photoModal').classList.remove('flex');
+        }
+        function selectHeroPreset(src, title, sub) {
+            document.getElementById('studioShowcaseImg').src = src;
+            document.getElementById('studioShowcaseTitle').textContent = title;
+            document.getElementById('studioShowcaseSub').textContent = sub;
+            localStorage.setItem('elena_hero_src', src);
+            localStorage.setItem('elena_hero_title', title);
+            localStorage.setItem('elena_hero_sub', sub);
+            closePhotoModal();
+            playTone(680, 0.1);
+        }
+        function handleCustomPhotoUpload(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                selectHeroPreset(ev.target.result, 'Ваш вдохновляющий референс', 'Персональный выбор стиля ✨');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // ================= PORTFOLIO GALLERY ENGINE =================
+        const galleryItems = [
+            { id: 'gal_1', cat: 'manicure', catLabel: 'Маникюр', img: 'gallery_french.jpg', title: 'Френч с золотой поталью', desc: 'Укрепление базой + идеально тонкая линия улыбки + поталь', time: '120 мин', price: '2 200 ₽', serviceIds: ['m_basic', 'm_french'], likes: 128 },
+            { id: 'gal_2', cat: 'manicure', catLabel: 'Маникюр', img: 'gallery_nude.jpg', title: 'Молочный нюд «Кошачий глаз»', desc: 'Шелковый магнитный блик и выравнивание архитектуры ногтя', time: '105 мин', price: '1 900 ₽', serviceIds: ['m_basic', 'm_cat'], likes: 154 },
+            { id: 'gal_3', cat: 'pedicure', catLabel: 'Smart-педикюр', img: 'gallery_pedicure.jpg', title: 'Smart-педикюр + Пыльная роза', desc: 'Безопасная полировка стопы дисками со спа-маслом эвкалипта', time: '90 мин', price: '2 300 ₽', serviceIds: ['p_full_gl'], likes: 96 },
+            { id: 'gal_4', cat: 'lashes', catLabel: 'Ресницы', img: 'gallery_lashes.jpg', title: '2D Кашемир • Мокрый эффект', desc: 'Невесомые тонкие реснички изгиба C/D с открытым взглядом', time: '120 мин', price: '2 200 ₽', serviceIds: ['l_wet'], likes: 187 }
+        ];
+        let activeGalleryFilter = 'all';
+        let lightboxTargetServices = [];
+
+        function getLikedSet() {
+            try { return new Set(JSON.parse(localStorage.getItem('elena_gal_likes') || '[]')); }
+            catch(e) { return new Set(); }
+        }
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+            const liked = getLikedSet();
+            const items = activeGalleryFilter === 'all' ? galleryItems : galleryItems.filter(x => x.cat === activeGalleryFilter);
+
+            items.forEach(item => {
+                const isLiked = liked.has(item.id);
+                const count = item.likes + (isLiked ? 1 : 0);
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-3xl overflow-hidden group flex flex-col justify-between transition-all hover:-translate-y-1';
+                card.innerHTML = `
+                    <div class="relative aspect-[4/3] overflow-hidden cursor-pointer" onclick="openLightbox('${item.id}')">
+                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-sm text-[10px] font-bold text-white">
+                            ${item.catLabel}
+                        </div>
+                        <button onclick="event.stopPropagation(); toggleGalleryLike('${item.id}', this)" class="absolute top-3 right-3 px-2.5 py-1 rounded-full ${isLiked ? 'bg-rose-500 text-white' : 'bg-black/55 text-white'} backdrop-blur-sm text-[11px] font-bold flex items-center gap-1 transition-all hover:scale-110">
+                            <span>${isLiked ? '❤️' : '🤍'}</span>
+                            <span>${count}</span>
+                        </button>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="font-serif text-lg font-bold text-heading-theme leading-tight">${item.title}</h3>
+                            <span class="text-xs font-extrabold accent-text whitespace-nowrap">${item.price}</span>
+                        </div>
+                        <p class="text-[11px] text-muted-theme leading-relaxed">${item.desc}</p>
+                        <div class="pt-1 flex items-center justify-between text-[11px]">
+                            <span class="text-muted-theme font-semibold">⏱ ${item.time}</span>
+                            <button onclick="applyGalleryService(${JSON.stringify(item.serviceIds).replace(/"/g, '&quot;')})" class="font-bold accent-text hover:underline">Записаться →</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        function filterGallery(cat, btn) {
+            activeGalleryFilter = cat;
+            document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active-tab'));
+            btn.classList.add('active-tab');
+            renderGallery();
+            playTone(480, 0.05);
+        }
+        function toggleGalleryLike(id, btnEl) {
+            const liked = getLikedSet();
+            if (liked.has(id)) {
+                liked.delete(id);
+            } else {
+                liked.add(id);
+                spawnHeartParticles(btnEl);
+                playTone(720, 0.1);
+            }
+            localStorage.setItem('elena_gal_likes', JSON.stringify(Array.from(liked)));
+            renderGallery();
+        }
+        function spawnHeartParticles(el) {
+            const rect = el.getBoundingClientRect();
+            const emojis = ['❤️', '✨', '💅'];
+            for (let i = 0; i < 4; i++) {
+                const p = document.createElement('div');
+                p.className = 'heart-particle text-base';
+                p.textContent = emojis[i % emojis.length];
+                p.style.left = (rect.left + window.scrollX + 10) + 'px';
+                p.style.top = (rect.top + window.scrollY) + 'px';
+                p.style.setProperty('--tx', ((Math.random() - 0.5) * 60) + 'px');
+                p.style.setProperty('--tx2', ((Math.random() - 0.5) * 80) + 'px');
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 1100);
+            }
+        }
+        function openLightbox(id) {
+            const item = galleryItems.find(x => x.id === id);
+            if (!item) return;
+            lightboxTargetServices = item.serviceIds;
+            document.getElementById('lightboxImg').src = item.img;
+            document.getElementById('lightboxCat').textContent = `${item.catLabel} • ${item.price} • ${item.time}`;
+            document.getElementById('lightboxTitle').textContent = item.title;
+            document.getElementById('lightboxDesc').textContent = item.desc;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+            document.getElementById('lightboxModal').classList.add('flex');
+            playTone(550, 0.07);
+        }
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+            document.getElementById('lightboxModal').classList.remove('flex');
+        }
+        function bookFromLightbox() {
+            closeLightbox();
+            applyGalleryService(lightboxTargetServices);
+        }
+        function applyGalleryService(ids) {
+            selectedServiceIds = new Set(ids);
+            const first = fullPriceList.find(x => x.id === ids[0]);
+            if (first) switchCategory(first.cat);
+            else renderServicesList();
+            calculateCartTotals();
+            recomputeAvailableSlots();
+            document.getElementById('bookingSection').scrollIntoView({ behavior: 'smooth' });
+            playTone(680, 0.12);
+        }
+
+        // ================= REVIEWS WALL ENGINE =================
+        const defaultReviews = [
+            { id: 1, cat: 'manicure', name: 'Анна К.', date: '3 дня назад', stars: 5, tag: 'Носка 5 недель без сколов', text: 'Хожу к Елене уже больше года. Всегда идеально тонкий торец, чистый срез и никакой аллергии или отслоек. Инструменты вскрываются из крафт-пакета прямо при мне!' },
+            { id: 2, cat: 'lashes', name: 'Мария В.', date: 'Неделю назад', stars: 5, tag: 'Мокрый эффект 2.5D', text: 'Реснички настолько лёгкие, что вообще не ощущаются на глазах! Отходила уже 4 недели — выглядят как свежие, нет склеек и ничего не колется.' },
+            { id: 3, cat: 'pedicure', name: 'Екатерина М.', date: '2 недели назад', stars: 5, tag: 'Smart-педикюр', text: 'После диска пяточки реально как у ребёнка, и гладкость держится намного дольше обычной тёрки! Очень уютный кабинет и приятное общение.' }
+        ];
+        let activeReviewFilter = 'all';
+
+        function getReviews() {
+            try {
+                const raw = localStorage.getItem('elena_reviews_v1');
+                return raw ? JSON.parse(raw) : defaultReviews;
+            } catch(e) { return defaultReviews; }
+        }
+        function renderReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            grid.innerHTML = '';
+            const all = getReviews();
+            const list = activeReviewFilter === 'all' ? all : all.filter(r => r.cat === activeReviewFilter);
+
+            list.forEach(r => {
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-3xl p-5 flex flex-col justify-between space-y-3';
+                const starsStr = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+                card.innerHTML = `
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-full accent-soft-bg font-serif font-bold text-base flex items-center justify-center">
+                                    ${r.name[0]}
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-heading-theme">${r.name}</div>
+                                    <div class="text-[10px] text-muted-theme">${r.date}</div>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-amber-700 tracking-tighter">${starsStr}</span>
+                        </div>
+                        <p class="text-xs text-body-theme leading-relaxed">«${r.text}»</p>
+                    </div>
+                    <div class="pt-2 border-t accent-border flex items-center justify-between text-[10px]">
+                        <span class="px-2.5 py-0.5 rounded-full theme-surface-elevated border font-bold text-heading-theme">${r.tag}</span>
+                        <span class="text-emerald-700 font-bold">✓ Визит подтверждён</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        function filterReviews(cat, btn) {
+            activeReviewFilter = cat;
+            document.querySelectorAll('.review-filter-btn').forEach(b => b.classList.remove('active-tab'));
+            btn.classList.add('active-tab');
+            renderReviews();
+            playTone(460, 0.05);
+        }
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.remove('hidden');
+            document.getElementById('reviewModal').classList.add('flex');
+        }
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+            document.getElementById('reviewModal').classList.remove('flex');
+        }
+        function submitNewReview() {
+            const name = document.getElementById('revName').value.trim();
+            const cat = document.getElementById('revCat').value;
+            const stars = parseInt(document.getElementById('revStars').value);
+            const text = document.getElementById('revText').value.trim();
+            if (!name || !text) { alert('Введите имя и текст отзыва'); return; }
+
+            const tags = { manicure: 'Маникюр с покрытием', pedicure: 'Smart-педикюр', lashes: 'Наращивание ресниц' };
+            const revs = getReviews();
+            revs.unshift({ id: Date.now(), cat, name, date: 'Только что', stars, tag: tags[cat], text });
+            localStorage.setItem('elena_reviews_v1', JSON.stringify(revs));
+            closeReviewModal();
+            document.getElementById('revName').value = '';
+            document.getElementById('revText').value = '';
+            renderReviews();
+            playTone(760, 0.14);
+        }
+
+        // ================= BEAUTY QUIZ DIAGNOSTIC ENGINE =================
+        let quizChoices = { zone: '', style: '', time: '' };
+        let quizRecommendedIds = ['m_basic'];
+
+        function answerQuiz(step, val) {
+            playTone(540 + step * 60, 0.08);
+            if (step === 1) {
+                quizChoices.zone = val;
+                document.getElementById('quizStep1').classList.add('hidden');
+                document.getElementById('quizStep2').classList.remove('hidden');
+                document.getElementById('quizDot2').classList.add('accent-bg');
+            } else if (step === 2) {
+                quizChoices.style = val;
+                document.getElementById('quizStep2').classList.add('hidden');
+                document.getElementById('quizStep3').classList.remove('hidden');
+                document.getElementById('quizDot3').classList.add('accent-bg');
+            } else if (step === 3) {
+                quizChoices.time = val;
+                document.getElementById('quizStep3').classList.add('hidden');
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            let title = 'Эстетика & Идеальный Баланс ✨';
+            let icon = '👑';
+            let desc = 'Вам идеально подойдёт комплексный уход с бережной обработкой и стойким глянцевым покрытием, который держится 4–5 недель.';
+            let ids = ['m_basic'];
+
+            if (quizChoices.zone === 'pedicure') {
+                icon = '🦶';
+                title = 'Шёлковое СПА & Smart-Уход 🌿';
+                desc = 'Рекомендуем Smart-педикюр дисками со стойким гель-лаком: гладкие стопы без трещин и аккуратные пальчики за один визит.';
+                ids = quizChoices.time === 'fast' ? ['p_toes_gl'] : ['p_full_gl'];
+            } else if (quizChoices.zone === 'lashes') {
+                icon = '👁️';
+                title = 'Бархатный Взгляд 2D / Мокрый Эффект 🦋';
+                desc = 'Ваш идеальный выбор — моделирование ресниц в трендовом мокром эффекте или объёме 2D, подчёркивающее естественный разрез глаз.';
+                ids = quizChoices.style === 'volume' ? ['l_3d'] : (quizChoices.style === 'glam' ? ['l_wet'] : ['l_2d']);
+            } else if (quizChoices.style === 'french') {
+                icon = '🤍';
+                title = 'Королевский Френч & Элегантность';
+                desc = 'Тонкая архитектурная улыбка на укреплённых ногтях — безупречная классика, которая подходит к любому образу.';
+                ids = ['m_basic', 'm_french'];
+            } else if (quizChoices.style === 'glam') {
+                icon = '💎';
+                title = 'Трендовый Глянец & Кошачий Глаз';
+                desc = 'Глубокий магнитный блик или зеркальная втирка на базе с идеальным выравниванием — максимум внимания к вашим рукам.';
+                ids = ['m_basic', 'm_cat'];
+            } else if (quizChoices.style === 'care' || quizChoices.time === 'fast') {
+                icon = '🌿';
+                title = 'Чистая Эстетика & Восстановление';
+                desc = 'Чистый комбинированный маникюр без перегруза или бережное обновление формы за 45–60 минут.';
+                ids = ['m_gigien'];
+            }
+
+            quizRecommendedIds = ids;
+            const totalSum = ids.reduce((acc, id) => acc + (fullPriceList.find(x => x.id === id)?.price || 0), 0);
+            const totalMin = ids.reduce((acc, id) => acc + (fullPriceList.find(x => x.id === id)?.duration || 0), 0);
+
+            document.getElementById('quizResultIcon').textContent = icon;
+            document.getElementById('quizResultTitle').textContent = title;
+            document.getElementById('quizResultDesc').textContent = desc;
+            document.getElementById('quizResultBadges').innerHTML = `
+                <span class="px-3 py-1 rounded-full theme-surface-elevated border text-heading-theme">💰 Итого: ${totalSum.toLocaleString('ru-RU')} ₽</span>
+                <span class="px-3 py-1 rounded-full theme-surface-elevated border text-heading-theme">⏱ Время: ~${totalMin} мин</span>
+            `;
+            document.getElementById('quizResult').classList.remove('hidden');
+            playTone(740, 0.14);
+        }
+
+        function applyQuizRecommendation() {
+            applyGalleryService(quizRecommendedIds);
+        }
+
+        function resetQuiz() {
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizStep2').classList.add('hidden');
+            document.getElementById('quizStep3').classList.add('hidden');
+            document.getElementById('quizStep1').classList.remove('hidden');
+            document.getElementById('quizDot2').classList.remove('accent-bg');
+            document.getElementById('quizDot3').classList.remove('accent-bg');
+        }
+
+        // ================= PRICE LIST & SMART CALENDAR ENGINE (PRESERVED & UPGRADED) =================
         const fullPriceList = [
             // МАНИКЮР
             { id: 'm_basic', cat: 'manicure', title: 'Маникюр (база / гель / ГЛ)', desc: 'Основной комплекс с покрытием', price: 1700, duration: 90, isBase: true },
@@ -411,7 +1542,7 @@
             { id: 'm_shape', cat: 'manicure', title: 'Смена формы', desc: 'Из квадрата в миндаль / овал', price: 200, duration: 15, isBase: false },
             { id: 'm_top_inside', cat: 'manicure', title: 'Покрытие топом изнутри', desc: 'Чистота и защита с обратной стороны', price: 200, duration: 10, isBase: false },
             { id: 'm_remove_alien', cat: 'manicure', title: 'Снятие (не моя работа)', desc: 'Бережное снятие чужого покрытия', price: 300, duration: 20, isBase: false },
-            { id: 'm_remove_hard', cat: 'manicure', title: 'Снятие (перекошенное / типсы / отслойки)', desc: 'Сложный демонтаж старого материала', price: 500, duration: 30, isBase: false },
+            { id: 'm_remove_hard', cat: 'manicure', title: 'Снятие (сложное / типсы / отслойки)', desc: 'Сложный демонтаж старого материала', price: 500, duration: 30, isBase: false },
 
             // ПЕДИКЮР
             { id: 'p_full_gl', cat: 'pedicure', title: 'Комплекс + гель-лак', desc: 'Полная обработка стопы + пальчики + гель-лак', price: 2300, duration: 90, isBase: true },
@@ -443,86 +1574,438 @@
         let selectedServiceIds = new Set(['m_basic']);
         let selectedDateStr = '';
         let selectedTimeSlot = '';
-        let isMaster = false;
         let masterSelectedDateStr = '';
         let lastSavedBooking = null;
         const MASTER_PIN = '1234';
-
-        const WORK_DAY_START = 9 * 60; // 09:00
-        const WORK_DAY_END = 20 * 60;  // 20:00
+        const WORK_DAY_START = 9 * 60;
+        const WORK_DAY_END = 20 * 60;
         const SLOT_STEP = 30;
 
-        function getStoredSchedule() {
-            const data = localStorage.getItem('elena_schedule_v2');
-            if (data) return JSON.parse(data);
-
-            const today = getIsoDate(0);
-            const tomorrow = getIsoDate(1);
-            const initial = [
-                {
-                    id: 101,
-                    date: today,
-                    startMin: 10 * 60,
-                    duration: 90,
-                    name: 'Светлана К.',
-                    phone: '+7 (912) 555-44-33',
-                    service: 'Маникюр (база / гель / ГЛ)',
-                    price: 1700
-                },
-                {
-                    id: 102,
-                    date: today,
-                    startMin: 16 * 60,
-                    duration: 120,
-                    name: 'Татьяна Васильевна',
-                    phone: '+7 (909) 111-22-33',
-                    service: 'Объём 2 D / 2,5 D',
-                    price: 2000
-                },
-                {
-                    id: 103,
-                    date: tomorrow,
-                    startMin: 13 * 60,
-                    duration: 90,
-                    name: 'Марина (из ТЦ)',
-                    phone: '+7 (902) 888-99-00',
-                    service: 'Комплекс + гель-лак (педикюр)',
-                    price: 2300
-                }
-            ];
-            localStorage.setItem('elena_schedule_v2', JSON.stringify(initial));
-            return initial;
+        function toLocalISO(d) {
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
         }
-
-        function saveSchedule(items) {
-            localStorage.setItem('elena_schedule_v2', JSON.stringify(items));
+        function timeToMinutes(tStr) {
+            const [h, m] = tStr.split(':').map(Number);
+            return h * 60 + m;
         }
-
-        function getIsoDate(offsetDays = 0) {
-            const d = new Date();
-            d.setDate(d.getDate() + offsetDays);
-            return d.toISOString().split('T')[0];
-        }
-
-        function minutesToTime(mins) {
-            const h = Math.floor(mins / 60).toString().padStart(2, '0');
-            const m = (mins % 60).toString().padStart(2, '0');
+        function minutesToTime(min) {
+            const h = Math.floor(min / 60).toString().padStart(2, '0');
+            const m = (min % 60).toString().padStart(2, '0');
             return `${h}:${m}`;
         }
 
-        function timeToMinutes(timeStr) {
-            const [h, m] = timeStr.split(':').map(Number);
-            return h * 60 + m;
+        function getStoredSchedule() {
+            const raw = localStorage.getItem('elena_schedule_v2');
+            if (raw) return JSON.parse(raw);
+            const today = toLocalISO(new Date());
+            const tomorrow = toLocalISO(new Date(Date.now() + 86400000));
+            const demo = [
+                { id: 101, date: today, startMin: timeToMinutes('10:00'), duration: 90, name: 'Анна (Постоянная)', phone: '+7 919 111 22 33', service: 'Маникюр (база / гель)', price: 1700 },
+                { id: 102, date: today, startMin: timeToMinutes('12:30'), duration: 120, name: 'Екатерина', phone: '+7 912 444 55 66', service: 'Ресницы Мокрый эффект', price: 2200 },
+                { id: 103, date: tomorrow, startMin: timeToMinutes('11:00'), duration: 90, name: 'Мария', phone: '+7 908 777 88 99', service: 'Smart-Педикюр + Гель-лак', price: 2300 }
+            ];
+            localStorage.setItem('elena_schedule_v2', JSON.stringify(demo));
+            return demo;
+        }
+        function saveSchedule(list) {
+            localStorage.setItem('elena_schedule_v2', JSON.stringify(list));
         }
 
-        // --- INIT ---
-        document.addEventListener('DOMContentLoaded', () => {
-            selectedDateStr = getIsoDate(0);
-            masterSelectedDateStr = getIsoDate(0);
-
-            renderServices();
-            renderDaysScroll();
+        function switchCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active-tab'));
+            document.getElementById(`catBtn-${cat}`).classList.add('active-tab');
+            renderServicesList();
+        }
+        function renderServicesList() {
+            const container = document.getElementById('servicesContainer');
+            container.innerHTML = '';
+            const items = fullPriceList.filter(item => item.cat === activeCategory);
+            items.forEach(item => {
+                const isSelected = selectedServiceIds.has(item.id);
+                const div = document.createElement('div');
+                div.onclick = () => toggleService(item.id);
+                div.className = `p-3.5 rounded-2xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
+                    isSelected ? 'accent-soft-bg accent-border shadow-sm ring-1 ring-current' : 'theme-surface-elevated hover:border-[#B36B56]/50'
+                }`;
+                div.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 rounded-md border flex items-center justify-center flex-shrink-0 ${isSelected ? 'accent-bg border-transparent' : 'theme-surface-elevated accent-border'}">
+                            ${isSelected ? '<i data-lucide="check" class="w-3.5 h-3.5"></i>' : ''}
+                        </div>
+                        <div>
+                            <div class="font-bold text-xs sm:text-sm text-heading-theme flex items-center gap-1.5 flex-wrap">
+                                <span>${item.title}</span>
+                                ${!item.isBase ? '<span class="text-[9px] px-1.5 py-0.5 rounded theme-surface-elevated border accent-border text-muted-theme uppercase font-extrabold">Доп</span>' : ''}
+                            </div>
+                            <div class="text-[11px] text-muted-theme">${item.desc} • ~${item.duration} мин</div>
+                        </div>
+                    </div>
+                    <div class="text-right font-extrabold text-xs sm:text-sm text-heading-theme whitespace-nowrap">${item.price === 0 ? '0 ₽' : item.price.toLocaleString('ru-RU') + ' ₽'}</div>
+                `;
+                container.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+        function toggleService(id) {
+            if (selectedServiceIds.has(id)) {
+                if (selectedServiceIds.size > 1) selectedServiceIds.delete(id);
+                else { alert('Выберите хотя бы одну услугу'); return; }
+            } else {
+                selectedServiceIds.add(id);
+            }
+            renderServicesList();
             calculateCartTotals();
+            recomputeAvailableSlots();
+            playTone(520, 0.06);
+        }
+        function getCartStats() {
+            let sum = 0, duration = 0;
+            selectedServiceIds.forEach(id => {
+                const s = fullPriceList.find(x => x.id === id);
+                if (s) { sum += s.price; duration += s.duration; }
+            });
+            return { sum, duration };
+        }
+        function calculateCartTotals() {
+            const { sum, duration } = getCartStats();
+            document.getElementById('totalSumDisplay').textContent = `${sum.toLocaleString('ru-RU')} ₽`;
+            document.getElementById('totalTimeDisplay').textContent = `(~${duration} мин)`;
+            document.getElementById('selectedDurationBadge').textContent = `Требуется ~${duration} мин`;
+        }
+
+        function renderDaysScroll() {
+            const container = document.getElementById('daysScroll');
+            container.innerHTML = '';
+            const months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+            const daysOfWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+            for (let i = 0; i < 10; i++) {
+                const d = new Date();
+                d.setDate(d.getDate() + i);
+                const iso = toLocalISO(d);
+                const dayTitle = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : daysOfWeek[d.getDay()];
+                const active = selectedDateStr === iso;
+                const btn = document.createElement('button');
+                btn.onclick = () => { selectedDateStr = iso; renderDaysScroll(); recomputeAvailableSlots(); playTone(460, 0.05); };
+                btn.className = `flex-shrink-0 px-3.5 py-2 rounded-2xl border text-center transition-all ${
+                    active ? 'accent-bg border-transparent shadow-md' : 'theme-surface-elevated text-heading-theme'
+                }`;
+                btn.innerHTML = `<div class="text-[9px] uppercase font-bold opacity-80">${dayTitle}</div><div class="text-xs font-extrabold mt-0.5">${d.getDate()} ${months[d.getMonth()]}</div>`;
+                container.appendChild(btn);
+            }
+        }
+        function recomputeAvailableSlots() {
+            const grid = document.getElementById('slotsGrid');
+            grid.innerHTML = '';
+            const { duration: needed } = getCartStats();
+            const schedule = getStoredSchedule().filter(b => b.date === selectedDateStr);
+            let firstValid = null;
+            let currentStillValid = false;
+
+            for (let start = WORK_DAY_START; start <= WORK_DAY_END - 30; start += SLOT_STEP) {
+                const end = start + needed;
+                const fits = end <= WORK_DAY_END;
+                const conflict = schedule.some(b => Math.max(start, b.startMin) < Math.min(end, b.startMin + b.duration));
+                const avail = fits && !conflict;
+                if (avail && !firstValid) firstValid = start;
+
+                const tLabel = minutesToTime(start);
+                const eLabel = minutesToTime(end);
+                if (avail && selectedTimeSlot === tLabel) currentStillValid = true;
+                const btn = document.createElement('button');
+
+                if (avail) {
+                    const selected = selectedTimeSlot === tLabel;
+                    btn.className = `py-2.5 px-2 rounded-xl text-xs font-bold border text-center transition-all ${
+                        selected ? 'accent-bg border-transparent shadow-md ring-2 ring-current/30' : 'theme-surface-elevated text-heading-theme hover:border-[#B36B56]'
+                    }`;
+                    btn.innerHTML = `<div>${tLabel}</div><div class="text-[9px] font-normal opacity-75">до ${eLabel}</div>`;
+                    btn.onclick = () => selectSlot(tLabel, eLabel, true);
+                } else {
+                    btn.disabled = true;
+                    btn.className = 'py-2.5 px-2 rounded-xl text-xs font-medium border theme-surface-elevated opacity-45 cursor-not-allowed text-center line-through';
+                    btn.innerHTML = `<div>${tLabel}</div><div class="text-[9px] uppercase font-bold text-rose-700 dark:text-rose-400">Занято</div>`;
+                }
+                grid.appendChild(btn);
+            }
+
+            const notice = document.getElementById('slotNotice');
+            if (currentStillValid) {
+                const neededEnd = minutesToTime(timeToMinutes(selectedTimeSlot) + needed);
+                notice.className = 'text-xs text-emerald-800 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 p-3 rounded-2xl mt-2 flex items-center gap-2';
+                document.getElementById('slotNoticeText').textContent = `Выбрано: ${selectedTimeSlot} (процедура продлится до ${neededEnd})`;
+            } else if (firstValid) {
+                selectSlot(minutesToTime(firstValid), minutesToTime(firstValid + needed), false);
+            } else {
+                selectedTimeSlot = '';
+                notice.className = 'text-xs text-rose-700 dark:text-rose-400 bg-rose-500/10 border border-rose-500/25 p-3 rounded-2xl mt-2 flex items-center gap-2';
+                document.getElementById('slotNoticeText').textContent = 'На этот день нет окна такой длительности. Выберите другую дату!';
+            }
+        }
+        function selectSlot(tStr, eStr, playSound = true) {
+            selectedTimeSlot = tStr;
+            renderDaysScroll();
+            document.querySelectorAll('#slotsGrid button:not([disabled])').forEach(btn => {
+                if (btn.textContent.includes(tStr)) btn.className = 'py-2.5 px-2 rounded-xl text-xs font-bold border text-center transition-all accent-bg border-transparent shadow-md ring-2 ring-current/30';
+                else btn.className = 'py-2.5 px-2 rounded-xl text-xs font-bold border text-center transition-all theme-surface-elevated text-heading-theme hover:border-[#B36B56]';
+            });
+            const notice = document.getElementById('slotNotice');
+            notice.className = 'text-xs text-emerald-800 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 p-3 rounded-2xl mt-2 flex items-center gap-2';
+            document.getElementById('slotNoticeText').textContent = `Выбрано: ${tStr} (процедура продлится до ${eStr})`;
+            if (playSound) playTone(580, 0.06);
+        }
+        function focusBookingForm() {
+            setTimeout(() => document.getElementById('custName').focus(), 400);
+        }
+
+        function submitClientBooking() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const note = document.getElementById('custNote').value.trim();
+            if (!name) { alert('Введите ваше имя'); return; }
+            if (!phone) { alert('Укажите телефон'); return; }
+            if (!selectedTimeSlot) { alert('Выберите свободное время'); return; }
+
+            const { sum, duration } = getCartStats();
+            const startMin = timeToMinutes(selectedTimeSlot);
+            const titles = Array.from(selectedServiceIds).map(id => fullPriceList.find(x => x.id === id).title).join(', ');
+            const booking = { id: Date.now(), date: selectedDateStr, startMin, duration, name, phone, note, service: titles, price: sum };
+
+            const schedule = getStoredSchedule();
+            schedule.push(booking);
+            saveSchedule(schedule);
+            lastSavedBooking = booking;
+            recomputeAvailableSlots();
+
+            document.getElementById('modalSummaryBox').innerHTML = `
+                <div><span class="text-muted-theme">Клиент:</span> <strong>${name}</strong> (${phone})</div>
+                <div><span class="text-muted-theme">Время:</span> <strong>${selectedDateStr} в ${selectedTimeSlot}</strong> (~${duration} мин)</div>
+                <div><span class="text-muted-theme">Услуги:</span> ${titles}</div>
+                <div><span class="text-muted-theme">К оплате:</span> <strong class="accent-text">${sum.toLocaleString('ru-RU')} ₽</strong></div>
+            `;
+            document.getElementById('confirmModal').classList.remove('hidden');
+            document.getElementById('confirmModal').classList.add('flex');
+            playTone(760, 0.14);
+        }
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').classList.add('hidden');
+            document.getElementById('confirmModal').classList.remove('flex');
+        }
+        function sendToVK() {
+            if (!lastSavedBooking) return;
+            const b = lastSavedBooking;
+            const text = `Здравствуйте, Елена! Записалась через сайт Elen Beauty:\n✨ Услуга: ${b.service}\n📅 Дата: ${b.date} в ${minutesToTime(b.startMin)}\n💰 Стоимость: ${b.price} ₽\n👤 ${b.name} (${b.phone})`;
+            navigator.clipboard.writeText(text);
+            window.open('https://vk.com/im', '_blank');
+            closeConfirmModal();
+        }
+        function sendToWhatsApp() {
+            if (!lastSavedBooking) return;
+            const b = lastSavedBooking;
+            const text = `Здравствуйте, Елена! Записалась через сайт Elen Beauty:\n✨ Услуга: ${b.service}\n📅 Дата: ${b.date} в ${minutesToTime(b.startMin)}\n💰 Стоимость: ${b.price} ₽\n👤 ${b.name} (${b.phone})`;
+            window.open(`https://wa.me/79000000000?text=${encodeURIComponent(text)}`, '_blank');
+            closeConfirmModal();
+        }
+        function addToYandexCalendar(b) {
+            if (!b) return;
+            const start = `${b.date}T${minutesToTime(b.startMin)}:00`;
+            const end = `${b.date}T${minutesToTime(b.startMin + b.duration)}:00`;
+            window.open(`https://calendar.yandex.ru/event?name=${encodeURIComponent('Elen Beauty: ' + b.service)}&start=${start}&end=${end}&description=${encodeURIComponent('Стоимость: ' + b.price + ' руб.')}&location=${encodeURIComponent('Курган, Elen Beauty')}`, '_blank');
+        }
+        function downloadIcsFile(b) {
+            if (!b) return;
+            const dClean = b.date.replace(/-/g, '');
+            const sStr = minutesToTime(b.startMin).replace(':', '') + '00';
+            const eStr = minutesToTime(b.startMin + b.duration).replace(':', '') + '00';
+            const ics = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${dClean}T${sStr}\r\nDTEND:${dClean}T${eStr}\r\nSUMMARY:Elen Beauty: ${b.service}\r\nLOCATION:Курган, Студия Elen Beauty\r\nEND:VEVENT\r\nEND:VCALENDAR`;
+            const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `elen_beauty_${b.date}.ics`;
+            a.click();
+        }
+
+        // ================= MASTER NOTEBOOK (PIN 1234) =================
+        function requestMasterAccess() {
+            if (sessionStorage.getItem('master_auth') === 'true') grantMasterMode();
+            else {
+                document.getElementById('pinInput').value = '';
+                document.getElementById('pinModal').classList.remove('hidden');
+                document.getElementById('pinModal').classList.add('flex');
+                document.getElementById('pinInput').focus();
+            }
+        }
+        function closePinModal() {
+            document.getElementById('pinModal').classList.add('hidden');
+            document.getElementById('pinModal').classList.remove('flex');
+        }
+        function verifyPin() {
+            if (document.getElementById('pinInput').value.trim() === MASTER_PIN) {
+                sessionStorage.setItem('master_auth', 'true');
+                closePinModal();
+                grantMasterMode();
+            } else alert('Неверный PIN-код (тест: 1234)');
+        }
+        function grantMasterMode() {
+            document.getElementById('clientView').classList.add('hidden');
+            document.getElementById('stickyBar').classList.add('hidden');
+            document.getElementById('masterView').classList.remove('hidden');
+            document.getElementById('masterLogoutBtn').classList.remove('hidden');
+            renderMasterDaysBar();
+            renderMasterTimeline();
+            renderMasterFullList();
+            lucide.createIcons();
+        }
+        function logoutMaster() {
+            sessionStorage.removeItem('master_auth');
+            document.getElementById('masterView').classList.add('hidden');
+            document.getElementById('masterLogoutBtn').classList.add('hidden');
+            document.getElementById('clientView').classList.remove('hidden');
+            document.getElementById('stickyBar').classList.remove('hidden');
+            recomputeAvailableSlots();
+        }
+        function renderMasterDaysBar() {
+            const c = document.getElementById('masterDaysBar');
+            c.innerHTML = '';
+            for (let i = 0; i < 7; i++) {
+                const d = new Date();
+                d.setDate(d.getDate() + i);
+                const iso = toLocalISO(d);
+                const b = document.createElement('button');
+                b.onclick = () => { masterSelectedDateStr = iso; renderMasterDaysBar(); renderMasterTimeline(); };
+                b.className = `px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap border ${masterSelectedDateStr === iso ? 'accent-bg border-transparent' : 'theme-surface-elevated text-heading-theme'}`;
+                b.textContent = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : iso.slice(5);
+                c.appendChild(b);
+            }
+        }
+        function renderMasterTimeline() {
+            const c = document.getElementById('masterTimeline');
+            c.innerHTML = '';
+            const dayItems = getStoredSchedule().filter(b => b.date === masterSelectedDateStr);
+            document.getElementById('masterDayCount').textContent = dayItems.length;
+            document.getElementById('masterDayIncome').textContent = dayItems.reduce((a, b) => a + b.price, 0).toLocaleString('ru-RU') + ' ₽';
+
+            for (let min = WORK_DAY_START; min < WORK_DAY_END; min += 30) {
+                const tStr = minutesToTime(min);
+                const b = dayItems.find(x => min >= x.startMin && min < x.startMin + x.duration);
+                const row = document.createElement('div');
+                row.className = 'flex items-center gap-3 text-xs py-1.5 border-b accent-border';
+                if (b) {
+                    row.innerHTML = `<div class="w-12 font-bold text-muted-theme">${tStr}</div><div class="flex-1 p-2.5 rounded-xl accent-soft-bg border accent-border flex items-center justify-between"><span><strong>${b.name}</strong> — ${b.service}</span><button onclick="cancelBooking(${b.id})" class="text-rose-500 font-bold hover:underline">Удалить</button></div>`;
+                } else {
+                    row.innerHTML = `<div class="w-12 font-semibold text-muted-theme">${tStr}</div><div class="flex-1 py-1.5 px-3 rounded-xl theme-surface-elevated text-muted-theme flex items-center justify-between"><span>Свободное окно</span><button onclick="quickBlock(${min})" class="text-xs accent-text font-bold">+ Закрыть</button></div>`;
+                }
+                c.appendChild(row);
+            }
+        }
+        function renderMasterFullList() {
+            const c = document.getElementById('masterFullList');
+            c.innerHTML = '';
+            getStoredSchedule().forEach(b => {
+                const d = document.createElement('div');
+                d.className = 'glass-card rounded-2xl p-4 space-y-2 text-xs';
+                d.innerHTML = `<div class="flex justify-between font-bold text-heading-theme"><span>${b.name} (${b.phone})</span><span class="accent-text">${b.price} ₽</span></div><div class="text-muted-theme">📅 ${b.date} в ${minutesToTime(b.startMin)} • ${b.service}</div>`;
+                c.appendChild(d);
+            });
+        }
+        function cancelBooking(id) {
+            if (confirm('Отменить запись?')) {
+                saveSchedule(getStoredSchedule().filter(x => x.id !== id));
+                renderMasterTimeline();
+                renderMasterFullList();
+            }
+        }
+        function quickBlock(min) {
+            const n = prompt('Причина блокировки окна:', 'Личные дела');
+            if (!n) return;
+            const s = getStoredSchedule();
+            s.push({ id: Date.now(), date: masterSelectedDateStr, startMin: min, duration: 90, name: n, phone: 'Мастер', service: 'Перерыв', price: 0 });
+            saveSchedule(s);
+            renderMasterTimeline();
+            renderMasterFullList();
+        }
+        function resetAllDemoData() {
+            if (confirm('Сбросить базу к демо-записям?')) { localStorage.removeItem('elena_schedule_v2'); renderMasterTimeline(); renderMasterFullList(); }
+        }
+        function openAddModal() {
+            document.getElementById('manualDateInput').value = masterSelectedDateStr;
+            document.getElementById('addModal').classList.remove('hidden');
+            document.getElementById('addModal').classList.add('flex');
+        }
+        function closeAddModal() {
+            document.getElementById('addModal').classList.add('hidden');
+            document.getElementById('addModal').classList.remove('flex');
+        }
+        function populateManualModal() {
+            const st = document.getElementById('manualTimeSelect');
+            st.innerHTML = '';
+            for (let m = WORK_DAY_START; m < WORK_DAY_END; m += 30) {
+                st.innerHTML += `<option value="${m}">${minutesToTime(m)}</option>`;
+            }
+            const ss = document.getElementById('manualServiceSelect');
+            ss.innerHTML = '';
+            fullPriceList.forEach(x => {
+                ss.innerHTML += `<option value="${x.id}">${x.title} — ${x.price} ₽</option>`;
+            });
+        }
+        function autoFillManualPrice() {
+            const s = fullPriceList.find(x => x.id === document.getElementById('manualServiceSelect').value);
+            if (s) document.getElementById('manualPriceInput').value = s.price;
+        }
+        function saveManualEntry() {
+            const n = document.getElementById('manualName').value.trim();
+            if (!n) return alert('Введите имя');
+            const s = fullPriceList.find(x => x.id === document.getElementById('manualServiceSelect').value);
+            const list = getStoredSchedule();
+            list.push({
+                id: Date.now(),
+                date: document.getElementById('manualDateInput').value,
+                startMin: parseInt(document.getElementById('manualTimeSelect').value),
+                duration: s ? s.duration : 90,
+                name: n,
+                phone: document.getElementById('manualPhone').value || 'Без тел.',
+                service: s ? s.title : 'Услуга',
+                price: parseInt(document.getElementById('manualPriceInput').value) || 1700
+            });
+            saveSchedule(list);
+            closeAddModal();
+            renderMasterTimeline();
+            renderMasterFullList();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePhotoModal();
+                closeLightbox();
+                closeReviewModal();
+                closePinModal();
+                closeConfirmModal();
+                closeAddModal();
+                const pop = document.getElementById('headerThemePopover');
+                const chev = document.getElementById('headerThemeChevron');
+                if (pop) pop.classList.add('hidden');
+                if (chev) chev.classList.remove('rotate-180');
+            }
+        });
+
+        // ================= INITIALIZATION =================
+        document.addEventListener('DOMContentLoaded', () => {
+            setTheme(currentTheme, false);
+            if (!soundEnabled) document.getElementById('soundIcon').textContent = '🔇';
+            initHeroPhoto();
+            renderGallery();
+            renderReviews();
+
+            const today = toLocalISO(new Date());
+            selectedDateStr = today;
+            masterSelectedDateStr = today;
+
+            renderServicesList();
+            calculateCartTotals();
+            renderDaysScroll();
             recomputeAvailableSlots();
             populateManualModal();
             lucide.createIcons();
@@ -531,603 +2014,6 @@
                 grantMasterMode();
             }
         });
-
-        // 1. SERVICES
-        function switchCategory(cat) {
-            activeCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(b => {
-                if (b.id === `catBtn-${cat}`) {
-                    b.className = 'cat-btn flex-1 py-2 rounded-xl bg-white text-nude-900 shadow-sm transition-all';
-                } else {
-                    b.className = 'cat-btn flex-1 py-2 rounded-xl text-nude-700 hover:text-nude-900 transition-all';
-                }
-            });
-            renderServices();
-        }
-
-        function toggleService(id) {
-            if (selectedServiceIds.has(id)) {
-                if (selectedServiceIds.size > 1) selectedServiceIds.delete(id);
-            } else {
-                selectedServiceIds.add(id);
-            }
-            renderServices();
-            calculateCartTotals();
-            recomputeAvailableSlots();
-        }
-
-        function renderServices() {
-            const container = document.getElementById('servicesContainer');
-            container.innerHTML = '';
-
-            const list = fullPriceList.filter(s => s.cat === activeCategory);
-            list.forEach(s => {
-                const isSelected = selectedServiceIds.has(s.id);
-                const card = document.createElement('div');
-                card.onclick = () => toggleService(s.id);
-                card.className = `p-3 rounded-2xl cursor-pointer border transition-all ${
-                    isSelected ? 'bg-terracotta-light/70 border-terracotta shadow-sm' : 'bg-white hover:bg-nude-100/50 border-nude-200'
-                }`;
-
-                card.innerHTML = `
-                    <div class="flex items-start justify-between gap-2">
-                        <div class="space-y-0.5 flex-1">
-                            <div class="flex items-center gap-1.5">
-                                <span class="font-bold text-xs text-nude-900">${s.title}</span>
-                                ${s.price === 0 ? '<span class="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Бесплатно</span>' : ''}
-                            </div>
-                            <p class="text-[11px] text-nude-600 leading-snug">${s.desc}</p>
-                            <span class="inline-flex items-center gap-1 text-[10px] text-nude-500 font-semibold pt-0.5">
-                                <i data-lucide="clock" class="w-3 h-3"></i>
-                                ~${s.duration} мин
-                            </span>
-                        </div>
-                        <div class="text-right">
-                            <div class="font-bold text-sm text-nude-900">${s.price.toLocaleString('ru-RU')} ₽</div>
-                            <div class="w-5 h-5 rounded-full border mt-1.5 ml-auto flex items-center justify-center text-[10px] ${
-                                isSelected ? 'bg-terracotta border-terracotta text-white font-bold' : 'border-nude-300 bg-white'
-                            }">${isSelected ? '✓' : ''}</div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-            lucide.createIcons();
-        }
-
-        function getCartStats() {
-            let sum = 0;
-            let duration = 0;
-            selectedServiceIds.forEach(id => {
-                const s = fullPriceList.find(x => x.id === id);
-                if (s) {
-                    sum += s.price;
-                    duration += s.duration;
-                }
-            });
-            return { sum, duration };
-        }
-
-        function calculateCartTotals() {
-            const { sum, duration } = getCartStats();
-            document.getElementById('totalSumDisplay').innerText = `${sum.toLocaleString('ru-RU')} ₽`;
-            document.getElementById('totalTimeDisplay').innerText = `(~${duration} мин)`;
-            document.getElementById('selectedDurationBadge').innerText = `Требуется ~${duration} мин`;
-        }
-
-        // 2. DAYS
-        function renderDaysScroll() {
-            const container = document.getElementById('daysScroll');
-            container.innerHTML = '';
-            const months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
-            const daysOfWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-
-            for (let i = 0; i < 10; i++) {
-                const date = new Date();
-                date.setDate(date.getDate() + i);
-                const iso = date.toISOString().split('T')[0];
-                const dayTitle = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : daysOfWeek[date.getDay()];
-                const dayNum = `${date.getDate()} ${months[date.getMonth()]}`;
-
-                const btn = document.createElement('button');
-                btn.onclick = () => {
-                    selectedDateStr = iso;
-                    renderDaysScroll();
-                    recomputeAvailableSlots();
-                };
-                const active = selectedDateStr === iso;
-                btn.className = `flex-shrink-0 px-3 py-2 rounded-2xl border text-center transition-all ${
-                    active ? 'bg-nude-900 text-white border-nude-900 shadow-sm' : 'bg-white text-nude-800 border-nude-200 hover:border-nude-400'
-                }`;
-                btn.innerHTML = `
-                    <div class="text-[9px] uppercase font-bold tracking-wider opacity-75">${dayTitle}</div>
-                    <div class="text-xs font-bold mt-0.5">${dayNum}</div>
-                `;
-                container.appendChild(btn);
-            }
-        }
-
-        // 3. SMART SLOTS
-        function recomputeAvailableSlots() {
-            const grid = document.getElementById('slotsGrid');
-            grid.innerHTML = '';
-            
-            const { duration: neededDuration } = getCartStats();
-            const schedule = getStoredSchedule();
-            const dayBookings = schedule.filter(b => b.date === selectedDateStr);
-
-            let firstValidSlot = null;
-
-            for (let start = WORK_DAY_START; start <= WORK_DAY_END - 30; start += SLOT_STEP) {
-                const end = start + neededDuration;
-                const fitsInDay = end <= WORK_DAY_END;
-                const hasConflict = dayBookings.some(b => {
-                    const bStart = b.startMin;
-                    const bEnd = b.startMin + b.duration;
-                    return Math.max(start, bStart) < Math.min(end, bEnd);
-                });
-
-                const isAvailable = fitsInDay && !hasConflict;
-                if (isAvailable && !firstValidSlot) firstValidSlot = start;
-
-                const slotBtn = document.createElement('button');
-                const timeLabel = minutesToTime(start);
-                const endLabel = minutesToTime(end);
-
-                if (isAvailable) {
-                    const isSelected = selectedTimeSlot === timeLabel;
-                    slotBtn.className = `py-2.5 px-2 rounded-xl text-xs font-bold border transition-all text-center ${
-                        isSelected 
-                            ? 'bg-terracotta text-white border-terracotta shadow-sm ring-2 ring-terracotta/30' 
-                            : 'bg-white text-nude-900 border-nude-200 hover:border-terracotta'
-                    }`;
-                    slotBtn.innerHTML = `
-                        <div>${timeLabel}</div>
-                        <div class="text-[9px] font-normal opacity-75">до ${endLabel}</div>
-                    `;
-                    slotBtn.onclick = () => selectSlot(timeLabel, endLabel);
-                } else {
-                    slotBtn.disabled = true;
-                    slotBtn.className = 'py-2.5 px-2 rounded-xl text-xs font-medium border border-nude-200/60 bg-nude-100/60 text-nude-400 cursor-not-allowed text-center line-through';
-                    slotBtn.innerHTML = `
-                        <div>${timeLabel}</div>
-                        <div class="text-[9px] uppercase tracking-wider text-rose-400 font-bold">Занято</div>
-                    `;
-                }
-
-                grid.appendChild(slotBtn);
-            }
-
-            if (firstValidSlot && (!selectedTimeSlot || !grid.querySelector('.bg-terracotta'))) {
-                selectSlot(minutesToTime(firstValidSlot), minutesToTime(firstValidSlot + neededDuration));
-            } else if (!firstValidSlot) {
-                selectedTimeSlot = '';
-                document.getElementById('slotNotice').className = 'text-xs text-rose-800 bg-rose-50 border border-rose-200 p-2.5 rounded-xl mt-3 flex items-center gap-2';
-                document.getElementById('slotNoticeText').innerText = 'На этот день нет свободного окна такой длительности. Выберите другой день!';
-            }
-        }
-
-        function selectSlot(timeStr, endStr) {
-            selectedTimeSlot = timeStr;
-            document.querySelectorAll('#slotsGrid button').forEach(btn => {
-                if (btn.innerText.includes(timeStr)) {
-                    btn.className = 'py-2.5 px-2 rounded-xl text-xs font-bold border transition-all text-center bg-terracotta text-white border-terracotta shadow-sm ring-2 ring-terracotta/30';
-                } else if (!btn.disabled) {
-                    btn.className = 'py-2.5 px-2 rounded-xl text-xs font-bold border transition-all text-center bg-white text-nude-900 border-nude-200 hover:border-terracotta';
-                }
-            });
-
-            document.getElementById('slotNotice').className = 'text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 p-2.5 rounded-xl mt-3 flex items-center gap-2';
-            document.getElementById('slotNoticeText').innerText = `Выбрано: ${timeStr} (процедура продлится до ${endStr})`;
-            lucide.createIcons();
-        }
-
-        // 4. CLIENT BOOKING
-        function submitClientBooking() {
-            const name = document.getElementById('custName').value.trim();
-            const phone = document.getElementById('custPhone').value.trim();
-            const note = document.getElementById('custNote').value.trim();
-
-            if (!name) { alert('Пожалуйста, введите ваше имя'); return; }
-            if (!phone) { alert('Пожалуйста, укажите телефон для связи'); return; }
-            if (!selectedTimeSlot) { alert('Пожалуйста, выберите свободное время'); return; }
-
-            const { sum, duration } = getCartStats();
-            const startMin = timeToMinutes(selectedTimeSlot);
-
-            const servicesTitleList = Array.from(selectedServiceIds)
-                .map(id => fullPriceList.find(x => x.id === id).title)
-                .join(', ');
-
-            const schedule = getStoredSchedule();
-            const newBooking = {
-                id: Date.now(),
-                date: selectedDateStr,
-                startMin: startMin,
-                duration: duration,
-                name: name,
-                phone: phone,
-                note: note,
-                service: servicesTitleList,
-                price: sum
-            };
-            schedule.push(newBooking);
-            saveSchedule(schedule);
-
-            lastSavedBooking = newBooking;
-            recomputeAvailableSlots();
-
-            document.getElementById('modalSummaryBox').innerHTML = `
-                <div><span class="text-nude-500">Клиент:</span> <strong>${name}</strong> (${phone})</div>
-                <div><span class="text-nude-500">Дата и время:</span> <strong>${selectedDateStr} в ${selectedTimeSlot}</strong> (~${duration} мин)</div>
-                <div><span class="text-nude-500">Услуги:</span> ${servicesTitleList}</div>
-                <div><span class="text-nude-500">К оплате:</span> <strong class="text-emerald-700">${sum.toLocaleString('ru-RU')} ₽</strong></div>
-                ${note ? `<div><span class="text-nude-500">Заметка:</span> ${note}</div>` : ''}
-            `;
-
-            document.getElementById('confirmModal').classList.remove('hidden');
-        }
-
-        function closeConfirmModal() {
-            document.getElementById('confirmModal').classList.add('hidden');
-        }
-
-        function sendToVK() {
-            const b = lastSavedBooking;
-            if (!b) return;
-            const text = `Здравствуйте, Елена Александровна! Записалась к вам через Elen Beauty:\n` +
-                         `✨ Услуга: ${b.service}\n` +
-                         `📅 Дата: ${b.date} в ${minutesToTime(b.startMin)}\n` +
-                         `💰 Стоимость: ${b.price} ₽\n` +
-                         `👤 Имя: ${b.name} (${b.phone})`;
-
-            navigator.clipboard.writeText(text);
-            window.open('https://vk.com/im', '_blank');
-            closeConfirmModal();
-            alert('Текст скопирован! Вставьте его в диалог во ВКонтакте.');
-        }
-
-        function sendToWhatsApp() {
-            const b = lastSavedBooking;
-            if (!b) return;
-            const text = `Здравствуйте, Елена Александровна! Записалась к вам через Elen Beauty:\n` +
-                         `✨ Услуга: ${b.service}\n` +
-                         `📅 Дата: ${b.date} в ${minutesToTime(b.startMin)}\n` +
-                         `💰 Стоимость: ${b.price} ₽\n` +
-                         `👤 Имя: ${b.name} (${b.phone})`;
-
-            window.open(`https://wa.me/79000000000?text=${encodeURIComponent(text)}`, '_blank');
-            closeConfirmModal();
-        }
-
-        // --- CALENDAR COLLAB ENGINE (ЯНДЕКС.КАЛЕНДАРЬ + .ICS) ---
-        function addToYandexCalendar(b) {
-            if (!b) return;
-            const startStr = `${b.date}T${minutesToTime(b.startMin)}:00`;
-            const endStr = `${b.date}T${minutesToTime(b.startMin + b.duration)}:00`;
-            const title = `Elen Beauty: ${b.service}`;
-            const desc = `Запись к Елене Латыповой (${b.service}). Стоимость: ${b.price} руб.`;
-            const loc = `г. Курган, Elen Beauty`;
-
-            const url = `https://calendar.yandex.ru/event?name=${encodeURIComponent(title)}&start=${startStr}&end=${endStr}&description=${encodeURIComponent(desc)}&location=${encodeURIComponent(loc)}`;
-            window.open(url, '_blank');
-        }
-
-        function downloadIcsFile(b) {
-            if (!b) return;
-            const dateClean = b.date.replace(/-/g, '');
-            const startH = Math.floor(b.startMin / 60).toString().padStart(2, '0');
-            const startM = (b.startMin % 60).toString().padStart(2, '0');
-            const endH = Math.floor((b.startMin + b.duration) / 60).toString().padStart(2, '0');
-            const endM = ((b.startMin + b.duration) % 60).toString().padStart(2, '0');
-
-            const dtStart = `${dateClean}T${startH}${startM}00`;
-            const dtEnd = `${dateClean}T${endH}${endM}00`;
-            const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-
-            const icsData = [
-                'BEGIN:VCALENDAR',
-                'VERSION:2.0',
-                'PRODID:-//Elen Beauty//Курган//RU',
-                'CALSCALE:GREGORIAN',
-                'METHOD:PUBLISH',
-                'BEGIN:VEVENT',
-                `UID:elen-beauty-${b.id}@kurgan.ru`,
-                `DTSTAMP:${now}`,
-                `DTSTART:${dtStart}`,
-                `DTEND:${dtEnd}`,
-                `SUMMARY:Elen Beauty: ${b.service}`,
-                `DESCRIPTION:Клиент: ${b.name}, Тел: ${b.phone}, Стоимость: ${b.price} руб.`,
-                'LOCATION:г. Курган, Студия Elen Beauty',
-                'STATUS:CONFIRMED',
-                'END:VEVENT',
-                'END:VCALENDAR'
-            ].join('\r\n');
-
-            const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.setAttribute('download', `elen_beauty_${b.date}.ics`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // 5. MASTER MODE & MANUAL CLIENT ADDING
-        function requestMasterAccess() {
-            if (sessionStorage.getItem('master_auth') === 'true') {
-                grantMasterMode();
-            } else {
-                document.getElementById('pinInput').value = '';
-                document.getElementById('pinModal').classList.remove('hidden');
-                document.getElementById('pinInput').focus();
-            }
-        }
-
-        function closePinModal() {
-            document.getElementById('pinModal').classList.add('hidden');
-        }
-
-        function verifyPin() {
-            const pin = document.getElementById('pinInput').value.trim();
-            if (pin === MASTER_PIN) {
-                sessionStorage.setItem('master_auth', 'true');
-                closePinModal();
-                grantMasterMode();
-            } else {
-                alert('Неверный PIN-код. Попробуйте еще раз.');
-                document.getElementById('pinInput').value = '';
-                document.getElementById('pinInput').focus();
-            }
-        }
-
-        function grantMasterMode() {
-            isMaster = true;
-            document.getElementById('clientView').classList.add('hidden');
-            document.getElementById('masterView').classList.remove('hidden');
-            document.getElementById('stickyBar').classList.add('hidden');
-            document.getElementById('masterLogoutBtn').classList.remove('hidden');
-
-            renderMasterDaysBar();
-            renderMasterTimeline();
-            renderMasterFullList();
-            lucide.createIcons();
-        }
-
-        function logoutMaster() {
-            isMaster = false;
-            sessionStorage.removeItem('master_auth');
-            window.location.hash = '';
-            document.getElementById('clientView').classList.remove('hidden');
-            document.getElementById('masterView').classList.add('hidden');
-            document.getElementById('stickyBar').classList.remove('hidden');
-            document.getElementById('masterLogoutBtn').classList.add('hidden');
-            recomputeAvailableSlots();
-            lucide.createIcons();
-        }
-
-        function renderMasterDaysBar() {
-            const container = document.getElementById('masterDaysBar');
-            container.innerHTML = '';
-            for (let i = 0; i < 7; i++) {
-                const date = new Date();
-                date.setDate(date.getDate() + i);
-                const iso = date.toISOString().split('T')[0];
-                const active = masterSelectedDateStr === iso;
-
-                const b = document.createElement('button');
-                b.onclick = () => {
-                    masterSelectedDateStr = iso;
-                    renderMasterDaysBar();
-                    renderMasterTimeline();
-                };
-                b.className = `px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap border transition-all ${
-                    active ? 'bg-nude-900 text-white border-nude-900' : 'bg-white text-nude-800 border-nude-200'
-                }`;
-                b.innerText = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : iso.slice(5);
-                container.appendChild(b);
-            }
-        }
-
-        function renderMasterTimeline() {
-            const container = document.getElementById('masterTimeline');
-            container.innerHTML = '';
-
-            const schedule = getStoredSchedule();
-            const dayItems = schedule.filter(b => b.date === masterSelectedDateStr);
-
-            let dayIncome = 0;
-            dayItems.forEach(b => dayIncome += b.price);
-            document.getElementById('masterDayCount').innerText = dayItems.length;
-            document.getElementById('masterDayIncome').innerText = `${dayIncome.toLocaleString('ru-RU')} ₽`;
-
-            for (let min = WORK_DAY_START; min < WORK_DAY_END; min += 30) {
-                const timeStr = minutesToTime(min);
-                const activeBooking = dayItems.find(b => min >= b.startMin && min < (b.startMin + b.duration));
-
-                const row = document.createElement('div');
-                row.className = 'flex items-center gap-2 text-xs py-1.5 border-b border-nude-100';
-
-                if (activeBooking) {
-                    const isFirstHalfHour = min === activeBooking.startMin;
-                    row.innerHTML = `
-                        <div class="w-12 font-bold text-nude-500">${timeStr}</div>
-                        <div class="flex-1 p-2.5 rounded-2xl bg-terracotta-light border border-terracotta/40 space-y-1">
-                            <div class="flex items-center justify-between">
-                                <span class="font-bold text-nude-900 text-xs">${activeBooking.name}</span>
-                                <span class="font-bold text-emerald-800 text-xs">${activeBooking.price} ₽</span>
-                            </div>
-                            <div class="text-[11px] text-nude-700">
-                                ${activeBooking.service} (~${activeBooking.duration} мин)
-                            </div>
-                            ${isFirstHalfHour ? `
-                                <div class="flex items-center gap-2 pt-1 border-t border-terracotta/20 text-[10px]">
-                                    <button onclick="addToYandexCalendar(${JSON.stringify(activeBooking).replace(/"/g, '&quot;')})" class="text-amber-800 hover:underline font-bold">
-                                        📅 В Яндекс.Календарь
-                                    </button>
-                                    <button onclick="downloadIcsFile(${JSON.stringify(activeBooking).replace(/"/g, '&quot;')})" class="text-nude-600 hover:underline">
-                                        📥 .ics
-                                    </button>
-                                    <button onclick="cancelBooking(${activeBooking.id})" class="text-rose-600 hover:underline font-bold ml-auto">
-                                        Отменить
-                                    </button>
-                                </div>
-                            ` : ''}
-                        </div>
-                    `;
-                } else {
-                    row.innerHTML = `
-                        <div class="w-12 font-semibold text-nude-400">${timeStr}</div>
-                        <div class="flex-1 py-1.5 px-3 rounded-xl bg-emerald-50/50 border border-emerald-100/80 text-emerald-700 text-[11px] flex items-center justify-between">
-                            <span>Свободное окно</span>
-                            <button onclick="quickBlock(${min})" class="text-[10px] text-nude-500 hover:text-nude-800 font-semibold">+ Занять</button>
-                        </div>
-                    `;
-                }
-                container.appendChild(row);
-            }
-        }
-
-        function renderMasterFullList() {
-            const container = document.getElementById('masterFullList');
-            container.innerHTML = '';
-            const schedule = getStoredSchedule();
-
-            schedule.forEach(b => {
-                const card = document.createElement('div');
-                card.className = 'p-3 rounded-2xl bg-white border border-nude-200 shadow-sm space-y-1.5 text-xs';
-                card.innerHTML = `
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <span class="font-bold text-nude-900">${b.name}</span>
-                            <a href="tel:${b.phone}" class="block text-[11px] text-terracotta hover:underline">${b.phone}</a>
-                        </div>
-                        <span class="font-bold text-emerald-700">${b.price} ₽</span>
-                    </div>
-                    <div class="text-[11px] text-nude-600">
-                        📅 <strong>${b.date} в ${minutesToTime(b.startMin)}</strong> (~${b.duration} мин) | 💅 ${b.service}
-                    </div>
-                    <div class="flex items-center gap-2 pt-1 border-t border-nude-100 text-[10px]">
-                        <button onclick="addToYandexCalendar(${JSON.stringify(b).replace(/"/g, '&quot;')})" class="px-2 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 font-bold">
-                            📅 Яндекс.Календарь
-                        </button>
-                        <button onclick="downloadIcsFile(${JSON.stringify(b).replace(/"/g, '&quot;')})" class="px-2 py-1 rounded-lg bg-nude-100 text-nude-800 font-semibold">
-                            📥 .ics
-                        </button>
-                        <button onclick="cancelBooking(${b.id})" class="text-rose-600 font-bold hover:underline ml-auto">
-                            Удалить
-                        </button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function cancelBooking(id) {
-            if (confirm('Отменить эту запись? Окно снова станет свободным для клиентов.')) {
-                let schedule = getStoredSchedule().filter(x => x.id !== id);
-                saveSchedule(schedule);
-                renderMasterTimeline();
-                renderMasterFullList();
-            }
-        }
-
-        function quickBlock(startMin) {
-            const name = prompt('Кто придет или повод блокировки (Личные дела / Обед / Подруга):', 'Личные дела');
-            if (!name) return;
-            const schedule = getStoredSchedule();
-            schedule.push({
-                id: Date.now(),
-                date: masterSelectedDateStr,
-                startMin: startMin,
-                duration: 90,
-                name: name,
-                phone: 'Ручной ввод',
-                service: 'Индивидуально / перерыв',
-                price: 0
-            });
-            saveSchedule(schedule);
-            renderMasterTimeline();
-            renderMasterFullList();
-        }
-
-        function resetAllDemoData() {
-            if (confirm('Сбросить график к базовым записям?')) {
-                localStorage.removeItem('elena_schedule_v2');
-                renderMasterTimeline();
-                renderMasterFullList();
-            }
-        }
-
-        // MANUAL CLIENT ADDING MODAL
-        function openAddModal() {
-            document.getElementById('manualDateInput').value = masterSelectedDateStr;
-            document.getElementById('addModal').classList.remove('hidden');
-        }
-        function closeAddModal() {
-            document.getElementById('addModal').classList.add('hidden');
-        }
-        function populateManualModal() {
-            const selTime = document.getElementById('manualTimeSelect');
-            selTime.innerHTML = '';
-            for (let m = WORK_DAY_START; m < WORK_DAY_END; m += 30) {
-                const opt = document.createElement('option');
-                opt.value = m;
-                opt.innerText = minutesToTime(m);
-                selTime.appendChild(opt);
-            }
-
-            const selServ = document.getElementById('manualServiceSelect');
-            selServ.innerHTML = '';
-            fullPriceList.forEach(s => {
-                const opt = document.createElement('option');
-                opt.value = s.id;
-                opt.innerText = `[${s.cat === 'manicure' ? 'Маникюр' : s.cat === 'pedicure' ? 'Педикюр' : 'Ресницы'}] ${s.title} — ${s.price} ₽`;
-                selServ.appendChild(opt);
-            });
-            autoFillManualPrice();
-        }
-
-        function autoFillManualPrice() {
-            const sId = document.getElementById('manualServiceSelect').value;
-            const s = fullPriceList.find(x => x.id === sId);
-            if (s) {
-                document.getElementById('manualPriceInput').value = s.price;
-            }
-        }
-
-        function saveManualEntry() {
-            const name = document.getElementById('manualName').value.trim();
-            const phone = document.getElementById('manualPhone').value.trim() || 'Без телефона';
-            const date = document.getElementById('manualDateInput').value;
-            const startMin = parseInt(document.getElementById('manualTimeSelect').value);
-            const sId = document.getElementById('manualServiceSelect').value;
-            const s = fullPriceList.find(x => x.id === sId);
-            const duration = s ? s.duration : 90;
-            const serviceTitle = s ? s.title : 'Услуга';
-            const price = parseInt(document.getElementById('manualPriceInput').value) || (s ? s.price : 1700);
-            const note = document.getElementById('manualNoteInput').value.trim();
-
-            if (!name) { alert('Пожалуйста, введите имя клиента'); return; }
-
-            const schedule = getStoredSchedule();
-            schedule.push({
-                id: Date.now(),
-                date: date,
-                startMin: startMin,
-                duration: duration,
-                name: name,
-                phone: phone,
-                service: serviceTitle,
-                price: price,
-                note: note
-            });
-            saveSchedule(schedule);
-            closeAddModal();
-            renderMasterTimeline();
-            renderMasterFullList();
-            alert(`Клиент ${name} успешно записан в график! Окно автоматически занято.`);
-        }
     </script>
 </body>
 </html>
