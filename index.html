@@ -249,22 +249,48 @@
         [data-theme="noir"] .text-emerald-600 {
             color: #34D399 !important;
         }
+        [data-theme="noir"] .text-amber-800,
         [data-theme="noir"] .text-amber-700,
         [data-theme="noir"] .text-amber-600 {
             color: #FBBF24 !important;
         }
+        input:not([type="checkbox"]):not([type="radio"]),
+        select,
+        textarea {
+            background-color: var(--bg-input);
+            border-color: var(--border-color);
+            color: var(--text-heading);
+        }
+        input[type="checkbox"] {
+            accent-color: var(--color-accent);
+        }
+
         [data-theme="noir"] .text-rose-500,
-        [data-theme="noir"] .text-rose-600 {
+        [data-theme="noir"] .text-rose-600,
+        [data-theme="noir"] .text-rose-700 {
             color: #FB7185 !important;
         }
-        [data-theme="noir"] a[href*="vk.com"] {
+        [data-theme="noir"] a[href*="vk.com"],
+        [data-theme="noir"] a[href*="max.ru"],
+        [data-theme="noir"] .text-\[\#005CE6\] {
             color: #60A5FA !important;
         }
         [data-theme="noir"] a[href*="wa.me"] {
             color: #4ADE80 !important;
         }
-        [data-theme="noir"] a[href*="t.me"] {
+        [data-theme="noir"] a[href*="t.me"],
+        [data-theme="noir"] .text-\[\#0284C7\],
+        [data-theme="noir"] .text-\[\#0369A1\] {
             color: #38BDF8 !important;
+        }
+        [data-theme="noir"] option {
+            background-color: #181412;
+            color: #F8F4EC;
+        }
+        [data-theme="noir"] input::placeholder,
+        [data-theme="noir"] textarea::placeholder {
+            color: #9E9184 !important;
+            opacity: 1;
         }
         [data-theme="noir"] .hero-frame-border {
             border-color: rgba(212, 175, 55, 0.45) !important;
@@ -337,16 +363,16 @@
 
     <!-- Apple-Style Minimalist Top Navigation Bar -->
     <header class="sticky top-0 z-40 backdrop-blur-xl border-b transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-3 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
             
             <!-- Left: Brand Identity -->
-            <div class="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
-                <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-0.5 bg-gradient-to-tr from-[#C5A880] to-[#B36B56] shadow-sm flex-shrink-0">
+            <div class="flex items-center gap-2 sm:gap-3.5 min-w-0">
+                <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full p-0.5 bg-gradient-to-tr from-[#C5A880] to-[#B36B56] shadow-sm flex-shrink-0">
                     <img src="logo.jpg" alt="Elen Beauty" class="w-full h-full rounded-full object-cover border border-white">
                 </div>
                 <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                        <span class="font-serif text-lg sm:text-2xl font-bold tracking-tight text-heading-theme leading-none whitespace-nowrap">
+                        <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-heading-theme leading-none whitespace-nowrap">
                             Elen Beauty
                         </span>
                         <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 text-[10px] font-bold">
@@ -361,7 +387,7 @@
             </div>
 
             <!-- Right: Apple Frosted Controls -->
-            <div class="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+            <div class="flex items-center gap-1 sm:gap-2.5 flex-shrink-0">
 
                 <!-- Apple-Style Minimalist Theme Dropdown (Desktop & Tablet) -->
                 <div class="relative hidden sm:block" id="headerThemeDropdownWrap">
@@ -419,35 +445,40 @@
                 </div>
 
                 <!-- Mobile Theme Quick Toggle -->
-                <button onclick="cycleThemeMobile()" class="sm:hidden theme-surface-elevated w-8 h-8 rounded-full border text-xs font-bold flex items-center justify-center shadow-sm active:scale-95" title="Сменить тему">
+                <button onclick="cycleThemeMobile()" class="sm:hidden theme-surface-elevated w-7 h-7 rounded-full border text-xs font-bold flex items-center justify-center shadow-sm active:scale-95" title="Сменить тему">
                     <span id="mobileThemeEmoji">🌿</span>
                 </button>
 
                 <!-- Sound Toggle Pill -->
-                <button onclick="toggleSound()" id="soundToggleBtn" class="theme-surface-elevated w-8 h-8 sm:w-9 sm:h-9 rounded-full border text-xs font-bold flex items-center justify-center shadow-sm transition-all active:scale-95" title="Звуки кликов">
+                <button onclick="toggleSound()" id="soundToggleBtn" class="theme-surface-elevated w-7 h-7 sm:w-9 sm:h-9 rounded-full border text-xs font-bold flex items-center justify-center shadow-sm transition-all active:scale-95" title="Звуки кликов">
                     <span id="soundIcon">🔊</span>
                 </button>
 
                 <!-- Master Cabinet & Exit Buttons (Hidden until logged in) -->
-                <button onclick="toggleMasterModeView()" id="masterCabinetBtn" class="hidden text-xs font-bold px-3 py-1.5 rounded-full theme-surface-elevated border text-heading-theme hover:opacity-90 transition-all whitespace-nowrap">
+                <button onclick="toggleMasterModeView()" id="masterCabinetBtn" class="hidden text-[11px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full theme-surface-elevated border text-heading-theme hover:opacity-90 transition-all whitespace-nowrap">
                     Кабинет
                 </button>
-                <button onclick="logoutMaster()" id="masterLogoutBtn" class="hidden text-xs font-bold px-3 py-1.5 rounded-full bg-rose-500/15 text-rose-500 border border-rose-500/30 hover:bg-rose-500 hover:text-white transition-all whitespace-nowrap">
+                <button onclick="logoutMaster()" id="masterLogoutBtn" class="hidden text-[11px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-rose-500/15 text-rose-500 border border-rose-500/30 hover:bg-rose-500 hover:text-white transition-all whitespace-nowrap">
                     Выйти
                 </button>
 
-                <!-- Secondary Messenger Pills (Desktop only lg+ for generous gap) -->
+                <!-- Secondary Contact Pills (Desktop only) -->
+                <a id="headerPhoneBtn" href="#" title="Позвонить мастеру" class="hidden px-3 py-1.5 rounded-full theme-surface-elevated border text-heading-theme font-bold text-xs items-center gap-1.5 transition-all shadow-sm hover:opacity-85 active:scale-95 whitespace-nowrap">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 accent-text"></i>
+                    <span id="headerPhoneText"></span>
+                </a>
+
                 <a id="headerVkBtn" href="https://vk.com/im" target="_blank" rel="noopener noreferrer" title="Написать во ВКонтакте" class="hidden lg:flex px-3.5 py-1.5 rounded-full bg-[#0077FF]/10 hover:bg-[#0077FF]/20 text-[#005CE6] border border-[#0077FF]/25 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
                     <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                     <span>ВКонтакте</span>
                 </a>
 
-                <a id="headerWaBtn" href="https://wa.me/79000000000" target="_blank" rel="noopener noreferrer" title="Написать в WhatsApp" class="hidden lg:flex px-3.5 py-1.5 rounded-full bg-[#25D366]/10 hover:bg-[#25D366]/20 text-emerald-700 border border-[#25D366]/30 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
+                <a id="headerWaBtn" href="https://wa.me/79000000000" target="_blank" rel="noopener noreferrer" title="Написать в WhatsApp" class="hidden lg:flex px-3.5 py-1.5 rounded-full bg-[#25D366]/10 hover:bg-[#25D366]/20 text-emerald-800 border border-[#25D366]/30 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
                     <span class="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
                     <span>WhatsApp</span>
                 </a>
 
-                <a id="headerTgBtn" href="#" target="_blank" rel="noopener noreferrer" title="Написать в Telegram" class="hidden px-3.5 py-1.5 rounded-full bg-[#2AABEE]/10 hover:bg-[#2AABEE]/20 text-[#0284C7] border border-[#2AABEE]/30 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
+                <a id="headerTgBtn" href="#" target="_blank" rel="noopener noreferrer" title="Написать в Telegram" class="hidden px-3.5 py-1.5 rounded-full bg-[#2AABEE]/10 hover:bg-[#2AABEE]/20 text-[#0369A1] border border-[#2AABEE]/30 font-bold text-xs items-center gap-1.5 transition-all shadow-sm active:scale-95">
                     <i data-lucide="send" class="w-3.5 h-3.5"></i>
                     <span>Telegram</span>
                 </a>
@@ -458,7 +489,7 @@
                 </a>
 
                 <!-- Primary Apple Action Pill -->
-                <a id="headerBookingCta" href="#bookingSection" class="accent-bg px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs shadow-md transition-all flex items-center gap-1.5 active:scale-95">
+                <a id="headerBookingCta" href="#bookingSection" class="accent-bg px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full font-bold text-xs shadow-md transition-all flex items-center gap-1 sm:gap-1.5 active:scale-95">
                     <span class="hidden sm:inline">Запись онлайн</span>
                     <span class="sm:hidden text-[11px] font-extrabold">Запись</span>
                     <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
@@ -738,10 +769,14 @@
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div>
                     <div class="flex flex-wrap items-center gap-2 mb-1">
-                        <span id="reviewsRatingBadge" class="px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 text-xs font-extrabold">Новая запись • 0 отзывов</span>
+                        <span id="reviewsRatingBadge" class="px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-800 border border-amber-500/25 text-xs font-extrabold">Новая запись • 0 отзывов</span>
                         <span id="reviewsRatingSub" class="text-xs font-semibold text-muted-theme">Отзывы гостей сохраняются в облаке</span>
                         <a id="reviewsAvitoLink" href="#" target="_blank" rel="noopener noreferrer" class="hidden inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full theme-surface-elevated border accent-border text-[11px] font-bold text-heading-theme hover:opacity-85 transition-all">
                             <span>Отзывы на Авито</span>
+                            <i data-lucide="external-link" class="w-3 h-3 accent-text"></i>
+                        </a>
+                        <a id="reviewsChannelLink" href="#" target="_blank" rel="noopener noreferrer" class="hidden inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full theme-surface-elevated border accent-border text-[11px] font-bold text-heading-theme hover:opacity-85 transition-all">
+                            <span>Канал отзывов</span>
                             <i data-lucide="external-link" class="w-3 h-3 accent-text"></i>
                         </a>
                     </div>
@@ -865,6 +900,7 @@
                 <a id="footerTgLink" href="#" target="_blank" rel="noopener noreferrer" class="hidden hover:text-[#0284C7] transition-colors font-bold">Telegram</a>
                 <a id="footerMaxLink" href="#" target="_blank" rel="noopener noreferrer" class="hidden hover:text-[#005CE6] transition-colors font-bold">МАКС</a>
                 <a id="footerAvitoLink" href="#" target="_blank" rel="noopener noreferrer" class="hidden hover:text-heading-theme transition-colors font-bold">Отзывы на Авито</a>
+                <a id="footerReviewsChannelLink" href="#" target="_blank" rel="noopener noreferrer" class="hidden hover:text-heading-theme transition-colors font-bold">Канал отзывов</a>
                 <button onclick="requestMasterAccess()" class="hover:text-heading-theme inline-flex items-center gap-1.5 font-semibold transition-colors">
                     <i data-lucide="lock" class="w-3.5 h-3.5"></i>
                     <span>Вход для мастера (PIN)</span>
@@ -1011,6 +1047,22 @@
                     <div class="text-xs text-muted-theme mt-0.5">Изменения публикуются на сайт сразу для всех гостей после нажатия кнопки сохранения.</div>
                 </div>
 
+                <!-- Default Site Theme Selector -->
+                <div class="p-3.5 rounded-2xl theme-surface-elevated border space-y-2 text-xs">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <label for="cfgDefaultTheme" class="font-extrabold uppercase tracking-wider accent-text text-[11px] block">Тема сайта по умолчанию</label>
+                            <div class="text-[11px] text-muted-theme mt-0.5">Применяется новым гостям сайта (если гость сам не выбрал другую тему в шапке)</div>
+                        </div>
+                        <select id="cfgDefaultTheme" class="w-full sm:w-64 px-3 py-2.5 rounded-xl border text-xs font-bold">
+                            <option value="nude">🌿 Тёплый Нюд (по умолчанию)</option>
+                            <option value="rose">🌸 Нежная Роза</option>
+                            <option value="pearl">💎 Жемчуг &amp; Графит</option>
+                            <option value="noir">🖤 Вечерний Вельвет (Тёмная)</option>
+                        </select>
+                    </div>
+                </div>
+
                 <!-- Hero & Studio -->
                 <div class="space-y-3 text-xs">
                     <div class="font-extrabold uppercase tracking-wider accent-text text-[11px]">Главный экран и студия</div>
@@ -1040,39 +1092,53 @@
 
                 <!-- Contacts & Messengers -->
                 <div class="space-y-3 text-xs pt-3 border-t accent-border">
-                    <div class="font-extrabold uppercase tracking-wider accent-text text-[11px]">Контакты, мессенджеры и Авито</div>
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="font-extrabold uppercase tracking-wider accent-text text-[11px]">Контакты, мессенджеры и Авито</div>
+                        <button type="button" id="cfgSyncMessengersBtn" onclick="syncMessengersFromPhone({ showFeedback: true })" class="px-3 py-1.5 rounded-xl theme-surface-elevated border accent-border text-[11px] font-bold text-heading-theme hover:opacity-85 transition-all inline-flex items-center gap-1.5">
+                            <i data-lucide="refresh-cw" class="w-3 h-3 accent-text"></i>
+                            <span>Обновить мессенджеры из номера</span>
+                        </button>
+                    </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="font-bold text-muted-theme block mb-1">Телефон для отображения</label>
-                            <input type="text" id="cfgPhoneDisplay" placeholder="+7 900 000 00 00" class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <input type="text" id="cfgPhoneDisplay" placeholder="+7 900 000 00 00" oninput="handlePhoneDisplayInput()" onblur="handlePhoneDisplayBlur()" class="w-full px-3 py-2.5 rounded-xl border text-xs">
                         </div>
                         <div>
                             <label class="font-bold text-muted-theme block mb-1">Ссылка ВКонтакте</label>
-                            <input type="url" id="cfgVkUrl" placeholder="https://vk.com/..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <input type="text" id="cfgVkUrl" placeholder="https://vk.com/..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
                         </div>
                         <div>
                             <label class="font-bold text-muted-theme block mb-1">Ссылка WhatsApp</label>
-                            <input type="url" id="cfgWaUrl" placeholder="https://wa.me/79..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <input type="text" id="cfgWaUrl" placeholder="https://wa.me/79..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
                         </div>
                         <div>
                             <label class="font-bold text-muted-theme block mb-1">Ссылка Telegram (необязательно)</label>
-                            <input type="url" id="cfgTgUrl" placeholder="https://t.me/..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <input type="text" id="cfgTgUrl" placeholder="https://t.me/... или @user" onblur="normalizeTgInputField()" class="w-full px-3 py-2.5 rounded-xl border text-xs">
                         </div>
                         <div>
                             <label class="font-bold text-muted-theme block mb-1">Ссылка МАКС (необязательно)</label>
-                            <input type="url" id="cfgMaxUrl" placeholder="https://max.ru/..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <input type="text" id="cfgMaxUrl" placeholder="https://max.ru/u/+7..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
                         </div>
                         <div>
                             <label class="font-bold text-muted-theme block mb-1">Ссылка на Авито (необязательно)</label>
-                            <input type="url" id="cfgAvitoUrl" placeholder="https://www.avito.ru/..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <input type="text" id="cfgAvitoUrl" placeholder="https://www.avito.ru/..." class="w-full px-3 py-2.5 rounded-xl border text-xs">
                             <div class="text-[10px] text-muted-theme mt-1">Если ссылка заполнена, на сайте появится кнопка «Отзывы на Авито»</div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="font-bold text-muted-theme block mb-1">Канал отзывов в TG / МАКС (необязательно)</label>
+                            <input type="text" id="cfgReviewsChannelUrl" placeholder="https://t.me/... или @channel" onblur="normalizeReviewsChannelField()" class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            <div class="text-[10px] text-muted-theme mt-1">Если заполнено, в блоке отзывов и подвале сайта появится кнопка «Канал отзывов»</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Services & Prices Accordion -->
                 <div class="space-y-3 text-xs pt-3 border-t accent-border">
-                    <div class="font-extrabold uppercase tracking-wider accent-text text-[11px]">Прайс-лист и длительность услуг (33 позиции)</div>
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="font-extrabold uppercase tracking-wider accent-text text-[11px]">Прайс-лист и длительность услуг (<span id="cfgServicesCountLabel">33</span>)</div>
+                        <span class="text-[11px] text-muted-theme">Скрытые позиции убираются из калькулятора</span>
+                    </div>
                     <div id="cfgServicesContainer" class="space-y-3"></div>
                 </div>
 
@@ -1085,10 +1151,100 @@
 
         <!-- TAB 3: REVIEWS MODERATION & PIN -->
         <div id="masterTabReviews" class="hidden space-y-5">
+            <!-- 3-Step Owner Tips Box -->
+            <div class="glass-panel rounded-3xl p-4 sm:p-5 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider accent-text">Быстрый старт доверия</span>
+                        <h3 class="font-serif text-lg sm:text-xl font-bold text-heading-theme">Как собрать первые отзывы за 5 минут</h3>
+                    </div>
+                    <button type="button" onclick="switchMasterTab('texts')" class="px-3 py-1.5 rounded-xl theme-surface-elevated border text-[11px] font-bold text-heading-theme hover:opacity-85 transition-all">
+                        Ссылки в Контактах →
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                    <div class="p-3 rounded-2xl theme-surface-elevated border space-y-1">
+                        <div class="font-extrabold text-heading-theme">1. Канал отзывов TG / МАКС</div>
+                        <p class="text-[11px] text-muted-theme leading-relaxed">Создайте канал со скринами работ и благодарностей — добавьте ссылку во вкладке «Тексты, услуги и контакты».</p>
+                    </div>
+                    <div class="p-3 rounded-2xl theme-surface-elevated border space-y-1">
+                        <div class="font-extrabold text-heading-theme">2. Профиль и отзывы на Авито</div>
+                        <p class="text-[11px] text-muted-theme leading-relaxed">Укажите ссылку на объявление Авито — гости сразу увидят кнопку перехода к живым отзывам.</p>
+                    </div>
+                    <div class="p-3 rounded-2xl theme-surface-elevated border space-y-1">
+                        <div class="font-extrabold text-heading-theme">3. Первые 2–3 отзыва вручную</div>
+                        <p class="text-[11px] text-muted-theme leading-relaxed">Перенесите реальные отклики клиентов формой ниже — на сайт или сначала как скрытый черновик.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Review Form + Live Preview -->
             <div class="glass-panel rounded-3xl p-4 sm:p-6 space-y-4">
                 <div class="pb-3 border-b accent-border">
-                    <h3 class="font-serif text-xl font-bold text-heading-theme">Отзывы гостей (<span id="masterReviewsCount">0</span>)</h3>
-                    <div class="text-xs text-muted-theme mt-0.5">Скрытый или удалённый отзыв пропадёт со стены отзывов у всех посетителей</div>
+                    <h3 class="font-serif text-xl font-bold text-heading-theme">Добавить отзыв вручную</h3>
+                    <div class="text-xs text-muted-theme mt-0.5">Предпросмотр справа показывает точную карточку, которую увидят гости на сайте</div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+                    <form onsubmit="submitAdminReview(event)" class="lg:col-span-7 space-y-3 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label for="admRevAuthor" class="font-bold text-muted-theme block mb-1">Автор (имя клиента)</label>
+                                <input type="text" id="admRevAuthor" maxlength="80" placeholder="Например: Анна К." oninput="updateAdminReviewPreview()" class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            </div>
+                            <div>
+                                <label for="admRevRole" class="font-bold text-muted-theme block mb-1">Категория / процедура</label>
+                                <select id="admRevRole" onchange="updateAdminReviewPreview()" class="w-full px-3 py-2.5 rounded-xl border text-xs font-bold">
+                                    <option value="Маникюр">Маникюр</option>
+                                    <option value="Smart-педикюр">Smart-педикюр</option>
+                                    <option value="Наращивание ресниц">Наращивание ресниц</option>
+                                    <option value="Комплекс: маникюр + педикюр">Комплекс: маникюр + педикюр</option>
+                                    <option value="Клиент студии">Клиент студии</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="admRevRating" class="font-bold text-muted-theme block mb-1">Оценка</label>
+                                <select id="admRevRating" onchange="updateAdminReviewPreview()" class="w-full px-3 py-2.5 rounded-xl border text-xs font-bold">
+                                    <option value="5">★★★★★ (5 из 5)</option>
+                                    <option value="4">★★★★☆ (4 из 5)</option>
+                                    <option value="3">★★★☆☆ (3 из 5)</option>
+                                    <option value="2">★★☆☆☆ (2 из 5)</option>
+                                    <option value="1">★☆☆☆☆ (1 из 5)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="admRevDate" class="font-bold text-muted-theme block mb-1">Дата (ДД.ММ.ГГГГ)</label>
+                                <input type="text" id="admRevDate" maxlength="20" placeholder="11.11.2026" oninput="updateAdminReviewPreview()" class="w-full px-3 py-2.5 rounded-xl border text-xs">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="admRevText" class="font-bold text-muted-theme block mb-1">Текст отзыва</label>
+                            <textarea id="admRevText" rows="3" maxlength="1000" placeholder="Поделитесь отзывом клиента о процедуре..." oninput="updateAdminReviewPreview()" class="w-full px-3 py-2.5 rounded-xl border text-xs"></textarea>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                            <label class="inline-flex items-center gap-2 cursor-pointer select-none font-bold text-heading-theme">
+                                <input type="checkbox" id="admRevVisible" checked onchange="updateAdminReviewPreview()" class="w-4 h-4 rounded">
+                                <span>Показывать на сайте сразу</span>
+                            </label>
+                            <button type="submit" id="admRevSubmitBtn" class="accent-bg px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-md active:scale-95 transition-all">
+                                Добавить отзыв
+                            </button>
+                        </div>
+                    </form>
+                    <div class="lg:col-span-5 space-y-2">
+                        <div class="text-[11px] font-extrabold uppercase tracking-wider text-muted-theme">Предпросмотр карточки на сайте</div>
+                        <div id="admReviewLivePreview"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Moderation List (Visible & Hidden) -->
+            <div class="glass-panel rounded-3xl p-4 sm:p-6 space-y-4">
+                <div class="pb-3 border-b accent-border flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-heading-theme">Отзывы гостей (<span id="masterReviewsCount">0</span>)</h3>
+                        <div class="text-xs text-muted-theme mt-0.5">Можно скрывать, показывать снова или удалять любые отзывы гостей</div>
+                    </div>
+                    <div id="masterReviewsSummaryBadges" class="flex flex-wrap items-center gap-1.5 text-[11px] font-bold"></div>
                 </div>
                 <div id="masterReviewsList" class="space-y-2.5"></div>
             </div>
@@ -1309,6 +1465,10 @@
                     <span>Профиль на Авито</span>
                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
+                <a id="confirmPhoneBtn" href="#" class="hidden w-full py-2.5 rounded-full theme-surface-elevated border text-heading-theme font-bold text-xs flex items-center justify-center gap-2">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 accent-text"></i>
+                    <span id="confirmPhoneText">Позвонить мастеру</span>
+                </a>
                 <button type="button" onclick="closeConfirmModal()" class="w-full py-2 text-xs text-muted-theme font-bold">Закрыть</button>
             </div>
         </div>
@@ -1374,7 +1534,14 @@
             pearl: { emoji: '💎', label: 'Жемчуг' },
             noir: { emoji: '🖤', label: 'Вельвет' }
         };
-        let currentTheme = localStorage.getItem('elena_theme_v3') || 'nude';
+        function getInitialTheme() {
+            const manual = localStorage.getItem('elena_theme_manual');
+            if (manual && THEME_META[manual]) return manual;
+            const saved = localStorage.getItem('elena_theme_v3');
+            if (saved && THEME_META[saved]) return saved;
+            return 'nude';
+        }
+        let currentTheme = getInitialTheme();
         let soundEnabled = localStorage.getItem('elena_sound_v3') !== 'false';
         let audioCtx = null;
 
@@ -1396,11 +1563,14 @@
             } catch(e) {}
         }
 
-        function setTheme(themeName, sound = true) {
+        function setTheme(themeName, sound = true, isManual = false) {
             if (!THEME_META[themeName]) themeName = 'nude';
             currentTheme = themeName;
             document.documentElement.setAttribute('data-theme', themeName);
             localStorage.setItem('elena_theme_v3', themeName);
+            if (isManual) {
+                localStorage.setItem('elena_theme_manual', themeName);
+            }
 
             const m = THEME_META[themeName];
             const hEmoji = document.getElementById('headerThemeActiveEmoji');
@@ -1430,7 +1600,7 @@
         }
 
         function selectHeaderTheme(themeName) {
-            setTheme(themeName, true);
+            setTheme(themeName, true, true);
             document.getElementById('headerThemePopover').classList.add('hidden');
             document.getElementById('headerThemeChevron').classList.remove('rotate-180');
         }
@@ -1438,7 +1608,7 @@
         function cycleThemeMobile() {
             const keys = Object.keys(THEME_META);
             const next = keys[(keys.indexOf(currentTheme) + 1) % keys.length];
-            setTheme(next, true);
+            setTheme(next, true, true);
         }
 
         document.addEventListener('click', (e) => {
@@ -1523,6 +1693,64 @@
         function safeExternalUrl(url) {
             const trimmed = String(url || '').trim();
             return /^https?:\/\//i.test(trimmed) ? trimmed : '';
+        }
+
+        function normalizeRuPhone(raw) {
+            const trimmed = String(raw || '').trim();
+            if (!trimmed) return '';
+            const digits = trimmed.replace(/\D/g, '');
+            if (digits.length === 11 && digits.startsWith('8')) return '+7' + digits.slice(1);
+            if (digits.length === 11 && digits.startsWith('7')) return '+' + digits;
+            if (digits.length === 10 && digits.startsWith('9')) return '+7' + digits;
+            if (trimmed.startsWith('+') && digits.length >= 10) return '+' + digits;
+            return '';
+        }
+
+        function normalizeTelegramUrl(raw) {
+            const v = String(raw || '').trim();
+            if (!v) return '';
+            if (/^https?:\/\//i.test(v)) {
+                return v
+                    .replace(/^http:\/\//i, 'https://')
+                    .replace(/^(https:\/\/(?:t|telegram)\.me\/)@+/i, 'https://t.me/')
+                    .replace(/^https:\/\/telegram\.me\//i, 'https://t.me/');
+            }
+            if (/^(?:t|telegram)\.me\//i.test(v)) {
+                const path = v.replace(/^(?:t|telegram)\.me\//i, '').replace(/^@+/, '');
+                return path ? `https://t.me/${path}` : '';
+            }
+            if (v.startsWith('@')) {
+                const handle = v.replace(/^@+/, '').trim();
+                return handle ? `https://t.me/${handle}` : '';
+            }
+            const phone = normalizeRuPhone(v);
+            if (phone) return `https://t.me/${phone}`;
+            if (/^[A-Za-z0-9_]{3,}$/.test(v)) return `https://t.me/${v}`;
+            return '';
+        }
+
+        function normalizeExternalUrlInput(raw) {
+            const v = String(raw || '').trim();
+            if (!v) return '';
+            if (/^https?:\/\//i.test(v)) return v;
+            if (/^[a-z0-9.-]+\.[a-z]{2,}(\/|$)/i.test(v)) return `https://${v}`;
+            return v;
+        }
+
+        function normalizeReviewsChannelUrl(raw) {
+            const v = String(raw || '').trim();
+            if (!v) return '';
+            if (v.startsWith('@') || /^(?:t|telegram)\.me\//i.test(v)) {
+                return normalizeTelegramUrl(v);
+            }
+            return normalizeExternalUrlInput(v);
+        }
+
+        function getTodayRuDate() {
+            const d = new Date();
+            const dd = String(d.getDate()).padStart(2, '0');
+            const mm = String(d.getMonth() + 1).padStart(2, '0');
+            return `${dd}.${mm}.${d.getFullYear()}`;
         }
 
         function getLikedSet() {
@@ -1621,9 +1849,10 @@
             applyGalleryService(lightboxTargetServices);
         }
         function applyGalleryService(ids) {
-            const services = getServicesList();
+            const services = getVisibleServicesList();
             const validIds = (Array.isArray(ids) ? ids : []).filter(id => services.some(s => s.id === id));
-            selectedServiceIds = new Set(validIds.length ? validIds : [services[0]?.id || 'm_basic']);
+            const fallbackId = services[0]?.id;
+            selectedServiceIds = new Set(validIds.length ? validIds : (fallbackId ? [fallbackId] : []));
             const first = services.find(x => x.id === Array.from(selectedServiceIds)[0]);
             if (first) switchCategory(first.cat);
             else renderServicesList();
@@ -1681,6 +1910,7 @@
 
         const WEEKDAY_30_SLOTS = ['10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'];
         const DEFAULT_SITE_CONFIG = {
+            default_theme: 'nude',
             slot_step_min: 30,
             work_start_min: 540,
             work_end_min: 1200,
@@ -1696,7 +1926,8 @@
                 wa_url: 'https://wa.me/79000000000',
                 tg_url: '',
                 max_url: '',
-                avito_url: ''
+                avito_url: '',
+                reviews_channel_url: ''
             },
             services: DEFAULT_SERVICES,
             weekly_open_slots: {
@@ -1713,6 +1944,8 @@
         let siteConfig = JSON.parse(JSON.stringify(DEFAULT_SITE_CONFIG));
         let slotEntries = [];
         let publicReviews = [];
+        let adminReviews = [];
+        let cfgDraftServices = [];
         let masterBookings = [];
         let masterPin = '';
         let isMasterMode = false;
@@ -1732,6 +1965,9 @@
         function getSlotStep() { return Number(siteConfig.slot_step_min || 30); }
         function getServicesList() {
             return Array.isArray(siteConfig.services) && siteConfig.services.length > 0 ? siteConfig.services : DEFAULT_SERVICES;
+        }
+        function getVisibleServicesList() {
+            return getServicesList().filter(s => !s.hidden);
         }
         function getAllSlotTimes() {
             const list = [];
@@ -1755,6 +1991,7 @@
             if (m.includes('INVALID_CONTACT_INFO')) return 'Укажите корректное имя и номер телефона (от 4 символов).';
             if (m.includes('INVALID_BOOKING_DATE')) return 'Выбрана недопустимая дата для записи.';
             if (m.includes('INVALID_SLOT_TIME')) return 'Некорректное время слота.';
+            if (m.includes('INVALID_REVIEW')) return 'Укажите имя автора и текст отзыва (минимум 2 символа).';
             return m || 'Не удалось связаться с облачным расписанием.';
         }
 
@@ -1779,15 +2016,33 @@
             const base = JSON.parse(JSON.stringify(DEFAULT_SITE_CONFIG));
             if (!remoteCfg || typeof remoteCfg !== 'object') return base;
             const merged = { ...base, ...remoteCfg };
+            merged.default_theme = THEME_META[merged.default_theme] ? merged.default_theme : 'nude';
             merged.contacts = { ...base.contacts, ...(remoteCfg.contacts || {}) };
             merged.weekly_open_slots = { ...base.weekly_open_slots, ...(remoteCfg.weekly_open_slots || {}) };
             if (Array.isArray(remoteCfg.services) && remoteCfg.services.length > 0) {
-                merged.services = remoteCfg.services.map((s, idx) => {
-                    const match = base.services.find(b => b.id === s.id) || base.services[idx] || {};
-                    return { ...match, ...s };
+                merged.services = remoteCfg.services.map(s => {
+                    const match = base.services.find(b => b.id === s.id) || {};
+                    return { ...match, ...s, hidden: Boolean(s.hidden) };
                 });
             }
             return merged;
+        }
+
+        function toggleVisibleLink(id, url, flexDesktopOnly = false) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (url) {
+                el.href = url;
+                if (flexDesktopOnly) {
+                    el.classList.add('hidden', 'lg:flex');
+                } else {
+                    el.classList.remove('hidden');
+                }
+            } else {
+                el.href = '#';
+                el.classList.add('hidden');
+                if (flexDesktopOnly) el.classList.remove('lg:flex');
+            }
         }
 
         function applySiteConfigToDom() {
@@ -1818,44 +2073,35 @@
             const tgUrl = safeExternalUrl(contacts.tg_url);
             const maxUrl = safeExternalUrl(contacts.max_url);
             const avitoUrl = safeExternalUrl(contacts.avito_url);
+            const reviewsChannelUrl = safeExternalUrl(contacts.reviews_channel_url);
             const phoneDisp = String(contacts.phone_display || '').trim();
-            const phoneDigits = String(contacts.phone_raw || phoneDisp).replace(/[^\d+]/g, '');
+            const phoneDigits = normalizeRuPhone(contacts.phone_raw || phoneDisp) || String(contacts.phone_raw || phoneDisp).replace(/[^\d+]/g, '');
 
-            const toggleHeaderLink = (id, url) => {
-                const el = document.getElementById(id);
-                if (!el) return;
-                if (url) {
-                    el.href = url;
-                    el.classList.remove('hidden');
-                    el.classList.add('lg:flex');
-                } else {
-                    el.href = '#';
-                    el.classList.add('hidden');
-                    el.classList.remove('lg:flex');
-                }
-            };
-            toggleHeaderLink('headerVkBtn', vkUrl);
-            toggleHeaderLink('headerWaBtn', waUrl);
-            toggleHeaderLink('headerTgBtn', tgUrl);
-            toggleHeaderLink('headerMaxBtn', maxUrl);
+            toggleVisibleLink('headerVkBtn', vkUrl, true);
+            toggleVisibleLink('headerWaBtn', waUrl, true);
+            toggleVisibleLink('headerTgBtn', tgUrl, true);
+            toggleVisibleLink('headerMaxBtn', maxUrl, true);
 
-            const toggleFooterLink = (id, url, textOverride) => {
-                const el = document.getElementById(id);
-                if (!el) return;
-                if (url) {
-                    el.href = url;
-                    if (textOverride) el.textContent = textOverride;
-                    el.classList.remove('hidden');
+            const hPhone = document.getElementById('headerPhoneBtn');
+            const hPhoneTxt = document.getElementById('headerPhoneText');
+            if (hPhone) {
+                if (phoneDisp && phoneDigits) {
+                    hPhone.href = `tel:${phoneDigits}`;
+                    if (hPhoneTxt) hPhoneTxt.textContent = phoneDisp;
+                    hPhone.classList.add('hidden', 'xl:flex');
                 } else {
-                    el.href = '#';
-                    el.classList.add('hidden');
+                    hPhone.href = '#';
+                    hPhone.classList.add('hidden');
+                    hPhone.classList.remove('xl:flex');
                 }
-            };
-            toggleFooterLink('footerVkLink', vkUrl);
-            toggleFooterLink('footerWaLink', waUrl);
-            toggleFooterLink('footerTgLink', tgUrl);
-            toggleFooterLink('footerMaxLink', maxUrl);
-            toggleFooterLink('footerAvitoLink', avitoUrl);
+            }
+
+            toggleVisibleLink('footerVkLink', vkUrl);
+            toggleVisibleLink('footerWaLink', waUrl);
+            toggleVisibleLink('footerTgLink', tgUrl);
+            toggleVisibleLink('footerMaxLink', maxUrl);
+            toggleVisibleLink('footerAvitoLink', avitoUrl);
+            toggleVisibleLink('footerReviewsChannelLink', reviewsChannelUrl);
 
             const fPhone = document.getElementById('footerPhoneLink');
             if (fPhone) {
@@ -1869,21 +2115,17 @@
                 }
             }
 
-            const revAvito = document.getElementById('reviewsAvitoLink');
-            if (revAvito) {
-                if (avitoUrl) {
-                    revAvito.href = avitoUrl;
-                    revAvito.classList.remove('hidden');
-                } else {
-                    revAvito.href = '#';
-                    revAvito.classList.add('hidden');
-                }
-            }
+            toggleVisibleLink('reviewsAvitoLink', avitoUrl);
+            toggleVisibleLink('reviewsChannelLink', reviewsChannelUrl);
+            configureConfirmModalContacts();
 
-            // Ensure selectedServiceIds stays valid
-            const services = getServicesList();
-            const validIds = new Set(Array.from(selectedServiceIds).filter(id => services.some(s => s.id === id)));
-            if (validIds.size === 0 && services.length > 0) validIds.add(services[0].id);
+            // Guard selectedServiceIds against hidden or removed services
+            const visibleServices = getVisibleServicesList();
+            const validIds = new Set(Array.from(selectedServiceIds).filter(id => visibleServices.some(s => s.id === id)));
+            if (validIds.size === 0 && visibleServices.length > 0) {
+                const preferred = visibleServices.find(s => s.cat === activeCategory) || visibleServices[0];
+                validIds.add(preferred.id);
+            }
             selectedServiceIds = validIds;
 
             renderServicesList();
@@ -1902,6 +2144,9 @@
                 }
                 if (Array.isArray(bundle.reviews)) {
                     publicReviews = bundle.reviews;
+                }
+                if (!localStorage.getItem('elena_theme_manual')) {
+                    setTheme(siteConfig.default_theme || 'nude', false, false);
                 }
                 if (!userPickedDateManually) {
                     selectedDateStr = pickInitialAvailableDate();
@@ -1935,12 +2180,54 @@
             return 'отзывов';
         }
 
-        function getReviews() {
-            return Array.isArray(publicReviews) ? publicReviews : [];
+        function getPublicReviews() {
+            return (Array.isArray(publicReviews) ? publicReviews : []).filter(r => r && r.visible !== false);
+        }
+
+        function getAdminReviews() {
+            return (Array.isArray(adminReviews) && isMasterMode) ? adminReviews : getPublicReviews();
+        }
+
+        function buildPublicReviewCardHtml(r, opts = {}) {
+            const stars = Math.min(5, Math.max(1, Number(r.rating || 5)));
+            const starsStr = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+            const author = String(r.author || '').trim() || 'Имя клиента';
+            const initial = author.charAt(0).toUpperCase() || 'Г';
+            const roleLabel = String(r.role || '').trim() || 'Услуга студии';
+            const dateLabel = String(r.date || '').trim() || getTodayRuDate();
+            const textVal = String(r.text || '').trim() || 'Здесь сразу появится текст отзыва в том виде, как его увидят гости на сайте.';
+            const isVisible = r.visible !== false;
+            const statusBadge = isVisible
+                ? '<span class="text-emerald-700 font-bold">✓ Опубликовано</span>'
+                : '<span class="text-amber-700 font-bold">🙈 Скрыт (черновик)</span>';
+
+            return `
+                <div class="glass-card rounded-3xl p-5 flex flex-col justify-between space-y-3${opts.isPreview && !isVisible ? ' opacity-80' : ''}">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-9 h-9 rounded-full accent-soft-bg font-serif font-bold text-base flex items-center justify-center flex-shrink-0">
+                                    ${escapeHtml(initial)}
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-heading-theme truncate">${escapeHtml(author)}</div>
+                                    <div class="text-[10px] text-muted-theme">${escapeHtml(dateLabel)}</div>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-amber-700 tracking-tighter flex-shrink-0">${starsStr}</span>
+                        </div>
+                        <p class="text-xs text-body-theme leading-relaxed">«${escapeHtml(textVal)}»</p>
+                    </div>
+                    <div class="pt-2 border-t accent-border flex items-center justify-between gap-2 text-[10px]">
+                        <span class="px-2.5 py-0.5 rounded-full theme-surface-elevated border font-bold text-heading-theme">${escapeHtml(roleLabel)}</span>
+                        ${statusBadge}
+                    </div>
+                </div>
+            `;
         }
 
         function updateRatingWidgets() {
-            const all = getReviews();
+            const all = getPublicReviews();
             const heroVal = document.getElementById('heroRatingValue');
             const heroLbl = document.getElementById('heroRatingLabel');
             const revBadge = document.getElementById('reviewsRatingBadge');
@@ -1969,7 +2256,7 @@
             const grid = document.getElementById('reviewsGrid');
             if (!grid) return;
             grid.innerHTML = '';
-            const all = getReviews();
+            const all = getPublicReviews();
             const list = activeReviewFilter === 'all'
                 ? all
                 : all.filter(r => inferReviewCategory(r.role) === activeReviewFilter);
@@ -2000,37 +2287,7 @@
                 return;
             }
 
-            list.forEach(r => {
-                const stars = Math.min(5, Math.max(1, Number(r.rating || 5)));
-                const starsStr = '★'.repeat(stars) + '☆'.repeat(5 - stars);
-                const initial = String(r.author || 'Г').trim().charAt(0).toUpperCase() || 'Г';
-                const roleLabel = r.role || 'Услуга студии';
-
-                const card = document.createElement('div');
-                card.className = 'glass-card rounded-3xl p-5 flex flex-col justify-between space-y-3';
-                card.innerHTML = `
-                    <div class="space-y-2.5">
-                        <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2.5 min-w-0">
-                                <div class="w-9 h-9 rounded-full accent-soft-bg font-serif font-bold text-base flex items-center justify-center flex-shrink-0">
-                                    ${escapeHtml(initial)}
-                                </div>
-                                <div class="min-w-0">
-                                    <div class="font-bold text-xs text-heading-theme truncate">${escapeHtml(r.author)}</div>
-                                    <div class="text-[10px] text-muted-theme">${escapeHtml(r.date || '')}</div>
-                                </div>
-                            </div>
-                            <span class="text-xs font-bold text-amber-700 tracking-tighter flex-shrink-0">${starsStr}</span>
-                        </div>
-                        <p class="text-xs text-body-theme leading-relaxed">«${escapeHtml(r.text)}»</p>
-                    </div>
-                    <div class="pt-2 border-t accent-border flex items-center justify-between gap-2 text-[10px]">
-                        <span class="px-2.5 py-0.5 rounded-full theme-surface-elevated border font-bold text-heading-theme">${escapeHtml(roleLabel)}</span>
-                        <span class="text-emerald-700 font-bold">✓ Опубликовано</span>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+            grid.innerHTML = list.map(r => buildPublicReviewCardHtml(r)).join('');
         }
         function filterReviews(cat, btn) {
             activeReviewFilter = cat;
@@ -2071,12 +2328,15 @@
                     p_role: ROLE_BY_CAT[cat] || 'Маникюр',
                     p_rating: stars,
                     p_text: text,
-                    p_created_date: new Date().toLocaleDateString('ru-RU')
+                    p_created_date: getTodayRuDate()
                 });
                 if (res && res.review) {
-                    publicReviews.unshift(res.review);
+                    const created = { ...res.review, visible: true };
+                    publicReviews.unshift(created);
+                    if (isMasterMode) adminReviews.unshift(created);
                 } else {
                     await loadPublicSiteBundle();
+                    if (isMasterMode && masterPin) await refreshMasterBundle();
                 }
                 closeReviewModal();
                 document.getElementById('revName').value = '';
@@ -2150,10 +2410,11 @@
                 ids = ['m_gigien'];
             }
 
-            quizRecommendedIds = ids;
-            const services = getServicesList();
-            const totalSum = ids.reduce((acc, id) => acc + Number(services.find(x => x.id === id)?.price || 0), 0);
-            const totalMin = ids.reduce((acc, id) => acc + Number(services.find(x => x.id === id)?.duration || 0), 0);
+            const visibleServices = getVisibleServicesList();
+            const validIds = ids.filter(id => visibleServices.some(s => s.id === id));
+            quizRecommendedIds = validIds.length ? validIds : (visibleServices[0] ? [visibleServices[0].id] : []);
+            const totalSum = quizRecommendedIds.reduce((acc, id) => acc + Number(visibleServices.find(x => x.id === id)?.price || 0), 0);
+            const totalMin = quizRecommendedIds.reduce((acc, id) => acc + Number(visibleServices.find(x => x.id === id)?.duration || 0), 0);
 
             document.getElementById('quizResultIcon').textContent = icon;
             document.getElementById('quizResultTitle').textContent = title;
@@ -2221,7 +2482,11 @@
             const container = document.getElementById('servicesContainer');
             if (!container) return;
             container.innerHTML = '';
-            const items = getServicesList().filter(item => item.cat === activeCategory);
+            const items = getVisibleServicesList().filter(item => item.cat === activeCategory);
+            if (items.length === 0) {
+                container.innerHTML = '<div class="p-4 rounded-2xl theme-surface-elevated border text-center text-xs text-muted-theme">В этой категории пока нет активных услуг</div>';
+                return;
+            }
             items.forEach(item => {
                 const isSelected = selectedServiceIds.has(item.id);
                 const priceVal = Number(item.price || 0);
@@ -2252,6 +2517,8 @@
         }
 
         function toggleService(id) {
+            const visibleServices = getVisibleServicesList();
+            if (!visibleServices.some(s => s.id === id)) return;
             if (selectedServiceIds.has(id)) {
                 if (selectedServiceIds.size > 1) selectedServiceIds.delete(id);
                 else { alert('Выберите хотя бы одну услугу'); return; }
@@ -2266,7 +2533,7 @@
         }
 
         function getCartStats() {
-            const services = getServicesList();
+            const services = getVisibleServicesList();
             let sum = 0;
             let duration = 0;
             const titlesArr = [];
@@ -2505,6 +2772,8 @@
             const tgUrl = safeExternalUrl(contacts.tg_url);
             const maxUrl = safeExternalUrl(contacts.max_url);
             const avitoUrl = safeExternalUrl(contacts.avito_url);
+            const phoneDisp = String(contacts.phone_display || '').trim();
+            const phoneDigits = normalizeRuPhone(contacts.phone_raw || phoneDisp) || String(contacts.phone_raw || phoneDisp).replace(/[^\d+]/g, '');
 
             const toggle = (id, show) => {
                 const el = document.getElementById(id);
@@ -2525,6 +2794,20 @@
                 } else {
                     avitoBtn.href = '#';
                     avitoBtn.classList.add('hidden');
+                }
+            }
+
+            const phoneBtn = document.getElementById('confirmPhoneBtn');
+            const phoneTxt = document.getElementById('confirmPhoneText');
+            if (phoneBtn) {
+                if (phoneDisp && phoneDigits) {
+                    phoneBtn.href = `tel:${phoneDigits}`;
+                    if (phoneTxt) phoneTxt.textContent = `Позвонить: ${phoneDisp}`;
+                    phoneBtn.classList.remove('hidden');
+                } else {
+                    phoneBtn.href = '#';
+                    if (phoneTxt) phoneTxt.textContent = 'Позвонить мастеру';
+                    phoneBtn.classList.add('hidden');
                 }
             }
         }
@@ -2647,6 +2930,7 @@
             const base = safeExternalUrl((siteConfig.contacts || {}).tg_url);
             if (!base) return;
             const text = buildBookingHandoffText(lastSavedBooking);
+            try { navigator.clipboard.writeText(text); } catch (e) {}
             window.open(`${base}${base.includes('?') ? '&' : '?'}text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
             closeConfirmModal();
         }
@@ -2728,9 +3012,11 @@
                 }));
             }
             if (Array.isArray(data.reviews)) {
-                publicReviews = data.reviews;
+                adminReviews = data.reviews;
+                publicReviews = data.reviews.filter(r => r && r.visible !== false);
             }
             applySiteConfigToDom();
+            initAdminReviewForm(false);
             renderReviews();
             renderDaysScroll();
             recomputeAvailableSlots();
@@ -2817,6 +3103,7 @@
             if (cta) cta.classList.add('hidden');
 
             switchMasterTab(activeMasterTab || 'slots');
+            initAdminReviewForm(false);
             renderWeeklyScheduleEditor();
             renderMasterDaysBar();
             renderMasterTimeline();
@@ -2861,6 +3148,7 @@
             isMasterMode = false;
             masterPin = '';
             masterBookings = [];
+            adminReviews = [];
             sessionStorage.removeItem('elena_master_pin');
             if (window.location.hash === '#master' || window.location.hash === '#admin') {
                 history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -2895,7 +3183,10 @@
                 }`;
             });
             if (tab === 'texts') populateMasterTextsForm();
-            if (tab === 'reviews') renderMasterReviews();
+            if (tab === 'reviews') {
+                initAdminReviewForm();
+                renderMasterReviews();
+            }
             if (window.lucide) lucide.createIcons();
         }
 
@@ -3250,7 +3541,7 @@
             const ss = document.getElementById('manualServiceSelect');
             if (ss) {
                 const services = getServicesList();
-                ss.innerHTML = services.map(x => `<option value="${escapeHtml(x.id)}">${escapeHtml(x.title)} — ${Number(x.price || 0)} ₽ (${Number(x.duration || 30)}м)</option>`).join('');
+                ss.innerHTML = services.map(x => `<option value="${escapeHtml(x.id)}">${x.hidden ? '[Скрыта] ' : ''}${escapeHtml(x.title)} — ${Number(x.price || 0)} ₽ (${Number(x.duration || 30)}м)</option>`).join('');
                 autoFillManualPrice();
             }
         }
@@ -3332,47 +3623,195 @@
             }
         }
 
-        // TAB 2: TEXTS, SERVICES & CONTACTS EDITOR
-        function populateMasterTextsForm() {
-            const c = siteConfig;
-            const setVal = (id, val) => {
-                const el = document.getElementById(id);
-                if (el) el.value = val || '';
-            };
-            setVal('cfgHeroEyebrow', c.hero_eyebrow);
-            setVal('cfgStudioAddress', c.studio_address);
-            setVal('cfgHeroTitleMain', c.hero_title_main);
-            setVal('cfgHeroTitleAccent', c.hero_title_accent);
-            setVal('cfgHeroDesc', c.hero_desc);
+        // TAB 2: TEXTS, SERVICES, THEME & CONTACTS CONSTRUCTOR (v3)
+        function syncMessengersFromPhone(opts = {}) {
+            const phoneEl = document.getElementById('cfgPhoneDisplay');
+            const waEl = document.getElementById('cfgWaUrl');
+            const maxEl = document.getElementById('cfgMaxUrl');
+            const tgEl = document.getElementById('cfgTgUrl');
+            const rawPhone = phoneEl ? phoneEl.value.trim() : '';
+            const normalized = normalizeRuPhone(rawPhone);
 
-            const contacts = c.contacts || {};
-            setVal('cfgPhoneDisplay', contacts.phone_display || '');
-            setVal('cfgVkUrl', contacts.vk_url || '');
-            setVal('cfgWaUrl', contacts.wa_url || '');
-            setVal('cfgTgUrl', contacts.tg_url || '');
-            setVal('cfgMaxUrl', contacts.max_url || '');
-            setVal('cfgAvitoUrl', contacts.avito_url || '');
+            if (!normalized) {
+                if (opts.showFeedback) {
+                    alert('Укажите номер телефона в формате +7 (900) 000-00-00, 89... или 9...');
+                }
+                return false;
+            }
 
+            const digits = normalized.replace(/\D/g, '');
+            if (waEl) waEl.value = `https://wa.me/${digits}`;
+            if (maxEl) maxEl.value = `https://max.ru/u/${normalized}`;
+
+            let tgUpdated = false;
+            if (tgEl) {
+                const curTg = tgEl.value.trim();
+                const canSyncTg = !curTg || /^(?:https?:\/\/)?(?:t|telegram)\.me\/\+/i.test(curTg);
+                if (canSyncTg) {
+                    tgEl.value = `https://t.me/${normalized}`;
+                    tgUpdated = true;
+                }
+            }
+
+            if (opts.showFeedback) {
+                showMasterToast(
+                    tgUpdated
+                        ? 'WhatsApp, МАКС и Telegram обновлены из номера телефона'
+                        : 'WhatsApp и МАКС обновлены из номера (ник Telegram сохранён)'
+                );
+            }
+            return true;
+        }
+
+        function handlePhoneDisplayInput() {
+            syncMessengersFromPhone({ showFeedback: false });
+        }
+
+        function handlePhoneDisplayBlur() {
+            syncMessengersFromPhone({ showFeedback: false });
+        }
+
+        function normalizeTgInputField() {
+            const el = document.getElementById('cfgTgUrl');
+            if (!el) return;
+            const val = el.value.trim();
+            if (!val) return;
+            const norm = normalizeTelegramUrl(val);
+            if (norm) el.value = norm;
+        }
+
+        function normalizeReviewsChannelField() {
+            const el = document.getElementById('cfgReviewsChannelUrl');
+            if (!el) return;
+            const val = el.value.trim();
+            if (!val) return;
+            const norm = normalizeReviewsChannelUrl(val);
+            if (norm) el.value = norm;
+        }
+
+        function updateCfgServicesCountLabel() {
+            const lbl = document.getElementById('cfgServicesCountLabel');
+            if (!lbl) return;
+            const total = cfgDraftServices.length;
+            const active = cfgDraftServices.filter(s => !s.hidden).length;
+            lbl.textContent = `${active} акт. / ${total}`;
+        }
+
+        function getOpenCfgServiceCats() {
+            const openCats = new Set();
+            document.querySelectorAll('#cfgServicesContainer details[data-srv-cat][open]').forEach(d => {
+                openCats.add(d.getAttribute('data-srv-cat'));
+            });
+            return openCats;
+        }
+
+        function syncCfgServicesFromDom() {
+            if (!Array.isArray(cfgDraftServices) || cfgDraftServices.length === 0) return;
+            document.querySelectorAll('#cfgServicesContainer [data-srv-idx]').forEach(el => {
+                const idx = parseInt(el.getAttribute('data-srv-idx'), 10);
+                const field = el.getAttribute('data-srv-field');
+                if (!cfgDraftServices[idx]) return;
+                if (field === 'price') {
+                    cfgDraftServices[idx].price = Math.max(0, parseInt(el.value, 10) || 0);
+                } else if (field === 'duration') {
+                    cfgDraftServices[idx].duration = Math.min(360, Math.max(5, parseInt(el.value, 10) || 30));
+                } else if (field === 'visible') {
+                    cfgDraftServices[idx].hidden = !el.checked;
+                } else {
+                    cfgDraftServices[idx][field] = el.value.trim();
+                }
+            });
+        }
+
+        function toggleCfgServiceVisible(idx, isVisible) {
+            if (!cfgDraftServices[idx]) return;
+            cfgDraftServices[idx].hidden = !isVisible;
+            const card = document.getElementById(`cfgSrvCard-${idx}`);
+            const badge = document.getElementById(`cfgSrvVisBadge-${idx}`);
+            if (card) card.classList.toggle('opacity-65', !isVisible);
+            if (badge) {
+                badge.textContent = isVisible ? 'Видна гостям' : 'Скрыта';
+                badge.className = `px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                    isVisible
+                        ? 'bg-emerald-500/15 border-emerald-500/35 text-emerald-700'
+                        : 'bg-amber-500/15 border-amber-500/35 text-amber-700'
+                }`;
+            }
+            updateCfgServicesCountLabel();
+        }
+
+        function addCustomServiceInCategory(catKey) {
+            const openCats = getOpenCfgServiceCats();
+            openCats.add(catKey);
+            syncCfgServicesFromDom();
+            const newId = `c_${String(catKey || 's').charAt(0)}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 5)}`;
+            cfgDraftServices.push({
+                id: newId,
+                cat: catKey,
+                title: 'Новая услуга',
+                desc: 'Авторская процедура студии',
+                price: 1200,
+                duration: 60,
+                isBase: true,
+                hidden: false,
+                isCustom: true
+            });
+            const newIdx = cfgDraftServices.length - 1;
+            renderCfgServicesEditor(openCats);
+            const titleInput = document.querySelector(`#cfgServicesContainer input[data-srv-idx="${newIdx}"][data-srv-field="title"]`);
+            if (titleInput) {
+                titleInput.focus();
+                titleInput.select();
+            }
+        }
+
+        function removeCustomService(idx) {
+            const openCats = getOpenCfgServiceCats();
+            syncCfgServicesFromDom();
+            if (idx >= 0 && idx < cfgDraftServices.length) {
+                cfgDraftServices.splice(idx, 1);
+            }
+            renderCfgServicesEditor(openCats);
+        }
+
+        function renderCfgServicesEditor(openCats = null) {
             const container = document.getElementById('cfgServicesContainer');
             if (!container) return;
-            const services = getServicesList();
+            const openSet = openCats instanceof Set ? openCats : new Set(['manicure']);
             const cats = [
-                { key: 'manicure', label: '💅 Маникюр', open: true },
-                { key: 'pedicure', label: '🦶 Smart-педикюр', open: false },
-                { key: 'lashes', label: '👁️ Ресницы', open: false }
+                { key: 'manicure', label: '💅 Маникюр' },
+                { key: 'pedicure', label: '🦶 Smart-педикюр' },
+                { key: 'lashes', label: '👁️ Ресницы' }
             ];
 
             container.innerHTML = cats.map(cat => {
-                const catItems = services.map((s, idx) => ({ s, idx })).filter(x => x.s.cat === cat.key);
+                const catItems = cfgDraftServices.map((s, idx) => ({ s, idx })).filter(x => x.s.cat === cat.key);
+                const activeInCat = catItems.filter(x => !x.s.hidden).length;
+                const isOpen = openSet.has(cat.key);
                 return `
-                    <details ${cat.open ? 'open' : ''} class="rounded-2xl theme-surface-elevated border p-3 sm:p-4">
-                        <summary class="cursor-pointer font-bold text-sm text-heading-theme flex items-center justify-between">
-                            <span>${cat.label} (${catItems.length})</span>
+                    <details data-srv-cat="${cat.key}" ${isOpen ? 'open' : ''} class="rounded-2xl theme-surface-elevated border p-3 sm:p-4">
+                        <summary class="cursor-pointer font-bold text-sm text-heading-theme flex items-center justify-between gap-2">
+                            <span>${cat.label} (${activeInCat} / ${catItems.length})</span>
                             <span class="text-[11px] text-muted-theme font-normal">Нажмите для редактирования</span>
                         </summary>
                         <div class="space-y-3 mt-3 pt-3 border-t accent-border">
-                            ${catItems.map(({ s, idx }) => `
-                                <div class="p-3 rounded-xl glass-card space-y-2">
+                            ${catItems.map(({ s, idx }) => {
+                                const isVis = !s.hidden;
+                                return `
+                                <div id="cfgSrvCard-${idx}" class="p-3 rounded-xl glass-card space-y-2.5${isVis ? '' : ' opacity-65'}">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 pb-1.5 border-b accent-border">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <label class="inline-flex items-center gap-1.5 cursor-pointer select-none text-[11px] font-bold text-heading-theme">
+                                                <input type="checkbox" data-srv-idx="${idx}" data-srv-field="visible" ${isVis ? 'checked' : ''} onchange="toggleCfgServiceVisible(${idx}, this.checked)" class="w-4 h-4 rounded">
+                                                <span>Показывать в калькуляторе</span>
+                                            </label>
+                                            <span id="cfgSrvVisBadge-${idx}" class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${isVis ? 'bg-emerald-500/15 border-emerald-500/35 text-emerald-700' : 'bg-amber-500/15 border-amber-500/35 text-amber-700'}">
+                                                ${isVis ? 'Видна гостям' : 'Скрыта'}
+                                            </span>
+                                            ${s.isCustom ? '<span class="px-2 py-0.5 rounded-full accent-soft-bg border accent-border text-[10px] font-bold">Своя услуга</span>' : ''}
+                                        </div>
+                                        ${s.isCustom ? `<button type="button" onclick="removeCustomService(${idx})" class="px-2 py-0.5 rounded-lg bg-rose-500/15 border border-rose-500/30 text-rose-600 text-[10px] font-bold hover:bg-rose-500 hover:text-white transition-colors">Удалить</button>` : ''}
+                                    </div>
                                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
                                         <div class="sm:col-span-2">
                                             <label class="block text-[10px] font-bold text-muted-theme mb-0.5">Название</label>
@@ -3391,12 +3830,49 @@
                                         <label class="block text-[10px] font-bold text-muted-theme mb-0.5">Описание</label>
                                         <input type="text" data-srv-idx="${idx}" data-srv-field="desc" value="${escapeHtml(s.desc)}" class="w-full px-2.5 py-2 rounded-lg border text-xs">
                                     </div>
-                                </div>
-                            `).join('')}
+                                </div>`;
+                            }).join('')}
+                            <button type="button" onclick="addCustomServiceInCategory('${cat.key}')" data-add-srv-cat="${cat.key}" class="w-full py-2.5 rounded-xl border border-dashed accent-border theme-surface-elevated text-xs font-bold accent-text hover:opacity-85 transition-all flex items-center justify-center gap-1.5">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                <span>+ Добавить услугу</span>
+                            </button>
                         </div>
                     </details>
                 `;
             }).join('');
+            updateCfgServicesCountLabel();
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function populateMasterTextsForm() {
+            const c = siteConfig;
+            const setVal = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.value = val || '';
+            };
+            setVal('cfgDefaultTheme', THEME_META[c.default_theme] ? c.default_theme : 'nude');
+            setVal('cfgHeroEyebrow', c.hero_eyebrow);
+            setVal('cfgStudioAddress', c.studio_address);
+            setVal('cfgHeroTitleMain', c.hero_title_main);
+            setVal('cfgHeroTitleAccent', c.hero_title_accent);
+            setVal('cfgHeroDesc', c.hero_desc);
+
+            const contacts = c.contacts || {};
+            setVal('cfgPhoneDisplay', contacts.phone_display || '');
+            setVal('cfgVkUrl', contacts.vk_url || '');
+            setVal('cfgWaUrl', contacts.wa_url || '');
+            setVal('cfgTgUrl', contacts.tg_url || '');
+            setVal('cfgMaxUrl', contacts.max_url || '');
+            setVal('cfgAvitoUrl', contacts.avito_url || '');
+            setVal('cfgReviewsChannelUrl', contacts.reviews_channel_url || '');
+
+            cfgDraftServices = getServicesList().map(s => ({
+                ...s,
+                hidden: Boolean(s.hidden),
+                isBase: Boolean(s.isBase)
+            }));
+            const openCats = getOpenCfgServiceCats();
+            renderCfgServicesEditor(openCats.size ? openCats : new Set(['manicure']));
         }
 
         async function saveMasterTextsAndConfig(e) {
@@ -3406,7 +3882,10 @@
                 return el ? el.value.trim() : '';
             };
 
+            syncCfgServicesFromDom();
             const nextConfig = JSON.parse(JSON.stringify(siteConfig));
+            const themeChoice = getVal('cfgDefaultTheme');
+            nextConfig.default_theme = THEME_META[themeChoice] ? themeChoice : 'nude';
             nextConfig.slot_step_min = getSlotStep();
             nextConfig.work_start_min = getWorkStart();
             nextConfig.work_end_min = getWorkEnd();
@@ -3417,32 +3896,32 @@
             nextConfig.hero_desc = getVal('cfgHeroDesc') || nextConfig.hero_desc;
 
             const phoneDisp = getVal('cfgPhoneDisplay');
-            nextConfig.contacts = {
+            const normalizedPhone = normalizeRuPhone(phoneDisp);
+            const normalizedContacts = {
                 ...nextConfig.contacts,
                 phone_display: phoneDisp,
-                phone_raw: phoneDisp.replace(/[^\d+]/g, ''),
-                vk_url: getVal('cfgVkUrl'),
-                wa_url: getVal('cfgWaUrl'),
-                tg_url: getVal('cfgTgUrl'),
-                max_url: getVal('cfgMaxUrl'),
-                avito_url: getVal('cfgAvitoUrl')
+                phone_raw: normalizedPhone || phoneDisp.replace(/[^\d+]/g, ''),
+                vk_url: normalizeExternalUrlInput(getVal('cfgVkUrl')),
+                wa_url: normalizeExternalUrlInput(getVal('cfgWaUrl')),
+                tg_url: normalizeTelegramUrl(getVal('cfgTgUrl')),
+                max_url: normalizeExternalUrlInput(getVal('cfgMaxUrl')),
+                avito_url: normalizeExternalUrlInput(getVal('cfgAvitoUrl')),
+                reviews_channel_url: normalizeReviewsChannelUrl(getVal('cfgReviewsChannelUrl'))
             };
+            nextConfig.contacts = normalizedContacts;
 
-            if (!Array.isArray(nextConfig.services) || nextConfig.services.length === 0) {
+            if (Array.isArray(cfgDraftServices) && cfgDraftServices.length > 0) {
+                nextConfig.services = cfgDraftServices.map(s => ({
+                    ...s,
+                    title: String(s.title || '').trim() || 'Услуга',
+                    desc: String(s.desc || '').trim(),
+                    price: Math.max(0, Number(s.price) || 0),
+                    duration: Math.min(360, Math.max(5, Number(s.duration) || 30)),
+                    hidden: Boolean(s.hidden)
+                }));
+            } else if (!Array.isArray(nextConfig.services) || nextConfig.services.length === 0) {
                 nextConfig.services = JSON.parse(JSON.stringify(DEFAULT_SERVICES));
             }
-            document.querySelectorAll('#cfgServicesContainer [data-srv-idx]').forEach(el => {
-                const idx = parseInt(el.getAttribute('data-srv-idx'), 10);
-                const field = el.getAttribute('data-srv-field');
-                if (!nextConfig.services[idx]) return;
-                if (field === 'price') {
-                    nextConfig.services[idx].price = Math.max(0, parseInt(el.value, 10) || 0);
-                } else if (field === 'duration') {
-                    nextConfig.services[idx].duration = Math.min(360, Math.max(5, parseInt(el.value, 10) || 30));
-                } else {
-                    nextConfig.services[idx][field] = el.value.trim();
-                }
-            });
 
             const btn = document.getElementById('cfgPublishBtn');
             const prevHtml = btn ? btn.innerHTML : '';
@@ -3453,7 +3932,10 @@
 
             try {
                 siteConfig = nextConfig;
-                await persistConfigToCloud('Тексты, услуги и контакты опубликованы на сайт!');
+                await persistConfigToCloud('Настройки, тема, услуги и контакты опубликованы!');
+                localStorage.removeItem('elena_theme_manual');
+                setTheme(siteConfig.default_theme || 'nude', false, false);
+                populateMasterTextsForm();
             } catch (err) {
                 alert('Ошибка публикации: ' + err.message);
                 await refreshMasterBundle();
@@ -3466,34 +3948,159 @@
             }
         }
 
-        // TAB 3: REVIEWS MODERATION & PIN CHANGE
-        function renderMasterReviews() {
-            const container = document.getElementById('masterReviewsList');
-            const badge = document.getElementById('masterReviewsCount');
-            if (!container) return;
+        // TAB 3: REVIEWS CONSTRUCTOR, LIVE PREVIEW, MODERATION & PIN CHANGE
+        function readAdminReviewDraft() {
+            const getVal = id => {
+                const el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            };
+            const visEl = document.getElementById('admRevVisible');
+            return {
+                author: getVal('admRevAuthor'),
+                role: getVal('admRevRole') || 'Маникюр',
+                rating: Math.min(5, Math.max(1, parseInt(getVal('admRevRating') || '5', 10) || 5)),
+                date: getVal('admRevDate') || getTodayRuDate(),
+                text: getVal('admRevText'),
+                visible: visEl ? visEl.checked : true
+            };
+        }
 
-            const list = getReviews();
-            if (badge) badge.textContent = list.length;
+        function updateAdminReviewPreview() {
+            const previewEl = document.getElementById('admReviewLivePreview');
+            if (!previewEl) return;
+            previewEl.innerHTML = buildPublicReviewCardHtml(readAdminReviewDraft(), { isPreview: true });
+        }
 
-            if (list.length === 0) {
-                container.innerHTML = '<div class="p-4 text-center text-xs text-muted-theme theme-surface-elevated rounded-2xl border">Пока нет опубликованных отзывов</div>';
+        function initAdminReviewForm(forceReset = false) {
+            const authorEl = document.getElementById('admRevAuthor');
+            const roleEl = document.getElementById('admRevRole');
+            const ratingEl = document.getElementById('admRevRating');
+            const dateEl = document.getElementById('admRevDate');
+            const textEl = document.getElementById('admRevText');
+            const visEl = document.getElementById('admRevVisible');
+
+            if (forceReset) {
+                if (authorEl) authorEl.value = '';
+                if (roleEl) roleEl.value = 'Маникюр';
+                if (ratingEl) ratingEl.value = '5';
+                if (dateEl) dateEl.value = getTodayRuDate();
+                if (textEl) textEl.value = '';
+                if (visEl) visEl.checked = true;
+            } else if (dateEl && !dateEl.value.trim()) {
+                dateEl.value = getTodayRuDate();
+            }
+            updateAdminReviewPreview();
+        }
+
+        async function submitAdminReview(e) {
+            e.preventDefault();
+            const draft = readAdminReviewDraft();
+            if (!draft.author || draft.text.length < 2) {
+                alert('Укажите имя автора и текст отзыва (минимум 2 символа).');
                 return;
             }
 
-            container.innerHTML = list.map(r => `
-                <div class="p-3.5 rounded-2xl theme-surface-elevated border flex flex-wrap items-start justify-between gap-3 text-xs">
-                    <div class="space-y-1 min-w-0">
-                        <div class="font-bold text-heading-theme">${escapeHtml(r.author)} <span class="accent-text">(${escapeHtml(r.role || 'Гость')})</span> • ${'★'.repeat(Number(r.rating || 5))}</div>
-                        <div class="text-body-theme">«${escapeHtml(r.text)}»</div>
-                        <div class="text-[10px] text-muted-theme">${escapeHtml(r.date || '')}</div>
+            const btn = document.getElementById('admRevSubmitBtn');
+            const prevText = btn ? btn.textContent : '';
+            if (btn) {
+                btn.disabled = true;
+                btn.textContent = 'Сохраняем...';
+            }
+
+            try {
+                const data = await sbRpc('admin_add_review', {
+                    p_slug: SITE_SLUG,
+                    p_pin: masterPin,
+                    p_author: draft.author,
+                    p_role: draft.role,
+                    p_rating: draft.rating,
+                    p_text: draft.text,
+                    p_created_date: draft.date,
+                    p_is_visible: draft.visible
+                });
+                applyAdminPayload(data);
+                initAdminReviewForm(true);
+                showMasterToast(draft.visible ? 'Отзыв добавлен и опубликован на сайте!' : 'Отзыв сохранён как скрытый черновик');
+            } catch (err) {
+                alert('Ошибка добавления отзыва: ' + err.message);
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.textContent = prevText;
+                }
+            }
+        }
+
+        function renderMasterReviews() {
+            const container = document.getElementById('masterReviewsList');
+            const badge = document.getElementById('masterReviewsCount');
+            const summaryBadges = document.getElementById('masterReviewsSummaryBadges');
+            if (!container) return;
+
+            const list = getAdminReviews();
+            const visibleCount = list.filter(r => r && r.visible !== false).length;
+            const hiddenCount = list.length - visibleCount;
+
+            if (badge) badge.textContent = list.length;
+            if (summaryBadges) {
+                summaryBadges.innerHTML = `
+                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-700">✓ На сайте: ${visibleCount}</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-700">🙈 Скрыто: ${hiddenCount}</span>
+                `;
+            }
+
+            if (list.length === 0) {
+                container.innerHTML = '<div class="p-4 text-center text-xs text-muted-theme theme-surface-elevated rounded-2xl border">Пока нет отзывов — добавьте первые отклики клиентов формой выше</div>';
+                return;
+            }
+
+            container.innerHTML = list.map(r => {
+                const isVis = r.visible !== false;
+                const statusBadge = isVis
+                    ? '<span class="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-700 text-[10px] font-bold">✓ На сайте</span>'
+                    : '<span class="px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-700 text-[10px] font-bold">🙈 Скрыт</span>';
+                return `
+                    <div data-review-id="${Number(r.id)}" class="p-3.5 rounded-2xl theme-surface-elevated border flex flex-wrap items-start justify-between gap-3 text-xs${isVis ? '' : ' opacity-80'}">
+                        <div class="space-y-1 min-w-0 flex-1">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="font-bold text-heading-theme">${escapeHtml(r.author)}</span>
+                                <span class="accent-text font-bold">(${escapeHtml(r.role || 'Гость')})</span>
+                                <span class="text-amber-700 font-bold">${'★'.repeat(Math.min(5, Math.max(1, Number(r.rating || 5))))}</span>
+                                ${statusBadge}
+                            </div>
+                            <div class="text-body-theme">«${escapeHtml(r.text)}»</div>
+                            <div class="text-[10px] text-muted-theme">${escapeHtml(r.date || '')}</div>
+                        </div>
+                        <div class="flex items-center gap-1.5 flex-shrink-0">
+                            <button type="button" onclick="setReviewVisibility(${Number(r.id)}, ${isVis ? 'false' : 'true'})" class="px-2.5 py-1.5 rounded-lg theme-surface-elevated border accent-border text-heading-theme font-bold hover:opacity-80 transition-all">
+                                ${isVis ? 'Скрыть' : 'Показать'}
+                            </button>
+                            <button type="button" onclick="deleteReview(${Number(r.id)})" class="px-2.5 py-1.5 rounded-lg bg-rose-500/15 border border-rose-500/35 text-rose-600 font-bold hover:bg-rose-500 hover:text-white transition-colors">
+                                Удалить
+                            </button>
+                        </div>
                     </div>
-                    <button type="button" onclick="deleteReview(${Number(r.id)})" class="px-2.5 py-1.5 rounded-lg bg-rose-500/15 border border-rose-500/35 text-rose-600 font-bold hover:bg-rose-500 hover:text-white transition-colors flex-shrink-0">Удалить</button>
-                </div>
-            `).join('');
+                `;
+            }).join('');
+        }
+
+        async function setReviewVisibility(id, nextVisible) {
+            try {
+                const data = await sbRpc('admin_set_review_visibility', {
+                    p_slug: SITE_SLUG,
+                    p_pin: masterPin,
+                    p_review_id: Number(id),
+                    p_is_visible: Boolean(nextVisible)
+                });
+                applyAdminPayload(data);
+                showMasterToast(nextVisible ? 'Отзыв снова показан на сайте' : 'Отзыв скрыт с публичного сайта');
+            } catch (err) {
+                alert('Ошибка обновления статуса отзыва: ' + err.message);
+            }
         }
 
         async function deleteReview(id) {
-            if (!confirm('Скрыть этот отзыв с сайта для всех посетителей?')) return;
+            if (!confirm('Удалить этот отзыв в архив? Для временного скрытия можно нажать «Скрыть».')) return;
             try {
                 const data = await sbRpc('admin_delete_review', {
                     p_slug: SITE_SLUG,
@@ -3555,6 +4162,7 @@
             masterSelectedDateStr = toLocalISO(new Date());
 
             applySiteConfigToDom();
+            initAdminReviewForm(false);
             renderReviews();
             renderDaysScroll();
             recomputeAvailableSlots();
